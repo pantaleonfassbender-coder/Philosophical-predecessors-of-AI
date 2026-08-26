@@ -20,6 +20,8 @@ const CITE = {
     return u.art ? `LoT ${rom}, art. ${u.art}` : `LoT ${rom} [${u.k}]`;
   },
   descartes: (sec, u) => `Disc. V [${u.k}]`,
+  leibniz: (sec, u) => ({ mon: `Mon. §${u.k}`, bin: `Arith. bin. [${u.k}]`,
+    char: `GP VII [${u.k}]`, comb: `De arte comb. [${u.k}]` }[sec.id] || `[${u.n}]`),
   lamettrie: (sec, u) => `HM [${u.n}]`,
   lovelace: (sec, u) => sec.id === "memoir" ? `Menabrea [${u.k}]` : `Note ${sec.id.slice(4)} [${u.k}]`,
 };
@@ -155,6 +157,7 @@ function workReader(id, secId) {
 }
 
 function sectionReader(w, t, secId) {
+  secId = secId.split("@")[0];
   const i = t.sections.findIndex(s => s.id === secId);
   if (i < 0) { location.hash = `#/works/${w.id}`; return; }
   const s = t.sections[i];
@@ -333,6 +336,21 @@ function viewMethod() {
       printed original; the argumentative prose, including the whole of Note G, is complete. Footnotes
       are omitted. Citation forms <span class="mono">Menabrea [k]</span> and
       <span class="mono">Note G [k]</span>.</p>
+      <p class="readable"><strong>Leibniz.</strong> An anthology in four parts. The Monadology (1714),
+      complete in its 90 sections, bilingual: the French after the Project Gutenberg transcription
+      #17641 (the 1909 Piat print, his apparatus omitted), the English being Robert Latta's
+      public-domain translation of 1898, taken from the Wikisource transcription without his notes —
+      the one part of this module whose English carries scholarly authority. The Explication de
+      l'arithmétique binaire (1703) complete, French after Gerhardt (Mathematische Schriften VII,
+      via the French Wikisource transcription), with a working translation; its tables are replaced
+      by markers. The characteristica fragments — the alphabet of human thoughts, the calculemus
+      passages of GP VII 200 and GP VII 125, with the manuscript's marginal note “Cum DEUS calculat
+      … fit mundus” — and two selections from the De arte combinatoria of 1666, including Leibniz's
+      explicit debt to Hobbes (“omne opus mentis nostrae esse computationem”), are given in Latin
+      after Gerhardt's edition (OCR of the Internet Archive scans, emended by hand) with working
+      translations. Citation forms <span class="mono">Mon. §17</span>,
+      <span class="mono">Arith. bin. [n]</span>, <span class="mono">GP VII [k]</span>,
+      <span class="mono">De arte comb. [k]</span>.</p>
       <p class="readable"><strong>The Atlas.</strong> The Atlas view is a co-occurrence network: the
       leading content terms of the shipped English texts, linked when they appear in the same
       paragraph, weighted by pointwise mutual information, laid out by a small force simulation in the
@@ -342,9 +360,8 @@ function viewMethod() {
     </div>
 
     <div class="panel"><h2>The programme</h2>
-      <p class="readable">The corpus is built in stages along three lines. The logic line: Hobbes and
-      Boole (shipped), then Leibniz (anthology: ars combinatoria, characteristica and calculus fragments,
-      binary arithmetic, the Monadology with Latta's 1898 public-domain English), then Frege (Grundlagen
+      <p class="readable">The corpus is built in stages along three lines. The logic line: Hobbes,
+      Boole and the Leibniz anthology (shipped), then Frege (Grundlagen
       der Arithmetik and Über Sinn und Bedeutung in German with working translations; the Begriffsschrift
       only in its prose parts, since its two-dimensional notation cannot honestly be reconstructed from
       OCR — a limit stated here in advance). The machine line: Lovelace's Notes of 1843 with Menabrea's

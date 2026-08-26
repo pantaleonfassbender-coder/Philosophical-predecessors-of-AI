@@ -24,6 +24,13 @@ covered by any licence granted here, because they were never this repository's t
 - **Menabrea / Lovelace**, *Sketch of the Analytical Engine, with Notes by the Translator*
   (Taylor's Scientific Memoirs vol. III, London 1843) — digitized from the Internet Archive
   scan of the volume; OCR emended by hand for this site.
+- **Leibniz**, *Monadologie* (1714) — French via the Project Gutenberg transcription #17641;
+  English translation by Robert Latta (1898), via the Wikisource transcription of the
+  public-domain translation. *Explication de l'arithmétique binaire* (1703) — French after
+  Gerhardt, *Mathematische Schriften* VII (1863), via the French Wikisource transcription.
+  Characteristica fragments and *De arte combinatoria* selections — Latin after Gerhardt,
+  *Die philosophischen Schriften* IV (1880) and VII (1890), Internet Archive scans, OCR
+  emended by hand. Working translations made for this site are CC0.
 
 Future modules will name their editions here as they ship. Where a module carries a working
 translation made for this site, that translation is machine-generated, has no scholarly

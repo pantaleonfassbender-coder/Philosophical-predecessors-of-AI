@@ -18,7 +18,7 @@ the site's overview.
 | Author | Text | Source | Status |
 |---|---|---|---|
 | Thomas Hobbes | *Leviathan* (1651), Introduction + Part I ch. I–V; later De Corpore I | Project Gutenberg #3207 (1651 spelling) | **shipped** |
-| G. W. Leibniz | Anthology: ars combinatoria, characteristica / calculus ratiocinator fragments, binary arithmetic (1703), Monadology | Gerhardt (1875–90); Latta 1898 for English Monadology; working translations for the rest | planned |
+| G. W. Leibniz | Anthology: Monadology (§§1–90), Explication de l'arithmétique binaire (1703), characteristica fragments incl. the calculemus passages, De arte combinatoria selections | PG #17641 (FR) + Latta 1898 (EN, PD); Gerhardt GM7 / GP IV+VII, OCR emended; working translations | **shipped** |
 | George Boole | *Laws of Thought* (1854), Preface + ch. I–III, XXII | Project Gutenberg #15114 (LaTeX), converted | **shipped** |
 | Gottlob Frege | *Grundlagen der Arithmetik* (1884), *Über Sinn und Bedeutung* (1892), Begriffsschrift prose | 1879–92 originals (US-PD); working translations — no PD English exists | planned |
 
