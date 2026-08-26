@@ -31,6 +31,13 @@ covered by any licence granted here, because they were never this repository's t
   Characteristica fragments and *De arte combinatoria* selections — Latin after Gerhardt,
   *Die philosophischen Schriften* IV (1880) and VII (1890), Internet Archive scans, OCR
   emended by hand. Working translations made for this site are CC0.
+- **Frege**, *Begriffsschrift* (Halle, 1879), Vorwort — Internet Archive scan, OCR emended.
+  *Die Grundlagen der Arithmetik* (Breslau, 1884), selections — via the Project Gutenberg
+  transcription #48312. *Über Sinn und Bedeutung* (Zeitschrift für Philosophie und
+  philosophische Kritik 100, 1892), complete — after the Deutsches Textarchiv transcription
+  of the journal printing (long s normalized; the transcription reproduces a public-domain
+  text). No public-domain English translations exist; all English working translations are
+  made for this site and dedicated to the public domain (CC0).
 
 Future modules will name their editions here as they ship. Where a module carries a working
 translation made for this site, that translation is machine-generated, has no scholarly

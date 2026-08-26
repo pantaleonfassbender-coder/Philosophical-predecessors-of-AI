@@ -34,7 +34,7 @@ way we well were what whatever when whence whenever where whereas whereupon wher
 whither whoever whole whose why within would yet whereas due real thing things fact case cases
 respect regard point view manner kind sort way ways word instance example true truth false
 place places time times form forms subject object present different general particular
-proper certain follow follows following followed'''.split())
+proper certain follow follows following followed itself himself herself themselves oneself myself yourself moreover besides namely accordingly whatever whoever wherein whereby anything nothing'''.split())
 
 def toks(txt):
     ws = re.findall(r"[a-zA-Z][a-zA-Z'-]{3,}", txt.lower())

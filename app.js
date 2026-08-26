@@ -22,6 +22,7 @@ const CITE = {
   descartes: (sec, u) => `Disc. V [${u.k}]`,
   leibniz: (sec, u) => ({ mon: `Mon. §${u.k}`, bin: `Arith. bin. [${u.k}]`,
     char: `GP VII [${u.k}]`, comb: `De arte comb. [${u.k}]` }[sec.id] || `[${u.n}]`),
+  frege: (sec, u) => u.c || `[${u.n}]`,
   lamettrie: (sec, u) => `HM [${u.n}]`,
   lovelace: (sec, u) => sec.id === "memoir" ? `Menabrea [${u.k}]` : `Note ${sec.id.slice(4)} [${u.k}]`,
 };
@@ -351,6 +352,22 @@ function viewMethod() {
       translations. Citation forms <span class="mono">Mon. §17</span>,
       <span class="mono">Arith. bin. [n]</span>, <span class="mono">GP VII [k]</span>,
       <span class="mono">De arte comb. [k]</span>.</p>
+      <p class="readable"><strong>Frege.</strong> Three texts, German with working translations —
+      no public-domain English translation of any of them exists, so the English here is this
+      site's own throughout, and carries no scholarly authority: cite the German. „Bedeutung“ is
+      rendered “reference”, „Sinn“ “sense”, following no copyrighted translation. The
+      Begriffsschrift is represented by its complete Vorwort (Halle 1879, from the Internet
+      Archive scan, OCR emended) — the prose limit announced in advance stands: the
+      two-dimensional notation cannot honestly be reconstructed from OCR and is not reproduced.
+      The Grundlagen der Arithmetik (1884, from the Project Gutenberg transcription #48312) is
+      given in selections chosen for the argument: the complete Einleitung with the three
+      Grundsätze, §§ 1–4 (the task), §§ 87–91 (arithmetic as further-developed logic, the
+      correction of Kant) and §§ 106–109 (the retrospect). Über Sinn und Bedeutung (Zeitschrift
+      für Philosophie und philosophische Kritik 100, 1892, from the Deutsches Textarchiv
+      transcription of the journal printing) is complete, with all of Frege's own footnotes kept
+      in place — including the Aristotle footnote. Citation forms
+      <span class="mono">BS, Vorwort [k]</span>, <span class="mono">GL, § 87</span>,
+      <span class="mono">SuB [n]</span> (editorial paragraph numbers).</p>
       <p class="readable"><strong>The Atlas.</strong> The Atlas view is a co-occurrence network: the
       leading content terms of the shipped English texts, linked when they appear in the same
       paragraph, weighted by pointwise mutual information, laid out by a small force simulation in the
@@ -360,11 +377,8 @@ function viewMethod() {
     </div>
 
     <div class="panel"><h2>The programme</h2>
-      <p class="readable">The corpus is built in stages along three lines. The logic line: Hobbes,
-      Boole and the Leibniz anthology (shipped), then Frege (Grundlagen
-      der Arithmetik and Über Sinn und Bedeutung in German with working translations; the Begriffsschrift
-      only in its prose parts, since its two-dimensional notation cannot honestly be reconstructed from
-      OCR — a limit stated here in advance). The machine line: Lovelace's Notes of 1843 with Menabrea's
+      <p class="readable">The corpus is built in stages along three lines. The logic line is now
+      complete: Hobbes, Boole, the Leibniz anthology and Frege (all shipped). The machine line: Lovelace's Notes of 1843 with Menabrea's
       Sketch (shipped), then Jevons's paper of 1870, Peirce's “Logical Machines” of 1887 (from the
       original journal printing), and Pascal's fragment on the arithmetical machine. The counter-voices:
       Descartes's Discours Part V and La Mettrie's L'Homme Machine (both shipped, bilingual). Two
