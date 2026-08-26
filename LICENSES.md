@@ -38,6 +38,15 @@ covered by any licence granted here, because they were never this repository's t
   of the journal printing (long s normalized; the transcription reproduces a public-domain
   text). No public-domain English translations exist; all English working translations are
   made for this site and dedicated to the public domain (CC0).
+- **Pascal**, *Pensées* (published 1670), five fragments — French after Brunschvicg's
+  edition via the French Wikisource transcription; English by W. F. Trotter (1904) via
+  the Project Gutenberg transcription #18269. Both public domain.
+- **Jevons**, *On the Mechanical Performance of Logical Inference* (Phil. Trans. 160,
+  1870), selections — text from the reprint in *Pure Logic and Other Minor Works*
+  (Macmillan, 1890), Internet Archive scan, OCR emended by hand.
+- **Peirce**, *Logical Machines* (The American Journal of Psychology I, 1887), complete —
+  the original journal printing, via JSTOR Early Journal Content / Internet Archive.
+  The Collected Papers (1931 ff.) remain in copyright and are not used.
 
 Future modules will name their editions here as they ship. Where a module carries a working
 translation made for this site, that translation is machine-generated, has no scholarly

@@ -23,6 +23,9 @@ const CITE = {
   leibniz: (sec, u) => ({ mon: `Mon. §${u.k}`, bin: `Arith. bin. [${u.k}]`,
     char: `GP VII [${u.k}]`, comb: `De arte comb. [${u.k}]` }[sec.id] || `[${u.n}]`),
   frege: (sec, u) => u.c || `[${u.n}]`,
+  pascal: (sec, u) => `Pens. ${u.br} (Br.)`,
+  jevons: (sec, u) => `MPL, art. ${u.art}`,
+  peirce: (sec, u) => `LM [${u.n}]`,
   lamettrie: (sec, u) => `HM [${u.n}]`,
   lovelace: (sec, u) => sec.id === "memoir" ? `Menabrea [${u.k}]` : `Note ${sec.id.slice(4)} [${u.k}]`,
 };
@@ -368,6 +371,28 @@ function viewMethod() {
       in place — including the Aristotle footnote. Citation forms
       <span class="mono">BS, Vorwort [k]</span>, <span class="mono">GL, § 87</span>,
       <span class="mono">SuB [n]</span> (editorial paragraph numbers).</p>
+      <p class="readable"><strong>Pascal.</strong> Five fragments of the Pensées chosen for the
+      argument — the arithmetical machine (Br. 340) with its rider on will, thought as the mark of
+      the human (339, 346), the thinking reed (347), and “we are as much automaton as mind” (252) —
+      bilingual: French after Brunschvicg's edition via the French Wikisource transcription, English
+      in W. F. Trotter's public-domain translation (Project Gutenberg #18269). Cited by Brunschvicg
+      number: <span class="mono">Pens. 340 (Br.)</span>.</p>
+      <p class="readable"><strong>Jevons.</strong> “On the Mechanical Performance of Logical
+      Inference” (read January 1870), in selections keyed to Jevons's own article numbers
+      (<span class="mono">MPL, art. 56</span>): articles 1–13 (the programme — abacus, Pascal,
+      Babbage, the reform of logic, Boole), 17 and 20–21 (nothing mysterious in the symbols; the
+      Abecedarium), 31–32 (the machine, abridged as marked), and 55–56 (Jevons's own sober
+      assessment: the chief importance of the machine “is of a purely theoretical kind”). Text from
+      the 1890 reprint in Pure Logic and Other Minor Works (Internet Archive scan, OCR emended);
+      the omitted articles carry the worked equations and the mechanical detail, and the plates are
+      not reproduced.</p>
+      <p class="readable"><strong>Peirce.</strong> “Logical Machines”, complete, from the original
+      printing in the American Journal of Psychology I (November 1887) — deliberately not from the
+      Collected Papers of 1931 ff., which remain in copyright. Peirce's two footnotes are kept
+      (one credits “Mrs. Franklin's system” — Christine Ladd-Franklin); his formula displays are
+      kept inline and emended from the OCR; the machine-face figure is omitted; the print order of
+      two passages interleaved by the scan's page layout has been restored. Citation form
+      <span class="mono">LM [n]</span> (editorial paragraph numbers).</p>
       <p class="readable"><strong>The Atlas.</strong> The Atlas view is a co-occurrence network: the
       leading content terms of the shipped English texts, linked when they appear in the same
       paragraph, weighted by pointwise mutual information, laid out by a small force simulation in the
@@ -377,12 +402,12 @@ function viewMethod() {
     </div>
 
     <div class="panel"><h2>The programme</h2>
-      <p class="readable">The corpus is built in stages along three lines. The logic line is now
-      complete: Hobbes, Boole, the Leibniz anthology and Frege (all shipped). The machine line: Lovelace's Notes of 1843 with Menabrea's
-      Sketch (shipped), then Jevons's paper of 1870, Peirce's “Logical Machines” of 1887 (from the
-      original journal printing), and Pascal's fragment on the arithmetical machine. The counter-voices:
-      Descartes's Discours Part V and La Mettrie's L'Homme Machine (both shipped, bilingual). Two
-      further modules are under consideration: a Llull prologue and Tractatus selections.</p>
+      <p class="readable">The corpus was built in stages along three lines, and the commissioned
+      programme is now complete: the logic line (Hobbes, the Leibniz anthology, Boole, Frege), the
+      machine line (Pascal's fragments, Lovelace's Notes of 1843 with Menabrea's Sketch, Jevons's
+      memoir of 1870, Peirce's “Logical Machines” of 1887), and the counter-voices (Descartes's
+      Discours Part V and La Mettrie's L'Homme Machine, both bilingual) — ten modules shipped. Two
+      further modules remain under consideration: a Llull prologue and Tractatus selections.</p>
     </div>
 
     <div class="panel"><h2>Known limits</h2>

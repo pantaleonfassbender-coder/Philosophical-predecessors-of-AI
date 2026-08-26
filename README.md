@@ -26,10 +26,10 @@ the site's overview.
 
 | Author | Text | Source | Status |
 |---|---|---|---|
-| Blaise Pascal | Pensées, the arithmetical-machine fragment | French + Trotter (PD) | planned |
+| Blaise Pascal | Pensées, five fragments on machine and thought (Br. 252, 339, 340, 346, 347) | fr.wikisource (Brunschvicg) + Trotter, PG #18269 | **shipped** |
 | Ada Lovelace | Notes on Menabrea's *Sketch of the Analytical Engine* (1843), incl. Note G | Taylor's Scientific Memoirs III (IA scan, OCR emended) | **shipped** |
-| W. S. Jevons | *On the Mechanical Performance of Logical Inference* (1870) | Phil. Trans. 160 | planned |
-| C. S. Peirce | *Logical Machines* (1887) | American Journal of Psychology I (original printing) | planned |
+| W. S. Jevons | *On the Mechanical Performance of Logical Inference* (1870), 20 selected articles | Pure Logic and Other Minor Works (1890 reprint), IA scan, OCR emended | **shipped** |
+| C. S. Peirce | *Logical Machines* (1887), complete | American Journal of Psychology I (original printing, JSTOR EJC/IA) | **shipped** |
 
 **The counter-voices**
 
