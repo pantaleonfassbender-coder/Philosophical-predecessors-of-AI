@@ -19,6 +19,9 @@ const CITE = {
     const rom = { pref: "Pref.", c1: "I", c2: "II", c3: "III", c22: "XXII" }[sec.id];
     return u.art ? `LoT ${rom}, art. ${u.art}` : `LoT ${rom} [${u.k}]`;
   },
+  descartes: (sec, u) => `Disc. V [${u.k}]`,
+  lamettrie: (sec, u) => `HM [${u.n}]`,
+  lovelace: (sec, u) => sec.id === "memoir" ? `Menabrea [${u.k}]` : `Note ${sec.id.slice(4)} [${u.k}]`,
 };
 const citeOf = (workId, sec, u) => (CITE[workId] || ((s, x) => `[${x.n}]`))(sec, u);
 
@@ -36,6 +39,7 @@ function route() {
   const h = (location.hash || "#/overview").slice(2).split("/");
   const name = h[0] || "overview";
   document.querySelectorAll("#nav a").forEach(a => a.classList.toggle("active", a.dataset.v === name));
+  if (atlasStop) { atlasStop(); atlasStop = null; }
   view.innerHTML = ""; window.scrollTo(0, 0);
   (ROUTES[name] || viewOverview)(h.slice(1));
 }
@@ -165,24 +169,52 @@ function sectionReader(w, t, secId) {
       <h1 style="font-size:1.4rem">${esc(s.titel)}</h1>
       <p class="fine">${s.units.length} paragraphs · cited as shown on each paragraph</p>
     </div>
+    <div id="langbar"></div>
     <div id="body"></div>
     <p class="fine">${esc(t.quelle)} ${esc(t.hinweis || "")}</p>
   </div>`));
-  view.querySelector("#body").innerHTML = s.units.map(u => unitHtml(w, s, u)).join("");
+  const bilingual = s.units.some(u => u.orig);
+  const render = () => {
+    view.querySelector("#body").innerHTML = s.units.map(u => unitHtml(w, s, u)).join("");
+  };
+  if (bilingual) {
+    const bar = el(`<div class="toolbar" style="margin-bottom:1rem">
+      ${["en", "orig", "both"].map(m => `<button class="chip ${LANG === m ? "on" : ""}" data-m="${m}">
+        ${{ en: "English", orig: "Original", both: "Both" }[m]}</button>`).join(" ")}</div>`);
+    bar.querySelectorAll("[data-m]").forEach(b => b.onclick = () => {
+      LANG = b.dataset.m;
+      bar.querySelectorAll("[data-m]").forEach(x => x.classList.toggle("on", x.dataset.m === LANG));
+      render();
+    });
+    view.querySelector("#langbar").append(bar);
+  }
+  render();
   const anchor = (location.hash.split("@")[1] || "");
   if (anchor) document.getElementById("u" + anchor)?.scrollIntoView();
 }
 
+let LANG = "en"; /* language mode for bilingual readers: en | orig | both */
+
 function unitHtml(w, s, u, hl) {
   const label = u.label ? `<p class="ulabel">${esc(u.label)}</p>` : "";
-  let txt = esc(u.txt);
-  if (hl) {
-    const rx = new RegExp(hl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
-    txt = txt.replace(rx, m => `<mark>${m}</mark>`);
-  }
+  const mk = raw => {
+    let txt = esc(raw);
+    if (hl) {
+      const rx = new RegExp(hl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
+      txt = txt.replace(rx, m => `<mark>${m}</mark>`);
+    }
+    return txt;
+  };
+  let body;
+  if (!u.orig) body = `<p class="readable">${mk(u.txt)}</p>`;
+  else if (LANG === "orig") body = `<p class="readable orig">${mk(u.orig)}</p>`;
+  else if (LANG === "both") body =
+    `<p class="readable orig" style="color:var(--fg2)">${mk(u.orig)}</p><p class="readable">${mk(u.txt)}</p>`;
+  else body = `<p class="readable">${mk(u.txt)}</p>`;
+  const note = u.note ? `<p class="fine" style="color:var(--acc)">${esc(u.note)}</p>` : "";
   return `<div class="unit" id="u${u.n}">
     <div style="display:flex;gap:.6rem;align-items:baseline"><span class="cite">${esc(citeOf(w.id, s, u))}</span></div>
-    ${label}<p class="readable">${txt}</p></div>`;
+    ${label}${body}${note}</div>`;
 }
 
 /* ========================================================= CONCORDANCE */
@@ -216,12 +248,13 @@ function viewConcordance() {
       const t = D.texts[w.id];
       for (const s of t.sections) for (const u of s.units) {
         rx.lastIndex = 0;
-        const m = rx.exec(u.txt);
+        let src = u.txt, m = rx.exec(u.txt);
+        if (!m && u.orig) { rx.lastIndex = 0; m = rx.exec(u.orig); src = u.orig; }
         if (!m) continue;
         hits++;
         if (hits > 200) break;
-        const a = Math.max(0, m.index - 90), b = Math.min(u.txt.length, m.index + term.length + 130);
-        const ctx = (a > 0 ? "…" : "") + u.txt.slice(a, b) + (b < u.txt.length ? "…" : "");
+        const a = Math.max(0, m.index - 90), b = Math.min(src.length, m.index + term.length + 130);
+        const ctx = (a > 0 ? "…" : "") + src.slice(a, b) + (b < src.length ? "…" : "");
         out.append(el(`<div class="unit">
           <div style="display:flex;gap:.6rem;align-items:baseline;flex-wrap:wrap">
             <a class="cite" href="#/works/${w.id}/${s.id}@${u.n}">${esc(citeOf(w.id, s, u))}</a>
@@ -275,6 +308,37 @@ function viewMethod() {
       equations are folded into their paragraph; Boole's footnotes are omitted. Readers working on the
       symbolic detail should consult the printed edition — this module serves the argument, not the
       calculus.</p>
+      <p class="readable"><strong>Descartes.</strong> Discours de la méthode, Part V, bilingual: the
+      French text follows the Cousin edition's orthography (Project Gutenberg #13846), the English is
+      John Veitch's public-domain translation (#59). The ten paragraph units follow the French
+      paragraphing; where Veitch merges French paragraphs, his text has been divided at sentence
+      boundaries to restore the alignment. Citation form <span class="mono">Disc. V [k]</span>.</p>
+      <p class="readable"><strong>La Mettrie.</strong> L'Homme Machine (1747), bilingual and complete:
+      the French text and Gertrude C. Bussey's English translation of 1912 (Open Court; Project
+      Gutenberg #52090), aligned paragraph-for-paragraph — where the 1912 translation merges French
+      paragraphs, they are shown merged. An editorial finding of this edition: the 1912 translation
+      <em>silently omits seven paragraphs</em> of the French — those on pregnancy, continence, arousal,
+      maternal impressions, and La Mettrie's spermist embryology of generation. This site restores all
+      seven with its own working translations, marked in place; the omissions are bowdlerization, not
+      textual variants. The four part titles are editorial, as is the continuous paragraph numbering;
+      citation form <span class="mono">HM [n]</span>.</p>
+      <p class="readable"><strong>Lovelace.</strong> Menabrea's Sketch of the Analytical Engine in Ada
+      Lovelace's translation, with all of her Notes A–G, from Taylor's Scientific Memoirs vol. III
+      (1843), pp. 666–731, digitized from the Internet Archive scan of the volume. The 1843 volume
+      survives here only as rough OCR: the prose has been emended by hand against the sense of the
+      passage (and, for the well-known passages, against the received text), but the displayed formulae
+      and tables of the mathematical Notes cannot be carried by the scan — they are replaced by
+      <span class="mono">[formula omitted]</span> and <span class="mono">[table omitted]</span> markers,
+      and a few passages too damaged to restore are marked in place. For the mathematics, consult the
+      printed original; the argumentative prose, including the whole of Note G, is complete. Footnotes
+      are omitted. Citation forms <span class="mono">Menabrea [k]</span> and
+      <span class="mono">Note G [k]</span>.</p>
+      <p class="readable"><strong>The Atlas.</strong> The Atlas view is a co-occurrence network: the
+      leading content terms of the shipped English texts, linked when they appear in the same
+      paragraph, weighted by pointwise mutual information, laid out by a small force simulation in the
+      browser. It is a finding aid, not a semantic claim — the network is precomputed by an open script
+      in the repository (<span class="mono">tools/build-network.py</span>), and every node resolves
+      back to citable paragraphs.</p>
     </div>
 
     <div class="panel"><h2>The programme</h2>
@@ -284,10 +348,10 @@ function viewMethod() {
       der Arithmetik and Über Sinn und Bedeutung in German with working translations; the Begriffsschrift
       only in its prose parts, since its two-dimensional notation cannot honestly be reconstructed from
       OCR — a limit stated here in advance). The machine line: Lovelace's Notes of 1843 with Menabrea's
-      Sketch, Jevons's paper of 1870, Peirce's “Logical Machines” of 1887 (from the original journal
-      printing), and Pascal's fragment on the arithmetical machine. The counter-voices: Descartes's
-      Discours Part V and La Mettrie's L'Homme Machine with the contemporary English translation of 1749.
-      Two further modules are under consideration: a Llull prologue and Tractatus selections.</p>
+      Sketch (shipped), then Jevons's paper of 1870, Peirce's “Logical Machines” of 1887 (from the
+      original journal printing), and Pascal's fragment on the arithmetical machine. The counter-voices:
+      Descartes's Discours Part V and La Mettrie's L'Homme Machine (both shipped, bilingual). Two
+      further modules are under consideration: a Llull prologue and Tractatus selections.</p>
     </div>
 
     <div class="panel"><h2>Known limits</h2>
@@ -305,6 +369,169 @@ function viewMethod() {
       <p class="fine">Repository: <a href="https://github.com/pantaleonfassbender-coder/Philosophical-predecessors-of-AI">github.com/pantaleonfassbender-coder/Philosophical-predecessors-of-AI</a></p>
     </div>
   </div>`));
+}
+
+/* =============================================================== ATLAS */
+/* Co-occurrence network of the leading terms across all shipped texts.
+   Data precomputed by tools/build-network.py into data/network.json. */
+let NET = null, atlasStop = null;
+
+async function viewAtlas() {
+  if (!NET) NET = await fetch("data/network.json").then(r => r.json());
+  view.append(el(`<div>
+    <div class="viewhead"><span class="tag">Term network</span>
+      <h1>Atlas</h1>
+      <p class="lede">The ${NET.nodes.length} leading content terms of the corpus, linked where they
+      occur in the same paragraph. Colour is the line whose texts use the term most
+      (<span style="color:var(--logic)">logic</span> ·
+      <span style="color:var(--maschine)">machine</span> ·
+      <span style="color:var(--gegen)">counter-voices</span>); size is frequency.
+      Click a term for its neighbours and citations.</p></div>
+    <div class="toolbar">
+      <label class="fine" for="dens">Density</label>
+      <select id="dens">
+        <option value="140">sparse</option>
+        <option value="260" selected>medium</option>
+        <option value="420">dense</option>
+      </select>
+      <span class="fine" id="atlasinfo"></span>
+    </div>
+    <div class="card" style="padding:0;overflow:hidden"><canvas id="cv" style="width:100%;display:block;cursor:pointer"></canvas></div>
+    <div id="sel"></div>
+    <div class="card" style="margin-top:1.2rem"><span class="tag">Bridge terms</span>
+      <p style="margin:.5rem 0 0" class="readable" style="font-size:.9rem">Terms carried by four or
+      more of the works — the shared vocabulary in which the lines argue with each other:
+      ${NET.bridges.map(b => `<button class="chip" data-b="${esc(b)}">${esc(b)}</button>`).join(" ")}</p></div>
+  </div>`));
+  const cv = view.querySelector("#cv");
+  const selBox = view.querySelector("#sel");
+  const densSel = view.querySelector("#dens");
+  const W = Math.min(view.clientWidth || 900, 980), H = Math.max(460, Math.round(W * 0.62));
+  const dpr = window.devicePixelRatio || 1;
+  cv.width = W * dpr; cv.height = H * dpr; cv.style.height = H + "px";
+  const cx = cv.getContext("2d"); cx.scale(dpr, dpr);
+
+  const nodes = NET.nodes.map(n => ({ ...n,
+    x: W / 2 + (Math.random() - 0.5) * W * 0.8, y: H / 2 + (Math.random() - 0.5) * H * 0.8,
+    vx: 0, vy: 0, r: 3 + Math.sqrt(n.f) * 0.9 }));
+  const byId = Object.fromEntries(nodes.map(n => [n.id, n]));
+  let edges = [], selected = null, tick = 0;
+
+  function setDensity() {
+    edges = NET.edges.slice(0, +densSel.value).map(e => ({ ...e, a: byId[e.s], b: byId[e.t] }))
+      .filter(e => e.a && e.b);
+    view.querySelector("#atlasinfo").textContent =
+      `${nodes.length} terms · ${edges.length} links · from ${NET.n_units} paragraphs`;
+    tick = 0;
+  }
+  setDensity();
+  densSel.onchange = setDensity;
+
+  function step() {
+    /* simple force layout: pairwise repulsion, spring on edges, center pull */
+    for (const n of nodes) { n.fx = 0; n.fy = 0; }
+    for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++) {
+      const a = nodes[i], b = nodes[j];
+      let dx = a.x - b.x, dy = a.y - b.y, d2 = dx * dx + dy * dy + 40;
+      const f = 1400 / d2;
+      const d = Math.sqrt(d2);
+      dx /= d; dy /= d;
+      a.fx += dx * f; a.fy += dy * f; b.fx -= dx * f; b.fy -= dy * f;
+    }
+    for (const e of edges) {
+      let dx = e.b.x - e.a.x, dy = e.b.y - e.a.y;
+      const d = Math.sqrt(dx * dx + dy * dy) || 1;
+      const want = 60 + 700 / (e.w + 4);
+      const f = (d - want) * 0.004 * Math.min(e.w, 6);
+      dx /= d; dy /= d;
+      e.a.fx += dx * f * d * 0.02; e.a.fy += dy * f * d * 0.02;
+      e.b.fx -= dx * f * d * 0.02; e.b.fy -= dy * f * d * 0.02;
+    }
+    for (const n of nodes) {
+      n.fx += (W / 2 - n.x) * 0.004; n.fy += (H / 2 - n.y) * 0.004;
+      n.vx = (n.vx + n.fx) * 0.82; n.vy = (n.vy + n.fy) * 0.82;
+      n.x += n.vx; n.y += n.vy;
+      n.x = Math.max(14, Math.min(W - 14, n.x)); n.y = Math.max(14, Math.min(H - 14, n.y));
+    }
+  }
+
+  const COLOR = { logic: "#6fa8dc", maschine: "#d9a441", gegen: "#c47a6d" };
+  function draw() {
+    cx.clearRect(0, 0, W, H);
+    const neigh = new Set();
+    if (selected) for (const e of edges) {
+      if (e.a === selected) neigh.add(e.b);
+      if (e.b === selected) neigh.add(e.a);
+    }
+    for (const e of edges) {
+      const on = selected && (e.a === selected || e.b === selected);
+      cx.strokeStyle = on ? "rgba(217,164,65,.55)" : "rgba(160,160,180,.13)";
+      cx.lineWidth = on ? 1.4 : Math.min(1, 0.3 + e.w * 0.05);
+      cx.beginPath(); cx.moveTo(e.a.x, e.a.y); cx.lineTo(e.b.x, e.b.y); cx.stroke();
+    }
+    for (const n of nodes) {
+      const dimmed = selected && n !== selected && !neigh.has(n);
+      cx.globalAlpha = dimmed ? 0.25 : 1;
+      cx.fillStyle = COLOR[n.linie];
+      cx.beginPath(); cx.arc(n.x, n.y, n.r, 0, 7); cx.fill();
+      if (n === selected) { cx.strokeStyle = "#fff"; cx.lineWidth = 1.5; cx.stroke(); }
+      if (!dimmed && (n.f > 25 || n === selected || neigh.has(n))) {
+        cx.fillStyle = "rgba(233,230,224,.92)";
+        cx.font = (n === selected ? "600 " : "") + "11px system-ui, sans-serif";
+        cx.textAlign = "center";
+        cx.fillText(n.id, n.x, n.y - n.r - 4);
+      }
+      cx.globalAlpha = 1;
+    }
+  }
+
+  let raf;
+  function loop() {
+    if (tick < 260) { step(); tick++; }
+    draw();
+    raf = requestAnimationFrame(loop);
+  }
+  loop();
+  atlasStop = () => cancelAnimationFrame(raf);
+
+  function select(n) {
+    selected = n;
+    selBox.innerHTML = "";
+    if (!n) return;
+    const co = edges.filter(e => e.a === n || e.b === n)
+      .map(e => ({ o: e.a === n ? e.b : e.a, c: e.c })).sort((a, b) => b.c - a.c).slice(0, 14);
+    const wk = Object.entries(n.works).sort((a, b) => b[1] - a[1]);
+    selBox.append(el(`<div class="card" style="margin-top:1.2rem">
+      <div style="display:flex;gap:.8rem;align-items:baseline;flex-wrap:wrap">
+        <h3 style="margin:0;color:${COLOR[n.linie]}">${esc(n.id)}</h3>
+        <span class="fine">${n.f} paragraphs · in ${n.spread} of ${D.works.filter(w => w.status === "shipped").length} works</span></div>
+      <p class="fine" style="margin:.4rem 0">${wk.map(([id, c]) => {
+        const w = D.works.find(x => x.id === id);
+        return `${esc(w ? w.kurz : id)}: ${c}`; }).join(" · ")}</p>
+      <p style="margin:.4rem 0 0">${co.map(x =>
+        `<button class="chip" data-b="${esc(x.o.id)}">${esc(x.o.id)} <span class="fine">${x.c}</span></button>`).join(" ")}</p>
+      <p style="margin:.6rem 0 0">${n.cites.map(([wid, sid, un]) => {
+        const w = D.works.find(x => x.id === wid);
+        const t = D.texts[wid];
+        const s = t && t.sections.find(x => x.id === sid);
+        const u = s && s.units.find(x => x.n === un);
+        return u ? `<a class="cite" href="#/works/${wid}/${sid}@${un}">${esc(citeOf(wid, s, u))}</a>` : "";
+      }).join(" ")}</p>
+    </div>`));
+    selBox.querySelectorAll("[data-b]").forEach(b => b.onclick = () => select(byId[b.dataset.b]));
+  }
+
+  cv.onclick = ev => {
+    const r = cv.getBoundingClientRect();
+    const x = (ev.clientX - r.left) * (W / r.width), y = (ev.clientY - r.top) * (H / r.height);
+    let best = null, bd = 400;
+    for (const n of nodes) {
+      const d = (n.x - x) ** 2 + (n.y - y) ** 2;
+      if (d < bd && d < (n.r + 10) ** 2) { best = n; bd = d; }
+    }
+    select(best);
+  };
+  view.querySelectorAll("[data-b]").forEach(b => b.onclick = () => select(byId[b.dataset.b]));
 }
 
 /* ============================================================ PRIVACY */
@@ -372,6 +599,6 @@ function viewImprint() {
 
 Object.assign(ROUTES, {
   overview: viewOverview, works: viewWorks, concordance: viewConcordance,
-  method: viewMethod, privacy: viewPrivacy, imprint: viewImprint,
+  atlas: viewAtlas, method: viewMethod, privacy: viewPrivacy, imprint: viewImprint,
 });
 boot();

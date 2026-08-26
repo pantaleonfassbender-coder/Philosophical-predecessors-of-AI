@@ -27,7 +27,7 @@ the site's overview.
 | Author | Text | Source | Status |
 |---|---|---|---|
 | Blaise Pascal | Pensées, the arithmetical-machine fragment | French + Trotter (PD) | planned |
-| Ada Lovelace | Notes on Menabrea's *Sketch of the Analytical Engine* (1843), incl. Note G | Taylor's Scientific Memoirs III | planned |
+| Ada Lovelace | Notes on Menabrea's *Sketch of the Analytical Engine* (1843), incl. Note G | Taylor's Scientific Memoirs III (IA scan, OCR emended) | **shipped** |
 | W. S. Jevons | *On the Mechanical Performance of Logical Inference* (1870) | Phil. Trans. 160 | planned |
 | C. S. Peirce | *Logical Machines* (1887) | American Journal of Psychology I (original printing) | planned |
 
@@ -35,8 +35,8 @@ the site's overview.
 
 | Author | Text | Source | Status |
 |---|---|---|---|
-| René Descartes | *Discours de la méthode* (1637), Part V — the language test | French + PD English translation | planned |
-| J. O. de La Mettrie | *L'Homme Machine* (1747) | French + the contemporary English translation of 1749 | planned |
+| René Descartes | *Discours de la méthode* (1637), Part V — the language test | PG #13846 (FR) + Veitch, PG #59 (EN), bilingual | **shipped** |
+| J. O. de La Mettrie | *L'Homme Machine* (1747) | PG #52090: FR + Bussey 1912 EN, bilingual; 7 silently omitted paragraphs restored | **shipped** |
 
 Under consideration: a Ramon Llull prologue (Ars brevis selections) and Tractatus selections
 (German + Ogden 1922, both pre-1930 US-PD).

@@ -112,3 +112,11 @@ footer {
 }
 footer p { max-width: 62rem; }
 @media (max-width: 640px) { h1 { font-size: 1.5rem; } main { padding: 1.2rem 1rem 3rem; } }
+
+/* bilingual reader + atlas */
+.readable.orig { font-style: italic; }
+select {
+  background: var(--bg2, #1b1b22); color: var(--fg, #e9e6e0);
+  border: 1px solid var(--line, #33333d); border-radius: 6px;
+  padding: .35rem .6rem; font: inherit; font-size: .85rem;
+}
