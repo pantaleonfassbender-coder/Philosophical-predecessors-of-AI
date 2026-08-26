@@ -47,6 +47,10 @@ covered by any licence granted here, because they were never this repository's t
 - **Peirce**, *Logical Machines* (The American Journal of Psychology I, 1887), complete —
   the original journal printing, via JSTOR Early Journal Content / Internet Archive.
   The Collected Papers (1931 ff.) remain in copyright and are not used.
+- **Llull**, *Ars brevis* (1308), selections — Latin after the Strasbourg Zetzner edition
+  of 1617, Internet Archive scan, OCR emended by hand against the standard textual
+  tradition. The modern critical edition (ROL) remains in copyright and is not used.
+  The English working translation is made for this site (CC0).
 
 Future modules will name their editions here as they ship. Where a module carries a working
 translation made for this site, that translation is machine-generated, has no scholarly

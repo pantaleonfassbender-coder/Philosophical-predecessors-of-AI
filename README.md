@@ -17,6 +17,7 @@ the site's overview.
 
 | Author | Text | Source | Status |
 |---|---|---|---|
+| Ramon Llull | *Ars brevis* (1308) — prologue, alphabet, first and fourth figure (the rotating wheels) | Strasbourg 1617 (Zetzner), IA scan, OCR emended; working translation | **shipped** |
 | Thomas Hobbes | *Leviathan* (1651), Introduction + Part I ch. I–V; later De Corpore I | Project Gutenberg #3207 (1651 spelling) | **shipped** |
 | G. W. Leibniz | Anthology: Monadology (§§1–90), Explication de l'arithmétique binaire (1703), characteristica fragments incl. the calculemus passages, De arte combinatoria selections | PG #17641 (FR) + Latta 1898 (EN, PD); Gerhardt GM7 / GP IV+VII, OCR emended; working translations | **shipped** |
 | George Boole | *Laws of Thought* (1854), Preface + ch. I–III, XXII | Project Gutenberg #15114 (LaTeX), converted | **shipped** |
@@ -38,8 +39,7 @@ the site's overview.
 | René Descartes | *Discours de la méthode* (1637), Part V — the language test | PG #13846 (FR) + Veitch, PG #59 (EN), bilingual | **shipped** |
 | J. O. de La Mettrie | *L'Homme Machine* (1747) | PG #52090: FR + Bussey 1912 EN, bilingual; 7 silently omitted paragraphs restored | **shipped** |
 
-Under consideration: a Ramon Llull prologue (Ars brevis selections) and Tractatus selections
-(German + Ogden 1922, both pre-1930 US-PD).
+A Tractatus module was considered and dropped: the corpus ends at the threshold of Turing.
 
 **The boundary is a rights fact:** Turing's papers of 1936 and 1950 remain in copyright
 (until roughly 2032 and 2046). The apparatus therefore ends, deliberately, at the threshold.

@@ -127,22 +127,10 @@
   "autor": "Ramon Llull",
   "leben": "c. 1232–1316",
   "kurz": "Llull",
-  "titel": "Ars brevis (selections) — prologue module",
-  "status": "considered",
+  "titel": "Ars brevis (1308) — prologue, alphabet and figures",
+  "status": "shipped",
   "sprachen": "Latin · English (working translation)",
   "claim": "The deepest root: combinatorial wheels that generate propositions mechanically — the art Leibniz named as the inspiration of his ars combinatoria.",
-  "geplant": "A short prologue module with selections, if a serviceable public-domain Latin edition can be secured."
- },
- {
-  "id": "wittgenstein",
-  "linie": "logic",
-  "autor": "Ludwig Wittgenstein",
-  "leben": "1889–1951",
-  "kurz": "Tractatus",
-  "titel": "Tractatus Logico-Philosophicus (1921/1922, selections)",
-  "status": "considered",
-  "sprachen": "German · English (Ogden 1922, PD)",
-  "claim": "Truth-tables, the picture theory, the limits of language — the last stone before the threshold; German text and Ogden's English are both pre-1930 and US public domain.",
-  "geplant": "Selections along the numbered proposition grid."
+  "datei": "llull_arsbrevis"
  }
 ]

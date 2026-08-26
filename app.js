@@ -26,6 +26,7 @@ const CITE = {
   pascal: (sec, u) => `Pens. ${u.br} (Br.)`,
   jevons: (sec, u) => `MPL, art. ${u.art}`,
   peirce: (sec, u) => `LM [${u.n}]`,
+  llull: (sec, u) => `AB [${u.n}]`,
   lamettrie: (sec, u) => `HM [${u.n}]`,
   lovelace: (sec, u) => sec.id === "memoir" ? `Menabrea [${u.k}]` : `Note ${sec.id.slice(4)} [${u.k}]`,
 };
@@ -69,9 +70,10 @@ function viewOverview() {
     <div class="grid g3" style="margin-bottom:1.6rem">
       <div class="card linie-logic">
         <span class="tag" style="color:var(--logic)">The logic line</span>
-        <p style="font-size:.9rem;color:var(--fg2);margin:.3rem 0 0">Hobbes: reason is reckoning.
-        Leibniz: a symbolic language and a calculus of thought. Boole: the laws of thought as algebra.
-        Frege: the formal system itself. The direct ancestry of symbolic AI.</p>
+        <p style="font-size:.9rem;color:var(--fg2);margin:.3rem 0 0">Llull's combinatorial wheels.
+        Hobbes: reason is reckoning. Leibniz: a symbolic language and a calculus of thought.
+        Boole: the laws of thought as algebra. Frege: the formal system itself. The direct
+        ancestry of symbolic AI.</p>
       </div>
       <div class="card linie-maschine">
         <span class="tag" style="color:var(--maschine)">The machine line</span>
@@ -393,6 +395,15 @@ function viewMethod() {
       kept inline and emended from the OCR; the machine-face figure is omitted; the print order of
       two passages interleaved by the scan's page layout has been restored. Citation form
       <span class="mono">LM [n]</span> (editorial paragraph numbers).</p>
+      <p class="readable"><strong>Llull.</strong> A prologue module, not an edition: the invocation
+      and prologue of the Ars brevis (1308), the alphabet B–K, the first figure, and the fourth
+      figure — the three rotating wheels that generate 252 combinatorial chambers, the device
+      Leibniz expressly named as the inspiration of his ars combinatoria (the connection stands in
+      this corpus: De arte combinatoria is in the Leibniz module). Latin after the Strasbourg
+      Zetzner edition of 1617 (Internet Archive scan), whose early-modern typography defeats OCR;
+      the text has therefore been emended by hand against the standard textual tradition, and the
+      modern critical edition (ROL), which remains in copyright, was not used. The English is a
+      working translation made for this site. Citation form <span class="mono">AB [n]</span>.</p>
       <p class="readable"><strong>The Atlas.</strong> The Atlas view is a co-occurrence network: the
       leading content terms of the shipped English texts, linked when they appear in the same
       paragraph, weighted by pointwise mutual information, laid out by a small force simulation in the
@@ -402,12 +413,13 @@ function viewMethod() {
     </div>
 
     <div class="panel"><h2>The programme</h2>
-      <p class="readable">The corpus was built in stages along three lines, and the commissioned
-      programme is now complete: the logic line (Hobbes, the Leibniz anthology, Boole, Frege), the
-      machine line (Pascal's fragments, Lovelace's Notes of 1843 with Menabrea's Sketch, Jevons's
-      memoir of 1870, Peirce's “Logical Machines” of 1887), and the counter-voices (Descartes's
-      Discours Part V and La Mettrie's L'Homme Machine, both bilingual) — ten modules shipped. Two
-      further modules remain under consideration: a Llull prologue and Tractatus selections.</p>
+      <p class="readable">The corpus was built in stages along three lines and is complete: the
+      logic line (the Llull prologue, Hobbes, the Leibniz anthology, Boole, Frege), the machine
+      line (Pascal's fragments, Lovelace's Notes of 1843 with Menabrea's Sketch, Jevons's memoir
+      of 1870, Peirce's “Logical Machines” of 1887), and the counter-voices (Descartes's Discours
+      Part V and La Mettrie's L'Homme Machine, both bilingual) — eleven modules shipped. A
+      Tractatus module, once under consideration, has been dropped: the corpus ends where the
+      formal-system line hands over to the twentieth century.</p>
     </div>
 
     <div class="panel"><h2>Known limits</h2>
