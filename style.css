@@ -113,6 +113,11 @@ footer {
 footer p { max-width: 62rem; }
 @media (max-width: 640px) { h1 { font-size: 1.5rem; } main { padding: 1.2rem 1rem 3rem; } }
 
+/* introductory essay */
+.essay .readable { max-width: 46rem; margin: 0 0 1rem; }
+.essay h2 { margin-top: 2.2rem; }
+.refs p { font-size: .88rem; color: var(--fg2); margin: 0 0 .55rem; padding-left: 1.4rem; text-indent: -1.4rem; }
+
 /* bilingual reader + atlas */
 .readable.orig { font-style: italic; }
 select {

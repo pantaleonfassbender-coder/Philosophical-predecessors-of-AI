@@ -8,6 +8,16 @@ tracking, no server functions.
 
 The name is Leibniz's: when disputes arise, *Calculemus* — let us calculate.
 
+## The introductory essay
+
+The site opens with a stand-alone scholarly introduction (*Calculemus: An Introduction to the
+Philosophical Predecessors of Artificial Intelligence*, August 2026), reachable under
+*Introduction*. It presents the three lines, the argument that runs through them, the reason
+the corpus ends at the threshold of Turing, and the way the apparatus is meant to be used;
+the first mention of each work links into its reader. The essay lives in
+`data/introduction.json`, built by `tools/build-introduction.py` from the author's manuscript
+(kept beside the repository, not in it), and is editorial matter under CC BY 4.0.
+
 ## The programme
 
 The corpus is built in stages along three lines. Status is tracked in `data/works.json` and on

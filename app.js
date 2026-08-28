@@ -65,6 +65,8 @@ function viewOverview() {
       algebra, algebra became a formal system — together with the machines that made the idea tangible,
       and the philosophers who said it could not be done. It ends, deliberately, at the threshold of
       Turing.</p>
+      <p class="fine">New here? The <a href="#/introduction">introductory essay</a> walks through the
+      three lines, the argument that runs through them, and the way the apparatus is meant to be used.</p>
     </div>
 
     <div class="grid g3" style="margin-bottom:1.6rem">
@@ -224,6 +226,70 @@ function unitHtml(w, s, u, hl) {
   return `<div class="unit" id="u${u.n}">
     <div style="display:flex;gap:.6rem;align-items:baseline"><span class="cite">${esc(citeOf(w.id, s, u))}</span></div>
     ${label}${body}${note}</div>`;
+}
+
+/* ======================================================== INTRODUCTION */
+/* The introductory essay (data/introduction.json, built from the author's
+   manuscript by tools/build-introduction.py). Italic markers *...* become
+   <em>; the first mention of each work in the corpus links to its reader,
+   so the essay doubles as a guided entrance. */
+let INTRO = null;
+const INTRO_LINKS = [
+  ["Ars brevis", "#/works/llull"],
+  ["Leviathan", "#/works/hobbes"],
+  ["De arte combinatoria", "#/works/leibniz/comb"],
+  ["arithmétique binaire", "#/works/leibniz/bin"],
+  ["Monadology", "#/works/leibniz/mon"],
+  ["Laws of Thought", "#/works/boole"],
+  ["Begriffsschrift", "#/works/frege/bs"],
+  ["Grundlagen der Arithmetik", "#/works/frege/gl"],
+  ["Über Sinn und Bedeutung", "#/works/frege/sb"],
+  ["Pensées", "#/works/pascal"],
+  ["Note G", "#/works/lovelace/noteG"],
+  ["On the Mechanical Performance of Logical Inference", "#/works/jevons"],
+  ["Peirce (1887)", "#/works/peirce"],
+  ["Discours de la méthode", "#/works/descartes"],
+  ["L’Homme Machine", "#/works/lamettrie"],
+  ["eleven modules", "#/works"],
+  ["concordance", "#/concordance"],
+  ["term atlas", "#/atlas"],
+];
+const em = s => esc(s).replace(/\*([^*]+)\*/g, "<em>$1</em>");
+
+async function viewIntroduction() {
+  if (!INTRO) INTRO = await fetch("data/introduction.json").then(r => r.json());
+  const used = new Set();
+  const fmt = s => {
+    let h = em(s);
+    for (const [phrase, href] of INTRO_LINKS) {
+      if (used.has(phrase)) continue;
+      const i = h.indexOf(phrase);
+      if (i < 0) continue;
+      used.add(phrase);
+      h = h.slice(0, i) + `<a href="${href}">${phrase}</a>` + h.slice(i + phrase.length);
+    }
+    return h;
+  };
+  view.append(el(`<div class="essay">
+    <div class="viewhead">
+      <span class="tag">Introductory essay</span>
+      <h1>${esc(INTRO.titel)}</h1>
+      <p class="fine">${esc(INTRO.autor)} · ${esc(INTRO.datum)} · editorial matter of this site, CC BY 4.0</p>
+      <p class="fine" style="max-width:46rem">${em(INTRO.note)
+        .replace(/https?:\/\/[^\s]+/g, u => `<a href="${u}">${u}</a>`)}</p>
+    </div>
+    ${INTRO.abschnitte.map(a => `
+      ${a.titel ? `<h2>${esc(a.titel)}</h2>` : ""}
+      ${a.paras.map(p => `<p class="readable">${fmt(p)}</p>`).join("")}`).join("")}
+    <div class="toolbar" style="margin:1.8rem 0">
+      <a class="chip" href="#/works">Browse the works</a>
+      <a class="chip" href="#/concordance">Search the concordance</a>
+      <a class="chip" href="#/atlas">Open the atlas</a>
+    </div>
+    <div class="panel"><h2 style="margin-top:0">References</h2>
+      <div class="refs">${INTRO.referenzen.map(r => `<p>${em(r)}</p>`).join("")}</div>
+    </div>
+  </div>`));
 }
 
 /* ========================================================= CONCORDANCE */
@@ -666,7 +732,8 @@ function viewImprint() {
 }
 
 Object.assign(ROUTES, {
-  overview: viewOverview, works: viewWorks, concordance: viewConcordance,
-  atlas: viewAtlas, method: viewMethod, privacy: viewPrivacy, imprint: viewImprint,
+  overview: viewOverview, introduction: viewIntroduction, works: viewWorks,
+  concordance: viewConcordance, atlas: viewAtlas, method: viewMethod,
+  privacy: viewPrivacy, imprint: viewImprint,
 });
 boot();
