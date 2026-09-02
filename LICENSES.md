@@ -51,6 +51,12 @@ covered by any licence granted here, because they were never this repository's t
   of 1617, Internet Archive scan, OCR emended by hand against the standard textual
   tradition. The modern critical edition (ROL) remains in copyright and is not used.
   The English working translation is made for this site (CC0).
+- **Kapp**, *Grundlinien einer Philosophie der Technik* (Braunschweig: Westermann, 1877),
+  selections — German text from the Internet Archive/MDZ scan of the first edition
+  (Bayerische Staatsbibliothek), OCR emended by hand and verified against the page images
+  of the scan. Public domain (Kapp †1896). The complete English translation of 2018
+  (University of Minnesota Press) remains in copyright and was not consulted; the English
+  working translation is made for this site (CC0).
 
 Future modules will name their editions here as they ship. Where a module carries a working
 translation made for this site, that translation is machine-generated, has no scholarly

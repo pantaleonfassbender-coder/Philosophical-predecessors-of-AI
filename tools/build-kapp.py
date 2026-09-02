@@ -1,0 +1,213 @@
+# Build data/kapp_grundlinien.json: Ernst Kapp, Grundlinien einer Philosophie
+# der Technik (Braunschweig: Westermann, 1877), selections.
+#
+# Source: Internet Archive scan 11379066bsb = MDZ/BSB digitization of the first
+# edition (an Antiqua printing, not Fraktur). The OCR (626 KB djvu.txt) was
+# usable but damaged in places; every damaged passage used here was verified
+# letter-by-letter against the page images served by the MDZ IIIF API
+# (https://api.digitale-sammlungen.de/iiif/image/v2/bsb11379066_000NN),
+# in particular pp. 28, 29, 32, 34, 36, 132, 138, 150. The 1877 orthography
+# (Maassstab, projicirt, Thätigkeit, Aeusseres ...) is preserved.
+#
+# The English is an unofficial working translation made for this site directly
+# from the German; the only complete English translation (Minnesota UP 2018)
+# remains in copyright and was not consulted. Public domain (CC0 for this
+# edition's segmentation and translations).
+import io, json
+
+U = []  # (section, label_or_None, german, english, note_or_None)
+
+# ----------------------------------------------------------- Vorwort (excerpts)
+U.append(("vorwort", None,
+"Derjenige Zweig der Technik, welchen der Sprachgebrauch als mechanische Technik bezeichnet, ist der hauptsächliche Gegenstand der vorliegenden Schrift. Dass neuerdings empirische Stoffe mehrfach einer philosophischen Behandlung unterzogen worden sind, ist immerhin ein erfreulicher Beleg für die Thatsache, dass Empirie und Speculation das Bedürfniss gegenseitiger Ergänzung haben. So dürfte denn auch eine Philosophie der Technik sich rechtfertigen lassen, so weit es der denkenden Betrachtung gelingen wird, die Entstehung und Vervollkommnung der aus der Hand des Menschen stammenden Artefacte als erste Bedingung seiner Entwickelung zum Selbstbewusstsein darzulegen.",
+"That branch of technology which common usage calls mechanical technology is the principal subject of the present work. That empirical materials have lately been subjected more than once to philosophical treatment is at any rate a welcome piece of evidence for the fact that empirical inquiry and speculation stand in need of completing one another. So a philosophy of technology, too, should admit of justification, so far as thinking contemplation succeeds in showing that the origination and perfection of the artefacts that come from the human hand are the first condition of man's development toward self-consciousness.",
+"The first occurrence of the phrase «Philosophie der Technik» as a book's programme — the founding of the philosophy of technology as a named discipline."))
+
+U.append(("vorwort", None,
+"Zunächst wird durch unbestreitbare Thatsachen nachgewiesen, dass der Mensch unbewusst Form, Functionsbeziehung und Normalverhältniss seiner leiblichen Gliederung auf die Werke seiner Hand überträgt und dass er dieser ihrer analogen Beziehungen zu ihm selbst erst hinterher sich bewusst wird. Dieses Zustandekommen von Mechanismen nach organischem Vorbilde, sowie das Verständniss des Organismus mittels mechanischer Vorrichtungen, und überhaupt die Durchführung des als Organprojection aufgestellten Princips für die, nur auf diesem Wege mögliche, Erreichung des Zieles der menschlichen Thätigkeit, ist der eigentliche Inhalt dieser Bogen.",
+"First it is demonstrated by incontestable facts that man unconsciously transfers the form, the functional relation and the normal proportions of his bodily frame to the works of his hand, and that he becomes conscious of these their analogical relations to himself only afterwards. This coming-about of mechanisms after an organic model, as well as the understanding of the organism by means of mechanical devices, and altogether the carrying-through of the principle set up as organ projection for the attainment — possible on this path alone — of the goal of human activity, is the proper content of these pages.",
+None))
+
+U.append(("vorwort", None,
+"Das hierbei beobachtete Zurückgehen auf die ursprüngliche Wortbedeutung und auf den stehenden Sprachgebrauch, der alles Mechanische ausschliesslich auf Machwerke der Hand beschränkt, begegnet einer Begriffsverwirrung, welche, durch Uebertreibungen der mechanischen Weltanschauung veranlasst, die richtige Selbstauffassung des Menschen zum Nachtheil der Gesellschaft alterirt. Denn der Mensch, welcher wahrhaft an sich und seine Persönlichkeit glaubt, wird einerseits niemals sich selbst mit einem technischen Gestell verwechseln, und wird andererseits kein Verlangen tragen, dass er, der Mikrokosmos, durch die Verleugnung des Unterschiedes, welcher zwischen dem Makrokosmos und etwa einem zusammengestückten Planetarium besteht, in degradirende Mitleidenschaft gezogen werde.",
+"The recourse observed here to the original meaning of the word, and to the settled usage that restricts everything mechanical exclusively to handiwork of the hand, counters a confusion of concepts which, occasioned by exaggerations of the mechanical world-view, alters man's right conception of himself to the detriment of society. For the man who truly believes in himself and his personality will, on the one hand, never confuse himself with a technical contrivance; and will, on the other, feel no desire that he, the microcosm, be dragged into degrading complicity through the denial of the difference that obtains between the macrocosm and, say, a planetarium pieced together.",
+"The counter-voice in one sentence: whoever believes in his own personhood «will never confuse himself with a technical contrivance» — Kapp's direct answer, 130 years on, to La Mettrie's L'Homme Machine."))
+
+U.append(("vorwort", None,
+"Im Uebrigen ist der Berechtigung einer mechanistischen Anschauung der Dinge, welche die dem Menschen geläufige Bekanntschaft mit den ihm nahe liegenden, von ihm selbst angefertigten Werkzeugen, wie auch die ihnen anhaftende Terminologie zur Verdeutlichung organischer Verhältnisse vergleichsweise benutzt, nirgends zu nahe getreten.",
+"For the rest, no offence is anywhere given to the legitimacy of a mechanistic view of things, which uses man's familiar acquaintance with the tools that lie near him and are made by himself, as also the terminology attaching to them, comparatively, for the elucidation of organic relations.",
+None))
+
+# ------------------------------------------------ I. close of chapter (p. 28)
+U.append(("c1", None,
+"Möge es der nun folgenden Ausführung gelingen, einen neuen thatsächlichen Ausgangspunkt für die Erkenntnisslehre festzustellen, indem sie der Wahrheit Anerkennung zu verschaffen beabsichtigt, dass die Culturwelt in ihrer Rückbeziehung auf das projicirende menschliche Selbst allein geeignet ist, weiteres Licht über das geheimnissvolle Dunkel zu verbreiten, in welches annoch die wichtigsten Vorgänge des organischen Lebens gehüllt sind. In zweiter Instanz an den Dingen sich messend, erkennt der Mensch sich als das Maass der Dinge in erster Instanz!",
+"May the exposition that now follows succeed in establishing a new factual point of departure for the theory of knowledge, in that it intends to win recognition for the truth that the world of culture, in its back-reference to the projecting human self, is alone suited to shed further light on the mysterious darkness in which the most important processes of organic life are still wrapped. Measuring himself against things in the second instance, man recognizes himself as the measure of things in the first!",
+None))
+
+# ------------------------------------------------- II. Die Organprojection
+U.append(("c2", None,
+"Als im Beginn der sechziger Jahre in einer Sitzung der philosophischen Gesellschaft zu Berlin über das Alter des Menschengeschlechtes discutirt wurde, machte Schultzenstein die Bemerkung, dass der Mensch überall, wo er auftrete, sich eine passende Lebensart erst erfinden und durch Kunst verschaffen müsse, so dass Wissenschaft und Kunst beim Menschen an die Stelle des Instincts der Thiere trete, wodurch er Schöpfer seiner selbst, ja sogar seiner Körperbildung und Veredlung werde. Dem zustimmend erwiederte Lasalle: „Diese absolute Selbstproduction ist eben der tiefste Punkt im Menschen.“",
+"When, at the beginning of the sixties, the age of the human race was being discussed in a session of the Philosophical Society of Berlin, Schultzenstein made the remark that man, wherever he appears, must first invent a suitable way of life and procure it for himself by art, so that in man science and art take the place of the instinct of the animals, whereby he becomes the creator of himself — indeed even of his bodily formation and ennoblement. Assenting, Lassalle replied: “This absolute self-production is precisely the deepest point in man.”",
+"Ferdinand Lassalle; the 1877 printing spells the name „Lasalle“."))
+
+U.append(("c2", None,
+"Wir stossen hier auf einen Ausspruch, welcher der richtigen Auffassung dessen, was wir unter Projection in unserem Sinne verstanden wissen möchten, trefflich zu statten kommt.",
+"We here come upon a dictum which serves excellently the right conception of what we wish to be understood by projection in our sense.",
+None))
+
+U.append(("c2", None,
+"Der Sprachgebrauch des Ausdrucks „Projection“ hält in allen Fällen an dessen etymologischer Grundbedeutung fest. Abgesehen vom Geschützwesen, welches alle Geschosse Projectile, von der Architektur, welche einen Vorsprung Projectur nennt, und von den Projecten des Geschäftslebens, ist das Wort besonders in der Zeichnenkunst heimisch für jede Art von Vorwurf, Entwurf, Plan, Riss, Skizze, insbesondere aber für das Entwerfen der dem Kartographen nöthigen Gradnetze. Wer kennte nicht z. B. die so oft genannten parallellinigen Gradnetze „nach Mercator's Projection“?",
+"The usage of the expression “projection” holds fast in every case to its basic etymological meaning. Apart from gunnery, which calls all missiles projectiles, from architecture, which calls a ledge a projecture, and from the projects of business life, the word is especially at home in the art of drawing, for every kind of design, draft, plan, elevation, sketch — but in particular for the drawing of the graticules the cartographer needs. Who does not know, for example, the oft-cited parallel-lined graticules “after Mercator's projection”?",
+None))
+
+U.append(("c2", None,
+"Mehr als dies Nebensächliche interessirt hier, dass das Wort häufig zur Erklärung der Beziehung der Empfindungen auf äussere Gegenstände und überhaupt für die Bildung der Vorstellungen von Physiologen wie von Psychologen verwendet wird.",
+"Of more interest here than these incidentals is the fact that the word is frequently employed by physiologists and psychologists alike to explain the reference of sensations to external objects, and altogether for the formation of representations.",
+None))
+
+U.append(("c2", None,
+"In allen diesen Fällen ist Projiciren mehr oder weniger das Vor- oder Hervorwerfen, Hervorstellen, Hinausversetzen und Verlegen eines Innerlichen in das Aeussere. Projection und Vorstellung sind dem Wortlaut nach eigentlich wenig verschieden, insofern der innerlichste Act des Vorstellens nicht frei ist von einem dem vorstellenden Subject gleichsam vor Augen gestellten Object.",
+"In all these cases, projecting is more or less the throwing forward or forth, the setting forth, the displacing outward and transferring of something inner into the outer. Projection and representation are, by the letter, really little different, insofar as the innermost act of representing is not free of an object placed, as it were, before the eyes of the representing subject.",
+"There follows a survey of the projection concept in the physiology and psychology of the day — Rokitansky, Carus, Rosenkranz on Feuerbach, Hartsen, Helmholtz's empiristic against the nativistic theory, Johannes Müller, Wundt, Horwicz — omitted here."))
+
+U.append(("c2", None,
+"Mit der Andeutung, dass Beziehungen derartige absolute, in einem inneren nothwendigen Verhältniss zweier Seiten haftende sind, deren jede sich stets die andere gegenüberstellt, sie voraussetzt, projicirt, lassen wir diesen bis jetzt unerledigten Gegenstand vorläufig auf sich beruhen, und wenden uns zu einem Vorgang, dem es in Wahrheit zukommt, als Projection bezeichnet zu werden, da ihm nur solche Thatsachen zum Grunde liegen, welche eine Verschiedenheit der Ansichten gänzlich ausschliessen. Die nähere Bestimmung dieser Art von Projection, der Organprojection, wird sich aus dem Verlauf unserer Untersuchung rechtfertigen, deren eigentliches Thema sie ist.",
+"With the intimation that relations of this kind are absolute ones, inhering in an inner, necessary relation of two sides, each of which constantly sets the other over against itself, presupposes it, projects it, we let this hitherto unsettled subject rest for the present, and turn to a process to which it truly belongs to be called projection, since there underlie it only such facts as wholly exclude any difference of opinion. The closer determination of this kind of projection — organ projection — will justify itself in the course of our inquiry, whose proper theme it is.",
+"The coinage of the term. The passage runs across the foot of p. 32, which the scan's OCR destroys; the text here is transcribed from the page image."))
+
+U.append(("c2", None,
+"Die ihr zum Grunde liegenden Thatsachen sind bekannte, geschichtliche, sind so alt wie die Menschheit. Neu aber ist deren Betrachtung aus ihrem genetischen Zusammenhang heraus, und zwar von dem hier zum erstenmal durchgängig darauf angewendeten Gesichtspunkt der Projection.",
+"The facts that underlie it are familiar, historical facts, as old as humanity. What is new is their consideration out of their genetic connection — and indeed from the standpoint of projection, here for the first time applied to them throughout.",
+None))
+
+U.append(("c2", None,
+"Dieser bisher unbetretene Weg führt zur culturhistorischen Begründung der Erkenntnisslehre überhaupt. Ausgangspunkt ist der Mensch, der ja bei Allem, was er denkt und thut, ohne von sich selbst abzufallen, von nichts Anderem ausgehen kann als von sich, dem denkenden und handelnden Selbst; aber nicht der hypothetische Bathybiusmensch, nicht der annoch eben so hypothetische Idealmensch, sondern der Mensch, so weit nur immer von urältester Zeit bis zur Gegenwart Dinge mit von seiner Hand herrührenden Spuren und Veränderungen für sein Dasein zeugen. Dieser nur ist der feste Punkt für den Beginn und für das Ziel alles Wissens. Zeugt er doch überall und immer für sich Selbst!",
+"This hitherto untrodden path leads to the culture-historical grounding of the theory of knowledge altogether. The point of departure is man, who in everything he thinks and does can — without falling away from himself — start from nothing other than himself, the thinking and acting self; not, however, the hypothetical Bathybius-man, nor the still equally hypothetical ideal man, but man so far as, from most ancient times down to the present, things bearing traces and alterations that come from his hand testify to his existence. He alone is the fixed point for the beginning and for the goal of all knowledge. For everywhere and always he testifies to himself!",
+None))
+
+U.append(("c2", None,
+"Angesichts dieser Funde und auch jener anderen, welche der heutigen Sprachforschung die neu erschlossenen Labyrinthe liefern, verschwimmen die Begriffe des Geschichtlichen und des bisher sogenannt Vorgeschichtlichen in einander bis zur Unkenntlichkeit, so dass man sich, um doch zu irgend einer Art von Abgrenzung oder Unterscheidung zu gelangen, einfach zu der Annahme bequemen muss, der eigentlich vorgeschichtliche Mensch sei derjenige, von dessen Dasein die Spuren auch des rohesten Werkzeugs nicht vorhanden sind; denn nur ein solches ist der Urgeschichte Beginn, weil es die erste Arbeit ist. Insofern man die Geschichte als die Aufeinanderfolge der menschlichen Arbeit auffasst, ist auch die erste Arbeit, um das Geringste davon auszusagen, der geschichtartige Anfang, und die Urgeschichte selbst lässt sich weiterhin erst von da zu erkennbarer Geschichte an, wo eine berufsgleiche Scheidung der Arbeitenden in der Arbeitstheilung zu erscheinen beginnt, und die allmälige feste Sonderung in Kasten und die staatliche Gliederung zu Ständen vorbereitet.",
+"In view of these finds, and of those others which supply modern philology with its newly opened labyrinths, the concepts of the historical and of the hitherto so-called prehistorical blur into one another beyond recognition; so that, in order to arrive at any kind of demarcation at all, one must simply settle for the assumption that the properly prehistorical man is he of whose existence not even the traces of the rudest tool are extant — for only such a tool is the beginning of primeval history, because it is the first work. Insofar as history is conceived as the succession of human work, the first work is also — to assert the least of it — the history-like beginning; and primeval history itself shapes into recognizable history only from the point where a vocational separation of workers begins to appear in the division of labour, preparing the gradual firm segregation into castes and the articulation of the state into estates.",
+None))
+
+U.append(("c2", None,
+"Alle Arbeit ist Thätigkeit, aber nur die bewusste Thätigkeit ist Arbeit. Kein Thier arbeitet. In den Schwärmen der sogenannten Thierstaaten der Bienen und Ameisen findet sich nur Emsigkeitstheilung. Theilung der Arbeit, der bewussten Berufsarbeit, sie ist es, welche den Geschichtsstaat macht und ist schon Geschichte.",
+"All work is activity, but only conscious activity is work. No animal works. In the swarms of the so-called animal states of bees and ants there is only a division of busyness. Division of work — of conscious vocational work — it is this that makes the historical state, and is already history.",
+None))
+
+U.append(("c2", None,
+"Der Gebrauch und die Vervollkommnung künstlich hergestellter Waffen hatte von selbst eine verhältnissmässig verminderte Anstrengung und eine Schonung der angeborenen natürlichen Waffen zur Folge. Zu der Erschaffung von Mitteln, berechnet auf Schutz und Sicherheit, sowie auf annähernde Behaglichkeit des Daseins und dadurch sich steigernde geistige Thätigkeit, trat allmälig die zu ungewöhnlicher Anstrengung und Kraftäusserung nicht mehr genöthigte Physis ins Gleichgewicht. Das Raubthierähnliche schwand in demselben Grade, in welchem das Geistige zu harmonisch menschlicher Bildung hervortrat. Die verwundenden und tödtlichen Eigenschaften der Körperbildung wurden allmälig in ein dem Menschen Aeusseres, in die Waffe, verlegt. Das Gebiss trat mit in den Bereich der Sprachorgane, der krallenartige Ausläufer der auch wohl als Fuss gebrauchten Hand wurde zur schützenden Nageldecke des werkthätigen Fingers, während gleichzeitig der ganze anfänglich nur nach thierartiger Lebensweise ausgeformte, roh modellirte Leib mit seiner aufrechten Stellung in die Milderung der Ansprüche eines geselligen Daseins einging.",
+"The use and perfection of artificially made weapons had of itself the consequence of comparatively lessened exertion and a sparing of the inborn natural weapons. Alongside the creation of means calculated for protection and safety, as well as for an approximate comfort of existence and thereby a heightening mental activity, the physis, no longer compelled to unusual exertion and display of strength, gradually came into equilibrium. The likeness to the beast of prey vanished in the same degree in which the mental emerged into harmoniously human formation. The wounding and deadly properties of the bodily frame were gradually transferred into something external to man — into the weapon. The teeth passed over into the domain of the organs of speech; the claw-like extremity of the hand, which had also served as a foot, became the protecting nail-cover of the work-active finger; while at the same time the whole body, at first shaped only for an animal-like way of life and roughly modelled, entered with its upright posture into the softening of the claims of a sociable existence.",
+None))
+
+U.append(("c2", None,
+"So stehen wir nunmehr vor dem Menschen, wie er sich aus dem ursprünglichen Zustand unablässiger Vertheidigung gegen blutdürstiges Raubgethier zu Angriff und Vertilgung in Stand setzt durch Anwendung von mit eigener Hand gefertigten, die natürliche Arm- und Handkraft mächtig steigernden Vorrichtungen und Werkzeugen.",
+"Thus we now stand before man as, out of the original condition of incessant defence against bloodthirsty beasts of prey, he equips himself for attack and extermination by the use of devices and tools made with his own hand, which mightily heighten the natural strength of arm and hand.",
+None))
+
+U.append(("c2", None,
+"Hier ist die eigentliche Schwelle unserer Untersuchung, nämlich der Mensch, der mit dem ersten Geräthe — seiner Hände Werk — sein historisches Probestück ablegt, dann überhaupt der historische, im Fortschritt des Selbstbewusstseins befindliche Mensch. Dieser ist der einzige sichere Ausgangspunkt aller denkenden Betrachtung und Orientirung über die Welt. Denn das absolut Gewisseste für den Menschen ist zunächst nur er selbst.",
+"Here is the proper threshold of our inquiry: man who, with the first implement — the work of his hands — passes his historical trial-piece; and then the historical man altogether, engaged in the progress of self-consciousness. He is the only sure point of departure of all thinking contemplation of, and orientation about, the world. For what is absolutely most certain for man is, in the first place, only himself.",
+None))
+
+U.append(("c2", None,
+"Die Mitte einnehmend zwischen den Zielen der Forschung, den geologischen Anfängen und der teleologischen Zukunft, ist der Mensch der feste Punkt, von dem aus das Denken nach rückwärts und nach vorwärts die Grenzen des Wissens erweitert und zu dem es aus den Verirrungen subjectiver Ausdeutung solcher Gebiete, welche jeder Forschung unzugänglich sind, zu erneuter Gesundung zurückkehrt.",
+"Occupying the middle between the goals of research — the geological beginnings and the teleological future — man is the fixed point from which thought, backward and forward, widens the boundaries of knowledge, and to which, out of the aberrations of subjective interpretation of such regions as are inaccessible to all research, it returns for renewed health.",
+None))
+
+# --------------------------------- VII. Dampfmaschine und Schienenweg (excerpts)
+U.append(("c7", None,
+"Deutlicher hebt Helmholtz den Unterschied zwischen Menschenarbeit und Maschinenleistung hervor: „Wenn wir von Arbeit der Maschinen und Naturkräfte reden, so müssen wir in diesem Vergleiche natürlich von Allem absehen, was an Thätigkeit der Intelligenz sich in die Arbeit des Menschen einmischt. Was in der Arbeit der Maschinen aber von Wirkungen der Intelligenz vorkommt, gehört natürlich dem Geist des Erbauers an, und kann nicht dem Werkzeug als Arbeit angerechnet werden. … Der Begriff der Arbeit ist auf Maschinen offenbar übertragen worden, indem man ihre Verrichtungen mit denen der Menschen und Thiere verglich, zu deren Ersatz sie bestimmt waren. … Das Räderwerk der Uhr bringt also keine Arbeitskraft hervor, die ihm nicht mitgetheilt wäre, sondern vertheilt nur die mitgetheilte gleichmässig auf längere Zeit.“ (Gesammelte Vorträge, S. 142. — Wechselwirkung der Naturkräfte, S. 8. 13.)",
+"More distinctly, Helmholtz brings out the difference between human work and machine performance: “When we speak of the work of machines and of natural forces, we must in this comparison naturally leave out of account everything of the activity of intelligence that mingles in the work of man. Whatever of the effects of intelligence occurs in the work of machines belongs, of course, to the mind of the builder, and cannot be credited to the tool as work. … The concept of work has evidently been transferred to machines by comparing their performances with those of the men and animals for whose replacement they were destined. … The wheelwork of the clock thus produces no working power that has not been imparted to it, but only distributes the imparted power evenly over a longer time.” (Gesammelte Vorträge, p. 142; Wechselwirkung der Naturkräfte, pp. 8, 13.)",
+"Compare, in this corpus, Lovelace's Note G of 1843: the Analytical Engine “has no pretensions whatever to originate any thing”."))
+
+U.append(("c7", None,
+"Nicht minder treffend stellt bei seinem Vergleich von Maschine und menschlichem Organismus O. Liebmann den in die Augen springenden Aehnlichkeiten den Unterschied an die Seite: „Aber! Aber! Die Maschine ist ein äusserlich und willkürlich gemachtes Artefact, der Organismus nach immanentem, verborgenem Gesetz ex ovo gewachsen. Das Hegemonicon der Maschine gehört nicht zu ihr, residirt nicht in ihr; Heizer und Locomotivführer sitzen auf ihr und lenken sie, wie der Reiter sein Ross. Das ἡγεμονικόν des lebenden Organismus, Intelligenz und Wille, gehört zu ihm, sitzt in ihm, ist mit ihm entstanden, bildet seinen integrirenden Bestandtheil. Und — ganz abgesehen von den physischen Functionen — die Theile der Maschine sind ein für allemal da, bleiben ihren materiellen Bestandtheilen nach mit sich identisch, so lange bis die Maschine äusserlich reparirt wird; die Organe des Organismus bleiben nur der Form nach identisch, während ihr Stoff fortwährend wechselt, sie regeneriren oder repariren sich selbst.“",
+"No less aptly, O. Liebmann, in his comparison of machine and human organism, sets the difference beside the similarities that leap to the eye: “But! But! The machine is an artefact made externally and at will; the organism has grown ex ovo according to an immanent, hidden law. The hegemonicon of the machine does not belong to it, does not reside in it; stoker and engine-driver sit upon it and steer it, as the rider his horse. The ἡγεμονικόν of the living organism — intelligence and will — belongs to it, sits within it, came into being with it, forms its integral constituent. And — quite apart from the physical functions — the parts of the machine are there once and for all, remain identical with themselves in their material constituents until the machine is externally repaired; the organs of the organism remain identical only in form, while their stuff changes continually: they regenerate, they repair themselves.”",
+"ἡγεμονικόν (hēgemonikón): the Stoic term for the governing part of the soul."))
+
+U.append(("c7", None,
+"Der degradirenden mechanistischen Weltanschauung von der Maschinenwerdung des Menschen, sowie von der Menschwerdung der Maschine wird durch Erklärungen obiger Art gründlich vorgebaut. Das Wort von Helmholtz, dass der Begriff der Arbeit für Maschinen aus dem Vergleich mit dem Menschen hergenommen sei, schliesst die unmittelbare Folgerung in sich, dass auch die Maschine selbst, wenn sie soll Menschenarbeit ersetzen können, entsprechend — d. h. entsprechend dem Organismus, dessen Arbeit sie ersetzen soll — construirt sein wird. Ihre Leistungsfähigkeit, oder vielmehr ihre Brauchbarkeit, steht unmittelbar in Beziehung zum Menschen, der sie gebraucht, und zu dem Zweck, wofür bestimmte Organe auch ohne mechanische Unterstützung thätig sein würden.",
+"Against the degrading mechanistic world-view of the machine-becoming of man, and of the man-becoming of the machine, explanations of the above kind build a thorough defence. Helmholtz's word — that the concept of work for machines is taken from the comparison with man — contains within it the immediate consequence that the machine itself, if it is to be able to replace human work, will be constructed correspondingly: that is, corresponding to the organism whose work it is to replace. Its capacity, or rather its usefulness, stands in immediate relation to the man who uses it, and to the purpose for which particular organs would be active even without mechanical support.",
+None))
+
+U.append(("c7", None,
+"Was an der Dampfmaschine die hohe Bewunderung einflösst, das sind ja nicht jene technischen Einzelheiten, wie etwa die Nachbildung einer organischen Gelenkverbindung durch metallene Drehflächen mit Oelglätte, nicht die Schrauben, Arme, Hämmer, Hebel, Kolben, sondern es ist die Speisung der Maschine, die Umsetzung der Brennstoffe in Wärme und Bewegung, kurz der eigenthümlich dämonische Schein selbsteigener Arbeitsleistung. Hier spricht die Erinnerung an höhere Herkunft, die den Menschen, dessen Hand das eiserne Ungethüm gebaut und freigegeben hat zum Wettlauf mit Sturm und Wind und Wogen, vor sich selbst erstaunen macht, wo jeder prüfende Blick dazu beiträgt, die Wahrheit des L. Feuerbach'schen Textwortes aller Anthropologie einleuchtend zu machen, dass der Gegenstand des Menschen nichts anders ist, als sein gegenständliches Wesen selbst.",
+"What instils the high admiration for the steam-engine is, after all, not those technical details — say, the imitation of an organic joint by metal turning-surfaces smooth with oil — not the screws, arms, hammers, levers, pistons: it is the feeding of the machine, the conversion of fuels into heat and motion — in short, the peculiarly demonic semblance of work done of its own. Here speaks the reminder of higher origin, which makes man — whose hand built the iron monster and set it free to race with storm and wind and waves — astonished before himself; where every examining look contributes to making evident the truth of L. Feuerbach's text-word of all anthropology: that man's object is nothing other than his own objective essence itself.",
+"«Der dämonische Schein selbsteigener Arbeitsleistung» — the demonic semblance that the machine works of itself: Kapp's 1877 diagnosis of the illusion the generative-AI debate calls anthropomorphism."))
+
+# --------------------------- VIII. Der elektromagnetische Telegraph (excerpts)
+U.append(("c8", None,
+"Seine Vergleichung mit der Function des Nervensystems gilt als selbstverständlich. Sie ist allgemein im Gebrauch, um sich das Verhalten der elektrischen Strömung im Organismus anschaulich zu machen. Unsere Vorstellungen vom Nerven und vom elektrischen Draht decken sich im gewöhnlichen Leben so sehr, dass man mit Fug behaupten darf, es existire überhaupt keine andere mechanische Vorrichtung, welche in genauerer Uebereinstimmung ihr organisches Vorbild wiedergiebt, und andererseits kein Organ, dessen innere Beschaffenheit in dem ihm unbewusst nachgeformten Bau so deutlich wiedergefunden wird, wie der Nervenstrang im Telegraphenkabel.",
+"Its comparison with the function of the nervous system passes for self-evident. It is in general use for making the behaviour of the electric current in the organism vivid to oneself. Our notions of the nerve and of the electric wire coincide in ordinary life so far that one may fairly assert that there exists no other mechanical device at all which reproduces its organic model in closer agreement — and, on the other side, no organ whose inner constitution is so distinctly found again in the structure unconsciously modelled after it, as the nerve-cord in the telegraph cable.",
+None))
+
+U.append(("c8", None,
+"Die Organprojection feiert hier einen grossen Triumph. Die hauptsächlichen Erfordernisse derselben: die unbewusst nach organischem Muster vor sich gehende Anfertigung, demnächst die Begegnung, das Sichfinden von Original und Abbild nach dem logischen Zwang der Analogie, und dann die im Bewusstsein wie ein Licht aufgehende Uebereinstimmung zwischen Organ und künstlichem Werkzeug, nach dem Grade denkbarster Gleichheit — diese Momente im Process der Organprojection haben sich auch für das Telegraphensystem aufs Deutlichste herausgestellt, und lassen wir hier sofort eine der competentesten Stimmen dafür eintreten.",
+"Organ projection here celebrates a great triumph. Its principal requisites — the making that proceeds unconsciously after an organic pattern; next the encounter, the finding-of-one-another of original and copy under the logical compulsion of analogy; and then the agreement between organ and artificial tool dawning in consciousness like a light, in the degree of the most conceivable likeness — these moments in the process of organ projection have shown themselves most distinctly for the telegraph system too; and we here at once let one of the most competent voices speak for it.",
+None))
+
+U.append(("c8", None,
+"R. Virchow sagt in dem Vortrag „über das Rückenmark“: „Schneidet man einen solchen Faden (Nervenstrang) quer durch, so sieht man die einzelnen Bündel auf der Schnittfläche in Gestalt weisslicher Vorsprünge hervortreten, und man gewinnt ein Bild, welches im Kleinen ganz genau demjenigen entspricht, das im Grossen die so viel verbreiteten Abschnitte des submarinen Telegraphenkabels darbieten. Gerade wie man aus diesen Abschnitten durch Ablösung der umhüllenden Isolationsschichten die einzelnen Drähte freimachen kann, so kann man auch durch Zerfaserung aus der Nervenscheide die einzelnen Bündel von Nervenfasern und bei weiterer Trennung aus diesen Bündeln die einzelnen Nervenfasern auslösen. In der That entsprechen sich die Verhältnisse vollständig: Die Nerven sind Kabeleinrichtungen des thierischen Körpers, wie man die Telegraphenkabel Nerven der Menschheit nennen kann.“ (S. 10.)",
+"R. Virchow says in the lecture “On the Spinal Cord”: “If one cuts such a thread (nerve-cord) across, one sees the single bundles stand out on the cut surface in the shape of whitish prominences, and one obtains a picture which corresponds in the small quite exactly to that which the so widely circulated sections of the submarine telegraph cable present in the large. Just as one can free the single wires from these sections by detaching the enveloping insulating layers, so one can also, by teasing apart, release from the nerve-sheath the single bundles of nerve-fibres, and on further separation the single nerve-fibres from these bundles. In fact the relations correspond completely: the nerves are cable installations of the animal body, as the telegraph cables may be called nerves of mankind.” (p. 10.)",
+None))
+
+U.append(("c8", None,
+"Dieser Ausspruch lässt denn doch an Deutlichkeit nicht das Mindeste zu wünschen übrig! Hier schwindet jedes allzu bedächtige „gleichsam“ oder „gewissermaassen“ vor dem kategorischen „in der That“ aus einem Munde, dem ein kategorisches Wort so wohl ansteht, und vor der offenen, keine Nebendeutung und keinen Vorbehalt zulassenden Erklärung: Die Nerven sind Kabeleinrichtungen des thierischen Körpers, die Telegraphenkabel sind Nerven der Menschheit! Und, fügen wir hinzu, sie müssen es sein, weil das charakteristische Merkmal der Organprojection das unbewusste Vorsichgehen ist. Oder hätten etwa die Männer, denen es vor anderen gelang, mittels des elektrischen Stromes Nachrichten in die Ferne zu senden, vor dem ersten Versuche den bewussten Vorsatz gehabt und ausgeführt, einen Nerv zu zergliedern, plastisch genau nachzuconstruiren und eine ihrem leiblichen Nervensystem gleiche Verzweigung von elektrischem Gestränge über den Erdboden zu legen?",
+"This utterance indeed leaves not the least to be desired in distinctness! Here every over-cautious “as it were” or “in a certain measure” vanishes before the categorical “in fact”, from a mouth which a categorical word so well befits, and before the open declaration admitting of no side-meaning and no reservation: the nerves are cable installations of the animal body, the telegraph cables are nerves of mankind! And, let us add, they must be so, because the characteristic mark of organ projection is its proceeding unconsciously. Or did the men who before others succeeded in sending messages into the distance by means of the electric current have, before the first attempt, the conscious purpose — and carry it out — of dissecting a nerve, of reconstructing it with plastic exactness, and of laying over the earth a branching of electric cordage equal to their own bodily nervous system?",
+None))
+
+U.append(("c8", None,
+"Mit besonderer Genugthuung ist daher eine Stimme zu begrüssen, welche unserer Auffassung so ganz ohne Umschweife zufällt, dass gewissermaassen nur noch ein letzter kleiner Schritt fehlt zur Erklärung des vollen Einverständnisses. „Verstehen wir doch,“ sagt nämlich Alfr. Dove, „den Mechanismus der Natur immer erst dann, wenn wir ihn frei nacherfunden haben; so das Auge, nachdem wir die Camera, die Nerven, nachdem wir den Telegraphen construirt.“ Dass hier der Ausdruck „Mechanismus der Natur“ im Sinne von leiblichem Organismus zu nehmen sei, bedarf keiner Erörterung. Ist denn aber auch das freie „Nacherfinden“ jenes der Organprojection unerlässliche unbewusste Finden?",
+"With particular satisfaction, therefore, a voice is to be welcomed which falls in with our conception so entirely without circumlocution that, in a certain measure, only one last small step is wanting for the declaration of full agreement. “For we understand,” says Alfred Dove, “the mechanism of nature always only when we have freely re-invented it: so the eye, after we constructed the camera; the nerves, after we constructed the telegraph.” That the expression “mechanism of nature” is here to be taken in the sense of the bodily organism needs no discussion. But is the free “re-inventing” also that unconscious finding which is indispensable to organ projection?",
+"Dove's maxim — we understand nature only when we have re-invented it — is the nineteenth-century ancestor of a sentence familiar from the AI debate: “What I cannot create, I do not understand.”"))
+
+U.append(("c8", None,
+"Unsere Betrachtung kommt dem Punkt immer näher, wo der Begriff des Werkzeugs über die seinen Inhalt ausmachenden, aus dem Rohstoff geformten Mechanismen hinweg seine gewöhnliche Fassung so zu erweitern beginnt, dass er sich auch auf weniger sinnlich greifbare Formirungen erstreckt, bis er schliesslich, sublimirt zum Begriff von Mittel und Werkzeug in höchster und allgemeinster Bedeutung, seine Stoffe sich unmittelbar aus der Werkstätte des Geistes selbst liefern lässt. Den Zutritt zu dieser Sphäre der Organprojection hat der elektrische Telegraph geebnet. Denn dieselbe bewegende Kraft, die im einen Falle äusserlich auf den Draht übertragen wird, und im anderen innerlich an der Innervation betheiligt ist, dient hier wie dort der Gedankenmittheilung, ohne jedoch irgendwie den constanten Unterschied, welcher zwischen mechanischer und organischer Vermittelung herrscht, abhanden kommen zu lassen.",
+"Our consideration comes ever nearer the point where the concept of the tool, passing beyond the mechanisms formed from raw stuff that make up its content, begins so to widen its ordinary compass that it extends also to formations less tangible to the senses — until at last, sublimated into the concept of means and tool in the highest and most general signification, it has its materials delivered to it immediately from the workshop of the mind itself. Access to this sphere of organ projection has been levelled by the electric telegraph. For the same moving force which in the one case is transferred outwardly to the wire, and in the other participates inwardly in innervation, serves here as there the communication of thought — yet without ever letting the constant difference that obtains between mechanical and organic mediation be lost.",
+"Tools whose materials come «from the workshop of the mind itself» — Kapp's 1877 anticipation of symbolic machinery, written when the most immaterial tool in existence was the telegram."))
+
+U.append(("c8", None,
+"So geht ihm, indem er sich der Führung jener Verwandtschaft zwischen Vorbild und Nachbild überlässt und die von ihm geschaffene Aussenwelt messend an sich selbst legt, ein stets höheres Selbstbewusstsein auf.",
+"Thus, as he yields himself to the guidance of that kinship between model and copy, and lays the outer world he has created, measuring, against himself, an ever higher self-consciousness dawns upon him.",
+"The chapter's closing sentence, and the book's thesis in one line: technology is the detour by which man comes to know himself."))
+
+# ------------------------------------------------------------------- assemble
+SECTIONS = [
+    ("vorwort", "Vorwort (excerpts)"),
+    ("c1", "I. Der anthropologische Maassstab — close of the chapter"),
+    ("c2", "II. Die Organprojection"),
+    ("c7", "VII. Dampfmaschine und Schienenweg (excerpts)"),
+    ("c8", "VIII. Der elektromagnetische Telegraph (excerpts)"),
+]
+
+secs = []
+n = 0
+for sid, titel in SECTIONS:
+    units = []
+    k = 0
+    for (s, label, de, en, note) in U:
+        if s != sid:
+            continue
+        n += 1; k += 1
+        u = {"n": n, "k": k, "orig": de, "txt": en}
+        if label: u["label"] = label
+        if note: u["note"] = note
+        units.append(u)
+    secs.append({"id": sid, "titel": titel, "units": units})
+
+data = {
+    "id": "kapp",
+    "autor": "Ernst Kapp",
+    "titel": "Grundlinien einer Philosophie der Technik (1877) — selections",
+    "jahr": 1877,
+    "lang": "de",
+    "zitierweise": "PhT II [k]",
+    "quelle": "Grundlinien einer Philosophie der Technik. Zur Entstehungsgeschichte der Cultur aus neuen Gesichtspunkten (Braunschweig: Westermann, 1877). German text from the Internet Archive/MDZ scan of the first edition (Bayerische Staatsbibliothek, 11379066bsb; an Antiqua printing), OCR emended by hand; every damaged passage was verified letter-by-letter against the page images of the scan. Public domain.",
+    "hinweis": "Selections chosen for the argument, not an edition of the whole work: excerpts of the Vorwort, the close of chapter I, the core of chapter II (the doxographic survey of the projection concept is omitted as marked), and excerpts of chapters VII and VIII. The 1877 orthography is preserved. The English is an unofficial working translation made for this site — cite the German; the only complete English translation (2018) remains in copyright and was not consulted. The paragraph numbers are editorial.",
+    "sections": secs,
+}
+
+out = 'C:/Users/leofa/OneDrive/Desktop/AI Predecessors/repo/data/kapp_grundlinien.json'
+io.open(out, 'w', encoding='utf-8').write(json.dumps(data, ensure_ascii=False))
+print(f"wrote {out}: {n} units in {len(secs)} sections")

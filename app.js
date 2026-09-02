@@ -28,6 +28,8 @@ const CITE = {
   peirce: (sec, u) => `LM [${u.n}]`,
   llull: (sec, u) => `AB [${u.n}]`,
   lamettrie: (sec, u) => `HM [${u.n}]`,
+  kapp: (sec, u) => ({ vorwort: `PhT, Vorwort [${u.k}]`, c1: `PhT I [${u.k}]`, c2: `PhT II [${u.k}]`,
+    c7: `PhT VII [${u.k}]`, c8: `PhT VIII [${u.k}]` }[sec.id] || `PhT [${u.n}]`),
   lovelace: (sec, u) => sec.id === "memoir" ? `Menabrea [${u.k}]` : `Note ${sec.id.slice(4)} [${u.k}]`,
 };
 const citeOf = (workId, sec, u) => (CITE[workId] || ((s, x) => `[${x.n}]`))(sec, u);
@@ -87,7 +89,8 @@ function viewOverview() {
         <span class="tag" style="color:var(--gegen)">The counter-voices</span>
         <p style="font-size:.9rem;color:var(--fg2);margin:.3rem 0 0">Descartes's language test, which no
         machine was to pass; Leibniz's mill; Lovelace's objection; La Mettrie's radical retort that man
-        himself is the machine. The arguments today's debate keeps rediscovering.</p>
+        himself is the machine — and Kapp's reversal: the machine is a projection of man. The arguments
+        today's debate keeps rediscovering.</p>
       </div>
     </div>
 
@@ -470,6 +473,20 @@ function viewMethod() {
       the text has therefore been emended by hand against the standard textual tradition, and the
       modern critical edition (ROL), which remains in copyright, was not used. The English is a
       working translation made for this site. Citation form <span class="mono">AB [n]</span>.</p>
+      <p class="readable"><strong>Kapp.</strong> Grundlinien einer Philosophie der Technik (Braunschweig
+      1877), in selections chosen for the argument: excerpts of the Vorwort (including the declaration
+      that man “will never confuse himself with a technical contrivance”), the close of chapter I, the
+      core of chapter II — the coinage of “Organprojection”, with the doxographic survey of the
+      projection concept omitted as marked — and excerpts of chapters VII (the steam-engine, Helmholtz
+      on the borrowed concept of machine work, the “Maschinenwerdung des Menschen”) and VIII (the
+      telegraph/nervous-system parallel, and the tool whose materials come “from the workshop of the
+      mind itself”). German text from the Internet Archive/MDZ scan of the first edition — an Antiqua
+      printing, so the OCR was serviceable; every damaged passage was verified letter-by-letter against
+      the page images of the scan (the coinage passage itself crosses a page foot the OCR destroys).
+      The 1877 orthography is preserved. No public-domain English translation exists; the English is
+      this site's working translation, and the 2018 translation was not consulted. Citation forms
+      <span class="mono">PhT, Vorwort [k]</span>, <span class="mono">PhT II [k]</span> etc.
+      (editorial paragraph numbers per chapter).</p>
       <p class="readable"><strong>The Atlas.</strong> The Atlas view is a co-occurrence network: the
       leading content terms of the shipped English texts, linked when they appear in the same
       paragraph, weighted by pointwise mutual information, laid out by a small force simulation in the
@@ -479,13 +496,14 @@ function viewMethod() {
     </div>
 
     <div class="panel"><h2>The programme</h2>
-      <p class="readable">The corpus was built in stages along three lines and is complete: the
-      logic line (the Llull prologue, Hobbes, the Leibniz anthology, Boole, Frege), the machine
-      line (Pascal's fragments, Lovelace's Notes of 1843 with Menabrea's Sketch, Jevons's memoir
-      of 1870, Peirce's “Logical Machines” of 1887), and the counter-voices (Descartes's Discours
-      Part V and La Mettrie's L'Homme Machine, both bilingual) — eleven modules shipped. A
-      Tractatus module, once under consideration, has been dropped: the corpus ends where the
-      formal-system line hands over to the twentieth century.</p>
+      <p class="readable">The corpus was built in stages along three lines: the logic line (the
+      Llull prologue, Hobbes, the Leibniz anthology, Boole, Frege), the machine line (Pascal's
+      fragments, Lovelace's Notes of 1843 with Menabrea's Sketch, Jevons's memoir of 1870,
+      Peirce's “Logical Machines” of 1887), and the counter-voices (Descartes's Discours Part V
+      and La Mettrie's L'Homme Machine, both bilingual, joined in 2026 by Kapp's Grundlinien of
+      1877) — twelve modules shipped. A Tractatus module, once under consideration, has been
+      dropped: the corpus ends where the formal-system line hands over to the twentieth century.
+      What the corpus cannot contain, and why, is the subject of the <a href="#/coda">coda</a>.</p>
     </div>
 
     <div class="panel"><h2>Known limits</h2>
@@ -705,6 +723,65 @@ function viewPrivacy() {
   </div>`));
 }
 
+/* =============================================================== CODA */
+/* Editorial closing note: what this anthology cannot contain, and why.
+   Editorial matter, CC BY 4.0. */
+function viewCoda() {
+  view.append(el(`<div>
+    <div class="viewhead"><span class="tag" style="color:var(--gegen)">Editorial</span>
+      <h1>After the threshold</h1>
+      <p class="lede">A coda on what this anthology cannot contain — and on the difference between
+      an anthology and a quarry.</p></div>
+
+    <div class="panel"><h2>An anthology, not a quarry</h2>
+      <p class="readable">This apparatus carries extraction tools: a concordance that cuts across
+      twelve works, an atlas that dissolves them into term co-occurrences. Used alone, such tools
+      treat philosophy as a quarry — material to be broken out of context and carried off. But the
+      direction of this site runs the other way. Every concordance hit and every atlas node resolves
+      into a full paragraph, inside a whole section, inside a work that was chosen and ordered for a
+      stated argument; every citation grid points away from this site, to the printed originals; the
+      <a href="#/introduction">introduction</a> speaks in a named author's voice; what was selected
+      and why is declared per module, what was altered is disclosed on the
+      <a href="#/method">method page</a>, and even what was considered and dropped is on record. That
+      is what makes a collection an anthology: it owns its selections — and its omissions.</p>
+    </div>
+
+    <div class="panel"><h2>What is missing, and why</h2>
+      <p class="readable">The corpus ends, of legal necessity, at the threshold of Turing. But the
+      same rights boundary excludes the twentieth century's strongest counter-voices. Martin Buber's
+      <em>Ich und Du</em> (1923) grounds meaning in the dialogical encounter — the I–Thou that is a
+      relation, not a content, and so cannot be stored. Emmanuel Levinas places the origin of ethics
+      in the face of the Other — precisely that which does not survive detachment into text. Their
+      works remain in copyright (Buber †1965, Levinas †1995); no module can carry them, and none
+      pretends to.</p>
+      <p class="readable">The corpus's own last counter-voice marks the same spot from inside.
+      Kapp's organ projection (<a href="#/works/kapp">Grundlinien, 1877</a>) understands every
+      technology, up to the tools made “from the workshop of the mind itself”, as a projection of
+      the human — which is to say: as monologue made durable. A projection meets no one. Where
+      projection ends, encounter begins; there this corpus ends too, and must.</p>
+    </div>
+
+    <div class="panel"><h2>The philosophical pact</h2>
+      <p class="readable">Reading philosophy is not extraction but a bond. Rainer Otte has called it
+      the <em>philosophical pact</em> between author and reader — in analogy to Philippe Lejeune's
+      autobiographical pact: an implicit commitment to truth that deliberate deception would break,
+      and that tools which detach sentences from their situation can dissolve without anyone
+      noticing. The question whether an apparatus like this one — or, more sharply, a language
+      model trained on such texts — keeps or breaks that pact cannot be settled by assertion. It
+      can only be answered in the form of the thing itself: texts as wholes rather than snippets;
+      translations marked unofficial; every editorial hand named — including the seven paragraphs a
+      1912 translator silently dropped from La Mettrie, a broken pact this edition repairs; and
+      numbering grids built so that the reader can leave. This apparatus wants to be left — in the
+      direction of the books.</p>
+      <p class="readable" style="color:var(--fg2)">Further reading: Martin Buber, <em>Ich und
+      Du</em> (Leipzig 1923). — Emmanuel Levinas, <em>Totalité et infini</em> (The Hague 1961). —
+      Philippe Lejeune, <em>Le pacte autobiographique</em> (Paris 1975). — Rainer Otte,
+      <em>Selber denken. Philosophie im Alltag</em> (Frankfurt am Main: Humanities Online, 2023),
+      on ChatGPT and the philosophical pact.</p>
+    </div>
+  </div>`));
+}
+
 /* ============================================================ IMPRINT */
 function viewImprint() {
   view.append(el(`<div>
@@ -734,6 +811,6 @@ function viewImprint() {
 Object.assign(ROUTES, {
   overview: viewOverview, introduction: viewIntroduction, works: viewWorks,
   concordance: viewConcordance, atlas: viewAtlas, method: viewMethod,
-  privacy: viewPrivacy, imprint: viewImprint,
+  coda: viewCoda, privacy: viewPrivacy, imprint: viewImprint,
 });
 boot();

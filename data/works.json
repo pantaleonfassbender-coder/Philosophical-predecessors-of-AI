@@ -122,6 +122,18 @@
   "datei": "pascal_pensees"
  },
  {
+  "id": "kapp",
+  "linie": "gegen",
+  "autor": "Ernst Kapp",
+  "leben": "1808–1896",
+  "kurz": "Kapp",
+  "titel": "Grundlinien einer Philosophie der Technik (1877), selections",
+  "status": "shipped",
+  "datei": "kapp_grundlinien",
+  "sprachen": "German · English (working translation)",
+  "claim": "The projection reversed: man is no machine — the machine is an unconscious projection of his organs, and technology the organ of his self-knowledge. The founding text of the philosophy of technology, whose telegraph/nervous-system chapter prefigures the brain/computer analogy."
+ },
+ {
   "id": "llull",
   "linie": "logic",
   "autor": "Ramon Llull",

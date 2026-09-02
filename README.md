@@ -48,8 +48,12 @@ the site's overview.
 |---|---|---|---|
 | René Descartes | *Discours de la méthode* (1637), Part V — the language test | PG #13846 (FR) + Veitch, PG #59 (EN), bilingual | **shipped** |
 | J. O. de La Mettrie | *L'Homme Machine* (1747) | PG #52090: FR + Bussey 1912 EN, bilingual; 7 silently omitted paragraphs restored | **shipped** |
+| Ernst Kapp | *Grundlinien einer Philosophie der Technik* (1877), selections — organ projection, the telegraph/nervous-system chapter | IA/MDZ scan of the 1877 first edition, OCR emended, verified against page images; working translation | **shipped** |
 
 A Tractatus module was considered and dropped: the corpus ends at the threshold of Turing.
+An editorial **coda** (*After the threshold*) states what the corpus cannot contain — the
+dialogical counter-voices of the twentieth century (Buber, Levinas) — and why an anthology,
+as against a quarry, owes its readers that declaration.
 
 **The boundary is a rights fact:** Turing's papers of 1936 and 1950 remain in copyright
 (until roughly 2032 and 2046). The apparatus therefore ends, deliberately, at the threshold.
