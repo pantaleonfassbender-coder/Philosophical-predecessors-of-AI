@@ -4,7 +4,12 @@ A research apparatus for the prehistory of the AI debate: the public-domain text
 reasoning first became reckoning, reckoning became algebra, algebra became a formal system —
 together with the machines that made the idea tangible, and the philosophers who said it could
 not be done. Built as a static site: paragraph-exact citation, cross-corpus concordance, no
-tracking, no server functions.
+tracking — plus one optional server function, the citation-bound **Dialogue**
+(`netlify/functions/dialogue.mjs`): a browser-side BM25 retrieval selects the bearing
+paragraphs, and only these plus the question go to the Claude API (`claude-sonnet-5`), which
+must answer from them alone, citation on every claim. Requires `ANTHROPIC_API_KEY` in the
+Netlify environment; without it the retrieval still works and the answering degrades
+gracefully. Data path: see the site's privacy page.
 
 The name is Leibniz's: when disputes arise, *Calculemus* — let us calculate.
 

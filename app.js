@@ -280,6 +280,7 @@ const INTRO_LINKS = [
   ["Der Zauberlehrling", "#/works/zauberlehrling"],
   ["R.U.R.", "#/works/capek"],
   ["coda", "#/coda"],
+  ["citation-bound dialogue", "#/dialogue"],
   ["sixteen modules", "#/works"],
   ["concordance", "#/concordance"],
   ["term atlas", "#/atlas"],
@@ -538,6 +539,17 @@ function viewMethod() {
       browser. It is a finding aid, not a semantic claim — the network is precomputed by an open script
       in the repository (<span class="mono">tools/build-network.py</span>), and every node resolves
       back to citable paragraphs.</p>
+      <p class="readable"><strong>The Dialogue.</strong> The <a href="#/dialogue">Dialogue</a> view
+      lets a reader put a question to the corpus. A BM25 retrieval running entirely in the browser
+      selects the paragraphs that bear on the question; only those paragraphs and the question are
+      sent to this site's server function and forwarded to Anthropic's Claude API (the model is named
+      in each answer), which is instructed to answer from the supplied passages alone and to attach
+      the canonical citation to every claim. Answers are reconstructions, not sources: every citation
+      links back into the reader, and quotations must be verified against the editions — and, for
+      working translations, against the originals — before use. The exchange is not stored. This is
+      the site's one server function; the exact data path is on the
+      <a href="#/privacy">privacy page</a>, and the editorial position it answers to is in the
+      <a href="#/coda">coda</a>.</p>
     </div>
 
     <div class="panel"><h2>The programme</h2>
@@ -747,11 +759,30 @@ function viewPrivacy() {
       written to satisfy the General Data Protection Regulation as well as United States law. Where the
       GDPR applies to a reader, the operator is the controller within the meaning of Article 4(7).</p></div>
     <div class="panel"><h2>What this site is, technically</h2>
-      <p class="readable">A set of static files and nothing else: no server functions, no accounts, no
-      forms, no newsletter. The site sets <strong>no cookies whatsoever</strong> and uses no analytics,
-      advertising or third-party services of any kind; all fonts and scripts are served from this site
-      itself. Opening any page therefore contacts exactly one host: the one in your address bar. Search
-      runs entirely in your browser; nothing you type is transmitted anywhere.</p></div>
+      <p class="readable">A set of static files, plus one optional server function (the Dialogue,
+      described below): no accounts, no forms, no newsletter. The site sets <strong>no cookies
+      whatsoever</strong> and uses no analytics, advertising or third-party services of any kind; all
+      fonts and scripts are served from this site itself. Opening any page contacts exactly one host:
+      the one in your address bar. Search, the concordance, the atlas — and the Dialogue's retrieval
+      step — run entirely in your browser; outside the Dialogue, nothing you type is transmitted
+      anywhere.</p></div>
+    <div class="panel"><h2>The Dialogue (the one function that sends data)</h2>
+      <p class="readable">The <a href="#/dialogue">Dialogue</a> view is the single feature of this site
+      that transmits anything. If — and only if — you send a question there:</p>
+      <ul style="color:var(--fg2);font-size:.93rem">
+        <li>a retrieval running <strong>in your browser</strong> first selects the corpus paragraphs
+          that bear on your question; nothing else of what is on your screen or device is read;</li>
+        <li>your question and those selected public-domain paragraphs are sent to this site's server
+          function (hosted by Netlify) and forwarded from there to Anthropic's Claude API (Anthropic
+          PBC, USA), which generates the answer;</li>
+        <li>because the call to Anthropic is made server-side, Anthropic does not receive your IP
+          address; the request originates from the hosting infrastructure;</li>
+        <li>this site stores nothing: no question, no answer, no log of the exchange. The session
+          lives only in your browser tab and is gone when you leave. Anthropic processes API inputs
+          under its own commercial terms and privacy policy;</li>
+        <li>do not paste personal data into the question field; where the GDPR applies, the legal
+          basis for the processing you trigger by sending a question is Article 6(1)(b)/(f).</li>
+      </ul></div>
     <div class="panel"><h2>Server logs</h2>
       <p class="readable">The site is hosted by Netlify. Like any web host, Netlify's infrastructure
       records the requests it serves — typically IP address, timestamp, requested URL, HTTP status,
@@ -768,6 +799,182 @@ function viewPrivacy() {
       requests will usually concern Netlify's logs; the operator will assist. Contact: the address in
       the <a href="#/imprint">legal notice</a>.</p></div>
   </div>`));
+}
+
+/* ============================================================ DIALOGUE */
+/* Citation-bound questioning of the corpus. Retrieval (BM25) runs entirely
+   in the browser over the already-loaded editions; only the selected
+   passages and the question are sent to this site's server function, which
+   forwards them to the Claude API (see the privacy page). */
+let DIDX = null;
+const DSTOP = new Set(("the a an and or of to in is are was were be been being it its that this those these for with as by from on at not no nor which what who whom whose his her him she he their our your they we you i me my us if then than so but into upon out over under shall will would could should may might must can do does did done have has had am art thou thy thee ye when where why how all any each every some such only very more most much many one two also there here thus hence yet still even own same other another").split(" "));
+const dtok = s => ((s || "").toLowerCase().match(/[\p{L}\p{N}]{2,}/gu) || []).filter(w => !DSTOP.has(w));
+
+function buildDidx() {
+  const docs = [];
+  for (const w of D.works.filter(x => x.status === "shipped")) {
+    const t = D.texts[w.id];
+    const wt = /working translation/i.test(w.sprachen || "");
+    for (const s of t.sections) for (const u of s.units) {
+      const toks = dtok((u.txt || "") + " " + (u.label || "") + " " + (u.orig || ""));
+      const tf = new Map();
+      for (const tk of toks) tf.set(tk, (tf.get(tk) || 0) + 1);
+      docs.push({ work: w.id, sec: s.id, n: u.n, cite: citeOf(w.id, s, u),
+        werk: w.titel, wt, text: u.txt || u.orig || "", tf, len: toks.length });
+    }
+  }
+  const df = new Map();
+  for (const d of docs) for (const tk of d.tf.keys()) df.set(tk, (df.get(tk) || 0) + 1);
+  const avg = docs.reduce((a, d) => a + d.len, 0) / docs.length;
+  return { docs, df, avg, N: docs.length };
+}
+
+function dretrieve(q, k, scope) {
+  if (!DIDX) DIDX = buildDidx();
+  const { docs, df, avg, N } = DIDX;
+  const terms = dtok(q);
+  const scored = [];
+  for (const d of docs) {
+    if (scope && !scope.has(d.work)) continue;
+    let s = 0;
+    for (const t of terms) {
+      const f = d.tf.get(t); if (!f) continue;
+      const idf = Math.log(1 + (N - df.get(t) + 0.5) / (df.get(t) + 0.5));
+      s += idf * (f * 2.4) / (f + 1.4 * (0.25 + 0.75 * d.len / avg));
+    }
+    if (s > 0) scored.push([s, d]);
+  }
+  scored.sort((a, b) => b[0] - a[0]);
+  return scored.slice(0, k).map(([s, d]) => ({ ...d, score: Math.round(s * 10) / 10 }));
+}
+
+const DSESSION = [];
+const DSUG = [
+  "What exactly is Lovelace's objection, and how does it relate to Pascal's remark on will?",
+  "How does the Talmud's test of Rava's created man compare with Descartes's language test?",
+  "What did Leibniz mean by Calculemus?",
+  "Where does the word automaton first appear, and what does Aristotle conclude from it?",
+  "How does Kapp's organ projection answer La Mettrie?",
+  "What does the golem tradition say about controlling a created servant?",
+];
+
+function viewDialogue() {
+  view.append(el(`<div>
+    <div class="viewhead"><span class="tag" style="color:var(--wort)">Citation-bound dialogue</span>
+      <h1>Put a question to the corpus</h1>
+      <p class="lede">Your question is first answered locally: a retrieval running entirely in your browser
+      searches the sixteen shipped editions and selects the paragraphs that bear on it. Only those paragraphs
+      and your question are sent onward — to this site's server function and from there to Anthropic's Claude
+      API — and the model is instructed to answer from them alone, with a canonical citation on every claim.
+      This is the apparatus's answer to the question its own <a href="#/coda">coda</a> raises: the machine may
+      speak here, but only with the sources open and the way back to the printed page marked. Details on the
+      data path are on the <a href="#/privacy">privacy page</a>.</p></div>
+    <div class="grid" style="grid-template-columns:2fr 1fr;gap:1.2rem;align-items:start">
+      <div>
+        <div id="dlog"></div>
+        <div style="display:flex;gap:.6rem;margin-top:.8rem">
+          <textarea id="dq" rows="3" style="flex:1;background:var(--bg2,#1c2431);color:inherit;border:1px solid #334;border-radius:.4rem;padding:.6rem;font-family:inherit"
+            placeholder="e.g. How does the corpus argue about whether a machine could originate anything?"></textarea>
+          <button class="chip" id="dsend" style="align-self:flex-end">Ask</button>
+        </div>
+        <p class="fine" style="margin-top:.4rem">Ctrl/⌘ + Enter sends. Answers are reconstructions from the
+        retrieved paragraphs — check the citations in the reader before quoting. Nothing is stored.</p>
+      </div>
+      <div>
+        <div class="panel"><h2 style="margin-top:0;font-size:1rem">Scope</h2><div id="dscope"></div>
+          <p class="fine" style="margin:.6rem 0 0">Paragraphs per question:
+            <select id="dtopk"><option>6</option><option selected>8</option><option>12</option></select></p></div>
+        <div class="panel" style="margin-top:1rem"><h2 style="margin-top:0;font-size:1rem">Try asking</h2>
+          <div id="dsug"></div>
+          <p class="fine" style="margin:.6rem 0 0"><button class="chip" id="dclear">Clear session</button></p></div>
+      </div>
+    </div>
+  </div>`));
+
+  const log = view.querySelector("#dlog"), qf = view.querySelector("#dq");
+  const shipped = D.works.filter(w => w.status === "shipped");
+  const chosen = new Set(shipped.map(w => w.id));
+  const scope = view.querySelector("#dscope");
+  const drawScope = () => {
+    scope.innerHTML = "";
+    for (const w of shipped) {
+      const b = el(`<button class="chip ${chosen.has(w.id) ? "on" : ""}" style="margin:.15rem">${esc(w.kurz)}</button>`);
+      b.onclick = () => { chosen.has(w.id) ? chosen.delete(w.id) : chosen.add(w.id); drawScope(); };
+      scope.append(b);
+    }
+  };
+  drawScope();
+  view.querySelector("#dsug").innerHTML = DSUG.map(s =>
+    `<button class="chip" style="text-align:left;white-space:normal;margin:.15rem" data-s="${esc(s)}">${esc(s)}</button>`).join("");
+  view.querySelectorAll("[data-s]").forEach(b => b.onclick = () => { qf.value = b.dataset.s; qf.focus(); });
+
+  const CITE_RX = /\((?:(Lev\.|LoT|Disc\.|HM \[|Mon\. §|Arith\. bin\.|GP VII|De arte comb\.|BS,|GL,|SuB|Pens\.|MPL,|LM \[|AB \[|PhT|San\. \d|SY \d|ZfE|Zauberlehrling|RUR|Il\. X|Pol\. I)[^()]{0,44})\)/g;
+  const renderAnswer = md => esc(md)
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*(.+?)\*/g, "<em>$1</em>")
+    .replace(CITE_RX, (m, c1) => `<span class="cite">${m.slice(1, -1)}</span>`)
+    .split(/\n{2,}/).map(p => `<p style="margin:.4rem 0">${p.replace(/\n/g, "<br>")}</p>`).join("");
+
+  const draw = () => {
+    log.innerHTML = "";
+    if (!DSESSION.length) {
+      log.innerHTML = `<div class="panel"><p class="fine" style="margin:0">No question yet. The retrieval
+        runs on this device; only what it selects for your question leaves it.</p></div>`;
+      return;
+    }
+    for (const m of DSESSION) {
+      log.append(el(`<div class="panel" style="margin-bottom:.8rem;${m.rolle === "user" ? "border-left:3px solid var(--wort)" : ""}">
+        <p class="fine" style="margin:0 0 .3rem">${m.rolle === "user" ? "Question" : "Corpus"}${m.modell ? ` · ${esc(m.modell)}` : ""}</p>
+        <div class="readable" style="font-size:.95rem">${m.rolle === "user" ? esc(m.text) : renderAnswer(m.text)}</div>
+        ${m.quellen && m.quellen.length ? `<p class="fine" style="margin:.6rem 0 0"><strong>Paragraphs used:</strong>
+          ${m.quellen.map(q => `<a href="#/works/${q.work}/${q.sec}@${q.n}" class="cite" style="margin-right:.4rem">${esc(q.cite)}</a>`).join("")}</p>` : ""}
+      </div>`));
+    }
+    log.lastElementChild.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  };
+  draw();
+
+  async function ask() {
+    const q = qf.value.trim();
+    if (q.length < 5 || !chosen.size) return;
+    DSESSION.push({ rolle: "user", text: q });
+    qf.value = ""; draw();
+    const busy = el(`<div class="panel"><p class="fine" style="margin:0">Retrieving paragraphs …</p></div>`);
+    log.append(busy);
+    const hits = dretrieve(q, +view.querySelector("#dtopk").value, chosen);
+    if (!hits.length) {
+      busy.remove();
+      DSESSION.push({ rolle: "bot", quellen: [], text: "Nothing in the works currently in scope bears on that question. Try other wording, or widen the scope." });
+      draw(); return;
+    }
+    busy.querySelector("p").textContent = `${hits.length} paragraphs found — composing the answer …`;
+    const passagen = hits.map(h => ({ cite: h.cite, werk: h.werk, wt: h.wt, text: h.text,
+      work: h.work, sec: h.sec, n: h.n }));
+    try {
+      const r = await fetch("/.netlify/functions/dialogue", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ frage: q,
+          passagen: passagen.map(p => ({ cite: p.cite, werk: p.werk, wt: p.wt, text: p.text })),
+          verlauf: DSESSION.slice(-6).map(m => ({ rolle: m.rolle, text: (m.text || "").slice(0, 1400) })) }),
+      });
+      const data = await r.json().catch(() => ({}));
+      busy.remove();
+      if (!r.ok || data.error) {
+        DSESSION.push({ rolle: "bot", quellen: passagen,
+          text: "**The answering service is unavailable.** " + (data.error || `HTTP ${r.status}`) +
+            "\n\nThe paragraphs the local retrieval found are linked below and remain usable — retrieval runs entirely in your browser." });
+      } else {
+        DSESSION.push({ rolle: "bot", text: data.antwort || "(empty answer)", quellen: passagen, modell: data.modell });
+      }
+    } catch (e) {
+      busy.remove();
+      DSESSION.push({ rolle: "bot", quellen: passagen, text: "**Network error.** " + (e.message || e) });
+    }
+    draw();
+  }
+  view.querySelector("#dsend").onclick = ask;
+  qf.addEventListener("keydown", e => { if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) { e.preventDefault(); ask(); } });
+  view.querySelector("#dclear").onclick = () => { DSESSION.length = 0; draw(); };
 }
 
 /* =============================================================== CODA */
@@ -864,6 +1071,6 @@ function viewImprint() {
 Object.assign(ROUTES, {
   overview: viewOverview, introduction: viewIntroduction, works: viewWorks,
   concordance: viewConcordance, atlas: viewAtlas, method: viewMethod,
-  coda: viewCoda, privacy: viewPrivacy, imprint: viewImprint,
+  dialogue: viewDialogue, coda: viewCoda, privacy: viewPrivacy, imprint: viewImprint,
 });
 boot();
