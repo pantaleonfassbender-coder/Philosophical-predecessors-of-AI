@@ -20,7 +20,7 @@ the first mention of each work links into its reader. The essay lives in
 
 ## The programme
 
-The corpus is built in stages along three lines. Status is tracked in `data/works.json` and on
+The corpus is built in stages along four lines. Status is tracked in `data/works.json` and on
 the site's overview.
 
 **The logic line** (direct ancestry of symbolic AI)
@@ -50,10 +50,20 @@ the site's overview.
 | J. O. de La Mettrie | *L'Homme Machine* (1747) | PG #52090: FR + Bussey 1912 EN, bilingual; 7 silently omitted paragraphs restored | **shipped** |
 | Ernst Kapp | *Grundlinien einer Philosophie der Technik* (1877), selections — organ projection, the telegraph/nervous-system chapter | IA/MDZ scan of the 1877 first edition, OCR emended, verified against page images; working translation | **shipped** |
 
+**The animated word** (the narrative line: the tales that tell what the other lines argue)
+
+| Author | Text | Source | Status |
+|---|---|---|---|
+| Homer · Aristotle | Iliad XVIII 369–379, 410–421 (the tripods, the golden handmaids) · Politics I 4, 1253b23–1254a1 (the argument from automation) | Greek via Greek Wikisource; Butler 1898 + Ellis (both PD) | **shipped** |
+| Golem — an anthology | Ps 139:16 · Sanhedrin 38b, 65b · Sefer Yetzirah 1–2 (selections) · Jacob Grimm, Zeitung für Einsiedler (1808) | Hebrew/Aramaic via Sefaria exports of the PD texts, working translations; Grimm transcribed from the MDZ page image of the 1808 printing | **shipped** |
+| J. W. Goethe | Der Zauberlehrling (1797/98), complete | First printing (Musen-Almanach 1798) via Wikisource; Bowring 1853 (PD) | **shipped** |
+| Karel Čapek | R.U.R. (1920), selections — the word "robot", the ending | Czech via Czech Wikisource (Aventinum 1920, PD); working translations | **shipped** |
+
 A Tractatus module was considered and dropped: the corpus ends at the threshold of Turing.
 An editorial **coda** (*After the threshold*) states what the corpus cannot contain — the
-dialogical counter-voices of the twentieth century (Buber, Levinas) — and why an anthology,
-as against a quarry, owes its readers that declaration.
+dialogical counter-voices of the twentieth century (Buber, Levinas), and, for the narrative
+line, Wiener's *God and Golem, Inc.* — and why an anthology, as against a quarry, owes its
+readers that declaration.
 
 **The boundary is a rights fact:** Turing's papers of 1936 and 1950 remain in copyright
 (until roughly 2032 and 2046). The apparatus therefore ends, deliberately, at the threshold.

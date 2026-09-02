@@ -5,8 +5,8 @@ const view = document.getElementById("view");
 const esc = s => String(s ?? "").replace(/[&<>"']/g, m =>
   ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
 const el = h => { const t = document.createElement("template"); t.innerHTML = h.trim(); return t.content.firstElementChild; };
-const LINIE = { logic: "The logic line", maschine: "The machine line", gegen: "The counter-voices" };
-const LCOLOR = { logic: "var(--logic)", maschine: "var(--maschine)", gegen: "var(--gegen)" };
+const LINIE = { logic: "The logic line", maschine: "The machine line", gegen: "The counter-voices", wort: "The animated word" };
+const LCOLOR = { logic: "var(--logic)", maschine: "var(--maschine)", gegen: "var(--gegen)", wort: "var(--wort)" };
 
 /* ------------------------------------------------------- citation grid */
 /* Each shipped work defines how a unit is cited. */
@@ -30,6 +30,15 @@ const CITE = {
   lamettrie: (sec, u) => `HM [${u.n}]`,
   kapp: (sec, u) => ({ vorwort: `PhT, Vorwort [${u.k}]`, c1: `PhT I [${u.k}]`, c2: `PhT II [${u.k}]`,
     c7: `PhT VII [${u.k}]`, c8: `PhT VIII [${u.k}]` }[sec.id] || `PhT [${u.n}]`),
+  golem: (sec, u) => ({ ps: "Ps 139:16",
+    san: ["San. 38b", "San. 65b", "San. 65b", "San. 65b"][u.k - 1],
+    sy: "SY " + ["1:1", "1:2", "2:2", "2:4", "2:5"][u.k - 1],
+    grimm: `ZfE 1808 [${u.k}]` }[sec.id] || `[${u.n}]`),
+  zauberlehrling: (sec, u) => `Zauberlehrling, st. ${u.k}`,
+  automata: (sec, u) => sec.id === "il"
+    ? ["Il. XVIII 369–379", "Il. XVIII 410–421"][u.k - 1]
+    : ["Pol. I 4, 1253b23–33", "Pol. I 4, 1253b33–1254a1"][u.k - 1],
+  capek: (sec, u) => sec.id === "pred" ? `RUR, Pred. [${u.k}]` : `RUR III [${u.k}]`,
   lovelace: (sec, u) => sec.id === "memoir" ? `Menabrea [${u.k}]` : `Note ${sec.id.slice(4)} [${u.k}]`,
 };
 const citeOf = (workId, sec, u) => (CITE[workId] || ((s, x) => `[${x.n}]`))(sec, u);
@@ -65,8 +74,8 @@ function viewOverview() {
       are three centuries older. This apparatus collects the public-domain sources of that prehistory in
       citable, searchable editions: the texts in which reasoning first became reckoning, reckoning became
       algebra, algebra became a formal system — together with the machines that made the idea tangible,
-      and the philosophers who said it could not be done. It ends, deliberately, at the threshold of
-      Turing.</p>
+      the philosophers who said it could not be done, and the tales in which the made servant was
+      already alive. It ends, deliberately, at the threshold of Turing.</p>
       <p class="fine">New here? The <a href="#/introduction">introductory essay</a> walks through the
       three lines, the argument that runs through them, and the way the apparatus is meant to be used.</p>
     </div>
@@ -91,6 +100,13 @@ function viewOverview() {
         machine was to pass; Leibniz's mill; Lovelace's objection; La Mettrie's radical retort that man
         himself is the machine — and Kapp's reversal: the machine is a projection of man. The arguments
         today's debate keeps rediscovering.</p>
+      </div>
+      <div class="card linie-wort">
+        <span class="tag" style="color:var(--wort)">The animated word</span>
+        <p style="font-size:.9rem;color:var(--fg2);margin:.3rem 0 0">The line that narrates what the
+        others argue: Hephaestus' golden handmaids and Aristotle's dream of the self-working tool; the
+        golem, awakened by letters and unmasked by silence; Goethe's apprentice with the forgotten
+        stop-word — and Čapek's Robots, where the myth becomes industry.</p>
       </div>
     </div>
 
@@ -129,7 +145,7 @@ function viewWorks(args) {
     <div class="viewhead">
       <span class="tag">The corpus</span>
       <h1>Works</h1>
-      <p class="lede">Three lines, one prehistory. Shipped modules open as paragraph-exact readers;
+      <p class="lede">Four lines, one prehistory. Shipped modules open as paragraph-exact readers;
       the rest of the programme is listed with its sources and will follow in stages.</p>
     </div>
     ${Object.entries(LINIE).map(([k, t]) => `
@@ -220,11 +236,13 @@ function unitHtml(w, s, u, hl) {
     return txt;
   };
   let body;
-  if (!u.orig) body = `<p class="readable">${mk(u.txt)}</p>`;
-  else if (LANG === "orig") body = `<p class="readable orig">${mk(u.orig)}</p>`;
+  const vs = u.verse ? " verse" : "";
+  const oc = `readable orig${vs}${/[֐-׿]/.test(u.orig || "") ? " rtl" : ""}`;
+  if (!u.orig) body = `<p class="readable${vs}">${mk(u.txt)}</p>`;
+  else if (LANG === "orig") body = `<p class="${oc}">${mk(u.orig)}</p>`;
   else if (LANG === "both") body =
-    `<p class="readable orig" style="color:var(--fg2)">${mk(u.orig)}</p><p class="readable">${mk(u.txt)}</p>`;
-  else body = `<p class="readable">${mk(u.txt)}</p>`;
+    `<p class="${oc}" style="color:var(--fg2)">${mk(u.orig)}</p><p class="readable${vs}">${mk(u.txt)}</p>`;
+  else body = `<p class="readable${vs}">${mk(u.txt)}</p>`;
   const note = u.note ? `<p class="fine" style="color:var(--acc)">${esc(u.note)}</p>` : "";
   return `<div class="unit" id="u${u.n}">
     <div style="display:flex;gap:.6rem;align-items:baseline"><span class="cite">${esc(citeOf(w.id, s, u))}</span></div>
@@ -487,6 +505,24 @@ function viewMethod() {
       this site's working translation, and the 2018 translation was not consulted. Citation forms
       <span class="mono">PhT, Vorwort [k]</span>, <span class="mono">PhT II [k]</span> etc.
       (editorial paragraph numbers per chapter).</p>
+      <p class="readable"><strong>The animated word (the fourth line).</strong> Four modules, added
+      September 2026. <em>Homer/Aristotle:</em> Iliad XVIII 369–379 and 410–421 (Greek after the Greek
+      Wikisource transcription; English: Butler 1898, PD) and Politics I, 1253b23–1254a1 (Bekker text;
+      English: Ellis, PD). <em>The golem anthology:</em> Ps 139:16, Sanhedrin 38b and 65b, and Sefer
+      Yetzirah 1–2 in selections, Hebrew/Aramaic after the Sefaria exports of the public-domain texts,
+      with working translations made for this site (the Soncino and Steinsaltz translations were not
+      consulted); and Jacob Grimm's notice of 1808, transcribed from the page image of the MDZ scan of
+      the Zeitung für Einsiedler (No. 7, col. 56, signed “Mitgetheilt von Jakob Grimm in Cassel”). The
+      later Prague legend of Rabbi Loew is a nineteenth-to-twentieth-century construction — canonized
+      by Yudl Rosenberg's Nifla'ot Maharal of 1909, itself presented as a found manuscript — and is
+      deliberately not carried as text. <em>Zauberlehrling:</em> complete, after the first printing in
+      Schiller's Musen-Almanach für das Jahr 1798 (orthography preserved), with Bowring's PD
+      translation of 1853. <em>R.U.R.:</em> selections, Czech after the Czech Wikisource transcription
+      of the Aventinum first edition of 1920 (PD, Čapek †1938), with working translations — Selver's
+      1923 stage version was not consulted. Citation forms
+      <span class="mono">Il. XVIII 369–379</span>, <span class="mono">San. 65b</span>,
+      <span class="mono">SY 2:5</span>, <span class="mono">ZfE 1808 [k]</span>,
+      <span class="mono">Zauberlehrling, st. k</span>, <span class="mono">RUR, Pred. [k]</span>.</p>
       <p class="readable"><strong>The Atlas.</strong> The Atlas view is a co-occurrence network: the
       leading content terms of the shipped English texts, linked when they appear in the same
       paragraph, weighted by pointwise mutual information, laid out by a small force simulation in the
@@ -496,14 +532,16 @@ function viewMethod() {
     </div>
 
     <div class="panel"><h2>The programme</h2>
-      <p class="readable">The corpus was built in stages along three lines: the logic line (the
+      <p class="readable">The corpus was built in stages along four lines: the logic line (the
       Llull prologue, Hobbes, the Leibniz anthology, Boole, Frege), the machine line (Pascal's
       fragments, Lovelace's Notes of 1843 with Menabrea's Sketch, Jevons's memoir of 1870,
-      Peirce's “Logical Machines” of 1887), and the counter-voices (Descartes's Discours Part V
-      and La Mettrie's L'Homme Machine, both bilingual, joined in 2026 by Kapp's Grundlinien of
-      1877) — twelve modules shipped. A Tractatus module, once under consideration, has been
-      dropped: the corpus ends where the formal-system line hands over to the twentieth century.
-      What the corpus cannot contain, and why, is the subject of the <a href="#/coda">coda</a>.</p>
+      Peirce's “Logical Machines” of 1887), the counter-voices (Descartes's Discours Part V,
+      La Mettrie's L'Homme Machine and Kapp's Grundlinien of 1877), and the animated word — the
+      narrative line: Homer and Aristotle on the self-working tool, the golem anthology, Goethe's
+      Zauberlehrling, and Čapek's R.U.R. as its threshold text — sixteen modules shipped. A
+      Tractatus module, once under consideration, has been dropped: the corpus ends where the
+      formal-system line hands over to the twentieth century. What the corpus cannot contain,
+      and why, is the subject of the <a href="#/coda">coda</a>.</p>
     </div>
 
     <div class="panel"><h2>Known limits</h2>
@@ -735,7 +773,7 @@ function viewCoda() {
 
     <div class="panel"><h2>An anthology, not a quarry</h2>
       <p class="readable">This apparatus carries extraction tools: a concordance that cuts across
-      twelve works, an atlas that dissolves them into term co-occurrences. Used alone, such tools
+      sixteen works, an atlas that dissolves them into term co-occurrences. Used alone, such tools
       treat philosophy as a quarry — material to be broken out of context and carried off. But the
       direction of this site runs the other way. Every concordance hit and every atlas node resolves
       into a full paragraph, inside a whole section, inside a work that was chosen and ordered for a
@@ -759,6 +797,12 @@ function viewCoda() {
       technology, up to the tools made “from the workshop of the mind itself”, as a projection of
       the human — which is to say: as monologue made durable. A projection meets no one. Where
       projection ends, encounter begins; there this corpus ends too, and must.</p>
+      <p class="readable">The narrative line ends at the same threshold from its own side. Its last
+      text is <a href="#/works/capek">R.U.R.</a> (1920), where the made servant of myth becomes the
+      manufactured worker — and whose ending places against all manufacture the one thing that
+      cannot be manufactured: the first pair, “who have invented love”. Beyond the threshold lies
+      Norbert Wiener's <em>God and Golem, Inc.</em> (1964), where cybernetics itself takes up the
+      golem — in copyright, and therefore named here instead of carried.</p>
     </div>
 
     <div class="panel"><h2>The philosophical pact</h2>

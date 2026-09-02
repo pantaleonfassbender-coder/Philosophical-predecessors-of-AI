@@ -51,6 +51,23 @@ covered by any licence granted here, because they were never this repository's t
   of 1617, Internet Archive scan, OCR emended by hand against the standard textual
   tradition. The modern critical edition (ROL) remains in copyright and is not used.
   The English working translation is made for this site (CC0).
+- **Homer**, Iliad XVIII, selections — Greek via the Greek Wikisource transcription; English
+  by Samuel Butler (1898), Project Gutenberg #2199. Both public domain.
+- **Aristotle**, Politics I 4 (1253b–1254a) — Greek (Bekker text) via the Greek Wikisource
+  transcription; English by William Ellis, Project Gutenberg #6762. Both public domain.
+- **Golem anthology** — Ps 139:16 (Masoretic text), Sanhedrin 38b/65b (Vilna printing) and
+  Sefer Yetzirah 1–2 via the Sefaria exports of the public-domain Hebrew/Aramaic texts; the
+  English working translations are made for this site (CC0), consulting no copyrighted
+  translation (Soncino, Steinsaltz/Davidson not used). Jacob Grimm's notice, Zeitung für
+  Einsiedler No. 7 (1808), col. 56 — transcribed from the MDZ scan of the original printing
+  (bsb10858362); English working translation for this site (CC0).
+- **Goethe**, *Der Zauberlehrling* — first printing, Musen-Almanach für das Jahr 1798, via
+  the German Wikisource transcription; English by Edgar Alfred Bowring (1853), Project
+  Gutenberg #1287. Both public domain.
+- **Čapek**, *R.U.R.* (Prague: Aventinum, 1920), selections — Czech via the Czech Wikisource
+  transcription; public domain (Čapek †1938). The English working translations are made for
+  this site (CC0); Paul Selver's 1923 translation remains in copyright in the EU/UK and was
+  not consulted.
 - **Kapp**, *Grundlinien einer Philosophie der Technik* (Braunschweig: Westermann, 1877),
   selections — German text from the Internet Archive/MDZ scan of the first edition
   (Bayerische Staatsbibliothek), OCR emended by hand and verified against the page images

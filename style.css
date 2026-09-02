@@ -11,6 +11,7 @@
   --logic: #6fa8dc;      /* the logic line */
   --gegen: #c47a6d;      /* the counter-voices */
   --maschine: #d9a441;
+  --wort: #a48fc9;       /* the animated word */
   --serif: Georgia, "Times New Roman", serif;
   --mono: "Consolas", "SF Mono", monospace;
 }
@@ -96,6 +97,7 @@ button.primary {
 .linie-logic { border-left: 3px solid var(--logic); }
 .linie-gegen { border-left: 3px solid var(--gegen); }
 .linie-maschine { border-left: 3px solid var(--maschine); }
+.linie-wort { border-left: 3px solid var(--wort); }
 
 .unit { border-left: 2px solid var(--line); padding-left: .95rem; margin-bottom: 1.35rem; }
 .unit .ulabel { font-size: .8rem; color: var(--acc); margin: 0 0 .2rem; font-family: var(--serif); font-style: italic; }
@@ -120,6 +122,8 @@ footer p { max-width: 62rem; }
 
 /* bilingual reader + atlas */
 .readable.orig { font-style: italic; }
+.readable.verse { white-space: pre-line; }
+.readable.orig.rtl { font-style: normal; direction: rtl; text-align: right; }
 select {
   background: var(--bg2, #1b1b22); color: var(--fg, #e9e6e0);
   border: 1px solid var(--line, #33333d); border-radius: 6px;

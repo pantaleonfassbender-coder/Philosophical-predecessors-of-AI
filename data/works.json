@@ -144,5 +144,53 @@
   "sprachen": "Latin · English (working translation)",
   "claim": "The deepest root: combinatorial wheels that generate propositions mechanically — the art Leibniz named as the inspiration of his ars combinatoria.",
   "datei": "llull_arsbrevis"
+ },
+ {
+  "id": "automata",
+  "linie": "wort",
+  "autor": "Homer · Aristotle",
+  "leben": "c. 750 / 384–322 BC",
+  "kurz": "Automata",
+  "titel": "The self-working tools: Iliad XVIII · Politics I 4",
+  "status": "shipped",
+  "datei": "automata_antike",
+  "sprachen": "Greek · English (Butler 1898, Ellis, PD)",
+  "claim": "Hephaestus' tripods go αὐτόματοι to the assembly of the gods, his golden handmaids have mind, voice and strength — and Aristotle draws the conclusion: tools that obeyed or anticipated command would need no servants and no slaves. The argument from automation, stated once and for all."
+ },
+ {
+  "id": "golem",
+  "linie": "wort",
+  "autor": "Golem — an anthology",
+  "leben": "Tanach – 1808",
+  "kurz": "Golem",
+  "titel": "The golem: Tanach · Talmud · Sefer Yetzirah · Grimm (1808)",
+  "status": "shipped",
+  "datei": "golem_anthologie",
+  "sprachen": "Hebrew · Aramaic · German · English (working translations)",
+  "claim": "Creation by letters, unmasked by silence: Rava's created man is sent back to dust because he cannot answer speech — the language test as narrative, a millennium before Descartes — and one effaced letter turns truth (emet) into death (met)."
+ },
+ {
+  "id": "zauberlehrling",
+  "linie": "wort",
+  "autor": "Johann Wolfgang von Goethe",
+  "leben": "1749–1832",
+  "kurz": "Zauberlehrling",
+  "titel": "Der Zauberlehrling (1797/98), complete",
+  "status": "shipped",
+  "datei": "goethe_zauberlehrling",
+  "sprachen": "German · English (Bowring 1853, PD)",
+  "claim": "The runaway command: an animated servant that executes literally, a countermeasure that doubles it, and the forgotten stop-word — «Die ich rief die Geister / Werd ich nun nicht los». Wiener made it the emblem of the control problem."
+ },
+ {
+  "id": "capek",
+  "linie": "wort",
+  "autor": "Karel Čapek",
+  "leben": "1890–1938",
+  "kurz": "R.U.R.",
+  "titel": "R.U.R. — Rossum's Universal Robots (1920), selections",
+  "status": "shipped",
+  "datei": "capek_rur",
+  "sprachen": "Czech · English (working translation)",
+  "claim": "The threshold: in Prague, where the golem legend had settled, the made servant of myth becomes the manufactured worker — «he threw out the man and made the Robot» — and the word robot enters every language."
  }
 ]
