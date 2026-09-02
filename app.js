@@ -39,6 +39,10 @@ const CITE = {
     ? ["Il. XVIII 369–379", "Il. XVIII 410–421"][u.k - 1]
     : ["Pol. I 4, 1253b23–33", "Pol. I 4, 1253b33–1254a1"][u.k - 1],
   capek: (sec, u) => sec.id === "pred" ? `RUR, Pred. [${u.k}]` : `RUR III [${u.k}]`,
+  zairja: (sec, u) => sec.id === "pref" ? `Muq. I.6 [${u.k}]` : `Muq. VI [${u.k}]`,
+  khwarizmi: (sec, u) => `Alg. [${u.k}]`,
+  yijing: (sec, u) => ["Xici I.11", "Xici II.2"][u.k - 1] || `Xici [${u.n}]`,
+  liezi: (sec, u) => `Liezi V [${u.k}]`,
   lovelace: (sec, u) => sec.id === "memoir" ? `Menabrea [${u.k}]` : `Note ${sec.id.slice(4)} [${u.k}]`,
 };
 const citeOf = (workId, sec, u) => (CITE[workId] || ((s, x) => `[${x.n}]`))(sec, u);
@@ -83,10 +87,10 @@ function viewOverview() {
     <div class="grid g3" style="margin-bottom:1.6rem">
       <div class="card linie-logic">
         <span class="tag" style="color:var(--logic)">The logic line</span>
-        <p style="font-size:.9rem;color:var(--fg2);margin:.3rem 0 0">Llull's combinatorial wheels.
-        Hobbes: reason is reckoning. Leibniz: a symbolic language and a calculus of thought.
-        Boole: the laws of thought as algebra. Frege: the formal system itself. The direct
-        ancestry of symbolic AI.</p>
+        <p style="font-size:.9rem;color:var(--fg2);margin:.3rem 0 0">Llull's combinatorial wheels —
+        beside the Arabic letter-machine Ibn Khaldūn described and dismantled, al-Khwārizmī's name
+        become a word, and the Yijing's binary figures. Hobbes: reason is reckoning. Leibniz: a
+        calculus of thought. Boole: its algebra. Frege: the formal system itself.</p>
       </div>
       <div class="card linie-maschine">
         <span class="tag" style="color:var(--maschine)">The machine line</span>
@@ -104,9 +108,10 @@ function viewOverview() {
       <div class="card linie-wort">
         <span class="tag" style="color:var(--wort)">The animated word</span>
         <p style="font-size:.9rem;color:var(--fg2);margin:.3rem 0 0">The line that narrates what the
-        others argue: Hephaestus' golden handmaids and Aristotle's dream of the self-working tool; the
-        golem, awakened by letters and unmasked by silence; Goethe's apprentice with the forgotten
-        stop-word — and Čapek's Robots, where the myth becomes industry.</p>
+        others argue: Hephaestus' golden handmaids and Aristotle's dream of the self-working tool;
+        Yan Shi's automaton, taken apart before the king; the golem, awakened by letters and unmasked
+        by silence; Goethe's apprentice with the forgotten stop-word — and Čapek's Robots, where the
+        myth becomes industry.</p>
       </div>
     </div>
 
@@ -237,7 +242,7 @@ function unitHtml(w, s, u, hl) {
   };
   let body;
   const vs = u.verse ? " verse" : "";
-  const oc = `readable orig${vs}${/[֐-׿]/.test(u.orig || "") ? " rtl" : ""}`;
+  const oc = `readable orig${vs}${/[֐-ۿ]/.test(u.orig || "") ? " rtl" : ""}`;
   if (!u.orig) body = `<p class="readable${vs}">${mk(u.txt)}</p>`;
   else if (LANG === "orig") body = `<p class="${oc}">${mk(u.orig)}</p>`;
   else if (LANG === "both") body =
@@ -533,6 +538,22 @@ function viewMethod() {
       <span class="mono">Il. XVIII 369–379</span>, <span class="mono">San. 65b</span>,
       <span class="mono">SY 2:5</span>, <span class="mono">ZfE 1808 [k]</span>,
       <span class="mono">Zauberlehrling, st. k</span>, <span class="mono">RUR, Pred. [k]</span>.</p>
+      <p class="readable"><strong>The world roots (September 2026).</strong> Four modules widen the
+      corpus beyond its European axis, each placed in the systematic line where it belongs.
+      <em>Ibn Khaldūn:</em> the zāʾirja passages of the Muqaddima (1377) — the sixth prefatory
+      discussion and the operating manual of Book VI — Arabic after the Arabic Wikisource
+      transcription; the working translation is this site's own, made directly from the Arabic
+      (de Slane's PD Prolégomènes and Quatremère's Arabic edition document the passages;
+      Rosenthal 1958 was not consulted). <em>al-Khwārizmī:</em> the Algebra's author's preface and
+      opening in Rosen's PD translation of 1831; the Arabic stands in Rosen's edition and is not
+      yet carried. <em>Yijing:</em> Xici I.11 and II.2, Chinese after the Chinese Wikisource
+      transcription, English by Legge (1882, PD). <em>Liezi:</em> the Yan Shi narrative complete,
+      Chinese after the Chinese Wikisource transcription, English by Giles (1912, PD), divided to
+      match the Chinese paragraphs. A note on the translation layer: where this site must use
+      public-domain English, the available translations of non-European texts are themselves
+      nineteenth- and early-twentieth-century orientalist scholarship (Legge, Giles, Rosen);
+      their spellings and framings are preserved as historical artifacts and glossed where they
+      mislead.</p>
       <p class="readable"><strong>The Atlas.</strong> The Atlas view is a co-occurrence network: the
       leading content terms of the shipped English texts, linked when they appear in the same
       paragraph, weighted by pointwise mutual information, laid out by a small force simulation in the
@@ -554,15 +575,17 @@ function viewMethod() {
 
     <div class="panel"><h2>The programme</h2>
       <p class="readable">The corpus was built in stages along four lines: the logic line (the
-      Llull prologue, Hobbes, the Leibniz anthology, Boole, Frege), the machine line (Pascal's
-      fragments, Lovelace's Notes of 1843 with Menabrea's Sketch, Jevons's memoir of 1870,
-      Peirce's “Logical Machines” of 1887), the counter-voices (Descartes's Discours Part V,
-      La Mettrie's L'Homme Machine and Kapp's Grundlinien of 1877), and the animated word — the
-      narrative line: Homer and Aristotle on the self-working tool, the golem anthology, Goethe's
-      Zauberlehrling, and Čapek's R.U.R. as its threshold text — sixteen modules shipped. A
-      Tractatus module, once under consideration, has been dropped: the corpus ends where the
-      formal-system line hands over to the twentieth century. What the corpus cannot contain,
-      and why, is the subject of the <a href="#/coda">coda</a>.</p>
+      Llull prologue, Hobbes, the Leibniz anthology, Boole, Frege — joined by its world roots:
+      al-Khwārizmī's preface, Ibn Khaldūn's zāʾirja, and the Yijing passages Leibniz himself
+      invoked), the machine line (Pascal's fragments, Lovelace's Notes of 1843 with Menabrea's
+      Sketch, Jevons's memoir of 1870, Peirce's “Logical Machines” of 1887), the counter-voices
+      (Descartes's Discours Part V, La Mettrie's L'Homme Machine and Kapp's Grundlinien of 1877),
+      and the animated word — the narrative line: Homer and Aristotle on the self-working tool,
+      the Liezi automaton, the golem anthology, Goethe's Zauberlehrling, and Čapek's R.U.R. as its
+      threshold text — twenty modules shipped. A Tractatus module, once under consideration, has
+      been dropped: the corpus ends where the formal-system line hands over to the twentieth
+      century. What the corpus cannot contain, and why, is the subject of the
+      <a href="#/coda">coda</a>.</p>
     </div>
 
     <div class="panel"><h2>Known limits</h2>
@@ -908,7 +931,7 @@ function viewDialogue() {
     `<button class="chip" style="text-align:left;white-space:normal;margin:.15rem" data-s="${esc(s)}">${esc(s)}</button>`).join("");
   view.querySelectorAll("[data-s]").forEach(b => b.onclick = () => { qf.value = b.dataset.s; qf.focus(); });
 
-  const CITE_RX = /\((?:(Lev\.|LoT|Disc\.|HM \[|Mon\. §|Arith\. bin\.|GP VII|De arte comb\.|BS,|GL,|SuB|Pens\.|MPL,|LM \[|AB \[|PhT|San\. \d|SY \d|ZfE|Zauberlehrling|RUR|Il\. X|Pol\. I)[^()]{0,44})\)/g;
+  const CITE_RX = /\((?:(Lev\.|LoT|Disc\.|HM \[|Mon\. §|Arith\. bin\.|GP VII|De arte comb\.|BS,|GL,|SuB|Pens\.|MPL,|LM \[|AB \[|PhT|San\. \d|SY \d|ZfE|Zauberlehrling|RUR|Il\. X|Pol\. I|Muq\.|Alg\. \[|Xici|Liezi)[^()]{0,44})\)/g;
   const renderAnswer = md => esc(md)
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
@@ -989,7 +1012,7 @@ function viewCoda() {
 
     <div class="panel"><h2>An anthology, not a quarry</h2>
       <p class="readable">This apparatus carries extraction tools: a concordance that cuts across
-      sixteen works, an atlas that dissolves them into term co-occurrences. Used alone, such tools
+      twenty works, an atlas that dissolves them into term co-occurrences. Used alone, such tools
       treat philosophy as a quarry — material to be broken out of context and carried off. But the
       direction of this site runs the other way. Every concordance hit and every atlas node resolves
       into a full paragraph, inside a whole section, inside a work that was chosen and ordered for a
@@ -1019,6 +1042,18 @@ function viewCoda() {
       cannot be manufactured: the first pair, “who have invented love”. Beyond the threshold lies
       Norbert Wiener's <em>God and Golem, Inc.</em> (1964), where cybernetics itself takes up the
       golem — in copyright, and therefore named here instead of carried.</p>
+      <p class="readable">Two further absences run along other boundaries. The great mechanical
+      books of the Arabic engineers — the Banū Mūsā's <em>Book of Ingenious Devices</em> (9th c.)
+      and al-Jazarī's <em>Book of Knowledge of Ingenious Mechanical Devices</em> (1206), with its
+      programmable automata — are ancient enough, but their standard translations (Donald Hill,
+      1974/79) are not: excluded by translation rights, they are named here as the machine line's
+      missing eastern wing (Ibn Khaldūn's <a href="#/works/zairja">zāʾirja</a> carries the Arabic
+      world's letter-machine in their stead). And the corpus's Latin American voice lies wholly
+      beyond the threshold: Jorge Luis Borges — who in 1937 wrote an essay squarely on “Ramon
+      Llull's thinking machine”, whose <em>Library of Babel</em> (1941) is exhaustive combinatorics
+      made into fiction, and whose poem <em>El Golem</em> (1958) retells this corpus's fourth line —
+      remains in copyright until the middle of this century. An anthology owns its absences; these
+      are three of them.</p>
     </div>
 
     <div class="panel"><h2>The philosophical pact</h2>

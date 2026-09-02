@@ -33,6 +33,9 @@ the site's overview.
 | Author | Text | Source | Status |
 |---|---|---|---|
 | Ramon Llull | *Ars brevis* (1308) — prologue, alphabet, first and fourth figure (the rotating wheels) | Strasbourg 1617 (Zetzner), IA scan, OCR emended; working translation | **shipped** |
+| al-Khwārizmī | *The Algebra* (c. 820), author's preface and opening — the name behind *algorithm* | Rosen 1831 (PD English); Arabic printed in Rosen's edition, not yet carried | **shipped** |
+| Ibn Khaldūn | The zāʾirja passages of the *Muqaddima* (1377) — the Arabic letter-machine, described and epistemically dismantled | Arabic via Arabic Wikisource; working translation (Rosenthal not consulted; de Slane PD as documentation) | **shipped** |
+| Yijing (Xici zhuan) | Xici I.11 and II.2 — the binary generation of the trigrams that Leibniz read as his arithmetic anticipated | Chinese via Chinese Wikisource; Legge 1882 (PD) | **shipped** |
 | Thomas Hobbes | *Leviathan* (1651), Introduction + Part I ch. I–V; later De Corpore I | Project Gutenberg #3207 (1651 spelling) | **shipped** |
 | G. W. Leibniz | Anthology: Monadology (§§1–90), Explication de l'arithmétique binaire (1703), characteristica fragments incl. the calculemus passages, De arte combinatoria selections | PG #17641 (FR) + Latta 1898 (EN, PD); Gerhardt GM7 / GP IV+VII, OCR emended; working translations | **shipped** |
 | George Boole | *Laws of Thought* (1854), Preface + ch. I–III, XXII | Project Gutenberg #15114 (LaTeX), converted | **shipped** |
@@ -60,6 +63,7 @@ the site's overview.
 | Author | Text | Source | Status |
 |---|---|---|---|
 | Homer · Aristotle | Iliad XVIII 369–379, 410–421 (the tripods, the golden handmaids) · Politics I 4, 1253b23–1254a1 (the argument from automation) | Greek via Greek Wikisource; Butler 1898 + Ellis (both PD) | **shipped** |
+| Liezi | The automaton of Yan Shi (Book V, Tang wen), complete — the oldest full automaton narrative | Chinese via Chinese Wikisource; Giles 1912 (PD) | **shipped** |
 | Golem — an anthology | Ps 139:16 · Sanhedrin 38b, 65b · Sefer Yetzirah 1–2 (selections) · Jacob Grimm, Zeitung für Einsiedler (1808) | Hebrew/Aramaic via Sefaria exports of the PD texts, working translations; Grimm transcribed from the MDZ page image of the 1808 printing | **shipped** |
 | J. W. Goethe | Der Zauberlehrling (1797/98), complete | First printing (Musen-Almanach 1798) via Wikisource; Bowring 1853 (PD) | **shipped** |
 | Karel Čapek | R.U.R. (1920), selections — the word "robot", the ending | Czech via Czech Wikisource (Aventinum 1920, PD); working translations | **shipped** |

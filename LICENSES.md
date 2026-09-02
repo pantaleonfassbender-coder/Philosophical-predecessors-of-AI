@@ -68,6 +68,17 @@ covered by any licence granted here, because they were never this repository's t
   transcription; public domain (Čapek †1938). The English working translations are made for
   this site (CC0); Paul Selver's 1923 translation remains in copyright in the EU/UK and was
   not consulted.
+- **Ibn Khaldūn**, *Muqaddima* (1377), the zāʾirja passages — Arabic via the Arabic Wikisource
+  transcription of the public-domain text; English working translation made for this site (CC0),
+  directly from the Arabic (Rosenthal 1958 not consulted; de Slane's PD Prolégomènes, 1862–68,
+  and Quatremère's Arabic edition, 1858, document the passages).
+- **al-Khwārizmī**, *Kitāb al-jabr wa-l-muqābala* (c. 820) — English by Frederic Rosen, *The
+  Algebra of Mohammed ben Musa* (London 1831), public domain; IA scan, OCR emended.
+- **Yijing**, Xici zhuan I.11 and II.2 — Chinese via the Chinese Wikisource transcription;
+  English by James Legge, *The Yî King* (Sacred Books of the East XVI, 1882), public domain.
+- **Liezi**, Book V (Tang wen), the Yan Shi narrative — Chinese via the Chinese Wikisource
+  transcription; English by Lionel Giles, *Taoist Teachings from the Book of Lieh Tzŭ* (1912),
+  public domain.
 - **Kapp**, *Grundlinien einer Philosophie der Technik* (Braunschweig: Westermann, 1877),
   selections — German text from the Internet Archive/MDZ scan of the first edition
   (Bayerische Staatsbibliothek), OCR emended by hand and verified against the page images

@@ -146,6 +146,54 @@
   "datei": "llull_arsbrevis"
  },
  {
+  "id": "khwarizmi",
+  "linie": "logic",
+  "autor": "al-Khwārizmī",
+  "leben": "c. 780–850",
+  "kurz": "al-Khwārizmī",
+  "titel": "The Algebra (c. 820), the author's preface and opening",
+  "status": "shipped",
+  "datei": "khwarizmi_algebra",
+  "sprachen": "English (Rosen 1831, PD)",
+  "claim": "The name behind the word: from al-Khwārizmī — Latinized Algoritmi — came algorithm, from his al-jabr came algebra. His preface states the ethos of cumulative science; his opening reduces all calculation to number, and number to units."
+ },
+ {
+  "id": "zairja",
+  "linie": "logic",
+  "autor": "Ibn Khaldūn",
+  "leben": "1332–1406",
+  "kurz": "Zāʾirja",
+  "titel": "The zāʾirja: letter-machine and its critique (Muqaddima, 1377)",
+  "status": "shipped",
+  "datei": "ibnkhaldun_zairja",
+  "sprachen": "Arabic · English (working translation)",
+  "claim": "The letter-combinatorial answering machine of the medieval Maghrib — the Arabic counterpart of Llull's wheels — described, defended against the charge of fraud, and epistemically dismantled: its answers are well-formed and question-conforming, and coherence of discourse is no proof of conformity with reality."
+ },
+ {
+  "id": "yijing",
+  "linie": "logic",
+  "autor": "Yijing (Xici zhuan)",
+  "leben": "c. 3rd c. BC",
+  "kurz": "Yijing",
+  "titel": "The trigrams and the binary: two passages of the Great Commentary",
+  "status": "shipped",
+  "datei": "yijing_binary",
+  "sprachen": "Chinese · English (Legge 1882, PD)",
+  "claim": "One, two, four, eight: the doubling generation of the trigrams that Leibniz — shown the hexagrams in Bouvet's letters from Beijing — read as his own binary arithmetic anticipated. The corpus's Leibniz module cites “Fohy” by name; here is what he saw."
+ },
+ {
+  "id": "liezi",
+  "linie": "wort",
+  "autor": "Liezi",
+  "leben": "c. 4th c. BC – 4th c. AD",
+  "kurz": "Liezi",
+  "titel": "The automaton of Yan Shi (Liezi V, Tang wen)",
+  "status": "shipped",
+  "datei": "liezi_yanshi",
+  "sprachen": "Chinese · English (Giles 1912, PD)",
+  "claim": "The oldest complete automaton narrative: the artificer's man-machine sings, postures — and winks at the king's concubines; disassembled, it is leather, wood, glue and paint. Remove the heart and speech fails: the inspection of Leibniz's mill, told two millennia earlier."
+ },
+ {
   "id": "automata",
   "linie": "wort",
   "autor": "Homer · Aristotle",
