@@ -85,6 +85,10 @@ covered by any licence granted here, because they were never this repository's t
   of the scan. Public domain (Kapp †1896). The complete English translation of 2018
   (University of Minnesota Press) remains in copyright and was not consulted; the English
   working translation is made for this site (CC0).
+- **Poe**, “Maelzel's Chess-Player” — *Southern Literary Messenger*, vol. II, no. 5
+  (April 1836), pp. 318–326, via the English Wikisource transcription of that printing,
+  collated against the Edgar Allan Poe Society of Baltimore's text of the same issue.
+  Public domain (published 1836; Poe †1849).
 
 Future modules will name their editions here as they ship. Where a module carries a working
 translation made for this site, that translation is machine-generated, has no scholarly

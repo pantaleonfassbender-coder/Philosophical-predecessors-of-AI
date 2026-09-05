@@ -17,9 +17,11 @@ The name is Leibniz's: when disputes arise, *Calculemus* — let us calculate.
 
 The site opens with a stand-alone scholarly introduction (*Calculemus: An Introduction to the
 Philosophical Predecessors of Artificial Intelligence*, September 2026), reachable under
-*Introduction*. It presents the three lines, the argument that runs through them, the reason
+*Introduction*. It presents the four lines, the argument that runs through them, the reason
 the corpus ends at the threshold of Turing, and the way the apparatus is meant to be used;
-the first mention of each work links into its reader. The essay lives in
+the first mention of each work links into its reader. Five curated **reading paths**
+(*Paths*) offer guided routes through the corpus, each with a stated order and a guiding
+question per station. The essay lives in
 `data/introduction.json`, built by `tools/build-introduction.py` from the author's manuscript
 (kept beside the repository, not in it), and is editorial matter under CC BY 4.0.
 
@@ -56,6 +58,7 @@ the site's overview.
 |---|---|---|---|
 | René Descartes | *Discours de la méthode* (1637), Part V — the language test | PG #13846 (FR) + Veitch, PG #59 (EN), bilingual | **shipped** |
 | J. O. de La Mettrie | *L'Homme Machine* (1747) | PG #52090: FR + Bussey 1912 EN, bilingual; 7 silently omitted paragraphs restored | **shipped** |
+| Edgar Allan Poe | *Maelzel's Chess-Player* (1836), complete — the chess-Turk hoax as the boundary between calculation and judgment | Southern Literary Messenger II/5 via Wikisource, collated against the Poe Society of Baltimore's text | **shipped** |
 | Ernst Kapp | *Grundlinien einer Philosophie der Technik* (1877), selections — organ projection, the telegraph/nervous-system chapter | IA/MDZ scan of the 1877 first edition, OCR emended, verified against page images; working translation | **shipped** |
 
 **The animated word** (the narrative line: the tales that tell what the other lines argue)
@@ -93,7 +96,7 @@ working translations, marked unofficial and dedicated to the public domain — c
 
 ## Structure
 
-Static site, no build step. `data/works.json` is the registry (three lines, status);
+Static site, no build step. `data/works.json` is the registry (four lines, status);
 `data/<work>.json` holds a shipped edition as `{sections: [{id, titel, units: [{n, k, art?,
 label?, txt}]}]}` — `n` a global anchor, `k` the per-section paragraph number, `art` the
 author's own article number where the original provides one (Boole), `label` the original

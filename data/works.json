@@ -74,6 +74,18 @@
   "claim": "The radical answer to Descartes: man does not merely resemble a machine — he is one. Materialism about mind, a century before Darwin, two before McCulloch and Pitts."
  },
  {
+  "id": "poe",
+  "linie": "gegen",
+  "autor": "Edgar Allan Poe",
+  "leben": "1809–1849",
+  "kurz": "Poe",
+  "titel": "Maelzel's Chess-Player (1836), complete",
+  "status": "shipped",
+  "datei": "poe_maelzel",
+  "sprachen": "English",
+  "claim": "The hoax as thought experiment: the Turk must conceal a mind, Poe argues, because chess — unlike Babbage's engine, whose steps are “fixed and determinate” — admits no certain progression: where calculation ends, judgment begins. Carried here is not the automaton but the debate about mechanized thought that a fraud forced into the open."
+ },
+ {
   "id": "lovelace",
   "linie": "maschine",
   "autor": "Ada Lovelace",

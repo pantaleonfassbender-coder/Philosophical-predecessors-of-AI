@@ -28,6 +28,7 @@ const CITE = {
   peirce: (sec, u) => `LM [${u.n}]`,
   llull: (sec, u) => `AB [${u.n}]`,
   lamettrie: (sec, u) => `HM [${u.n}]`,
+  poe: (sec, u) => `MCP [${u.n}]`,
   kapp: (sec, u) => ({ vorwort: `PhT, Vorwort [${u.k}]`, c1: `PhT I [${u.k}]`, c2: `PhT II [${u.k}]`,
     c7: `PhT VII [${u.k}]`, c8: `PhT VIII [${u.k}]` }[sec.id] || `PhT [${u.n}]`),
   golem: (sec, u) => ({ ps: "Ps 139:16",
@@ -81,7 +82,8 @@ function viewOverview() {
       the philosophers who said it could not be done, and the tales in which the made servant was
       already alive. It ends, deliberately, at the threshold of Turing.</p>
       <p class="fine">New here? The <a href="#/introduction">introductory essay</a> walks through the
-      three lines, the argument that runs through them, and the way the apparatus is meant to be used.</p>
+      four lines, the argument that runs through them, and the way the apparatus is meant to be used —
+      or take one of the <a href="#/paths">reading paths</a>, five guided routes through the corpus.</p>
     </div>
 
     <div class="grid g3" style="margin-bottom:1.6rem">
@@ -102,8 +104,9 @@ function viewOverview() {
         <span class="tag" style="color:var(--gegen)">The counter-voices</span>
         <p style="font-size:.9rem;color:var(--fg2);margin:.3rem 0 0">Descartes's language test, which no
         machine was to pass; Leibniz's mill; Lovelace's objection; La Mettrie's radical retort that man
-        himself is the machine — and Kapp's reversal: the machine is a projection of man. The arguments
-        today's debate keeps rediscovering.</p>
+        himself is the machine; Poe on the chess-playing Turk — where calculation ends, judgment begins —
+        and Kapp's reversal: the machine is a projection of man. The arguments today's debate keeps
+        rediscovering.</p>
       </div>
       <div class="card linie-wort">
         <span class="tag" style="color:var(--wort)">The animated word</span>
@@ -276,6 +279,7 @@ const INTRO_LINKS = [
   ["Peirce (1887)", "#/works/peirce"],
   ["Discours de la méthode", "#/works/descartes"],
   ["L’Homme Machine", "#/works/lamettrie"],
+  ["Maelzel’s Chess-Player", "#/works/poe"],
   ["Grundlinien einer Philosophie der Technik", "#/works/kapp"],
   ["golden handmaids", "#/works/automata/il"],
   ["Politics", "#/works/automata/pol"],
@@ -286,7 +290,7 @@ const INTRO_LINKS = [
   ["R.U.R.", "#/works/capek"],
   ["coda", "#/coda"],
   ["citation-bound dialogue", "#/dialogue"],
-  ["sixteen modules", "#/works"],
+  ["twenty-one shipped modules", "#/works"],
   ["concordance", "#/concordance"],
   ["term atlas", "#/atlas"],
 ];
@@ -520,6 +524,21 @@ function viewMethod() {
       this site's working translation, and the 2018 translation was not consulted. Citation forms
       <span class="mono">PhT, Vorwort [k]</span>, <span class="mono">PhT II [k]</span> etc.
       (editorial paragraph numbers per chapter).</p>
+      <p class="readable"><strong>Poe.</strong> “Maelzel's Chess-Player”, complete, from the original
+      magazine printing in the Southern Literary Messenger, vol. II, no. 5 (April 1836), pp. 318–326,
+      via the Wikisource transcription of that printing, collated against the Edgar Allan Poe Society
+      of Baltimore's text of the same issue. Poe's four footnotes are kept as marked notes; the
+      magazine's woodcut of the Turk (Poe's “the cut above”) is not reproduced, and his italics are
+      not carried. A boundary note: the module documents a debate about mechanized <em>thought</em>,
+      not an automaton — Kempelen's Turk of 1769 was a hoax, and the corpus takes no step toward the
+      history of automata as machines (Vaucanson and the Jaquet-Droz androids are named by Poe, not
+      carried). What is carried is Poe's argument that chess, unlike Babbage's “fixed and determinate”
+      calculation, admits no certain progression — with his factual slips (the London tour of 1783–84
+      was Kempelen's, not Maelzel's) and his refuted premise left standing as part of the record. The
+      German source of the debate, Windisch's <em>Briefe über den Schachspieler des Hrn. von
+      Kempelen</em> (Pressburg 1783), is documented in the digitized copies of the MDZ
+      (bsb10081244) and the GDZ Göttingen and may follow as a bilingual module; it is not yet
+      carried. Citation form <span class="mono">MCP [n]</span> (editorial paragraph numbers).</p>
       <p class="readable"><strong>The animated word (the fourth line).</strong> Four modules, added
       September 2026. <em>Homer/Aristotle:</em> Iliad XVIII 369–379 and 410–421 (Greek after the Greek
       Wikisource transcription; English: Butler 1898, PD) and Politics I, 1253b23–1254a1 (Bekker text;
@@ -579,10 +598,11 @@ function viewMethod() {
       al-Khwārizmī's preface, Ibn Khaldūn's zāʾirja, and the Yijing passages Leibniz himself
       invoked), the machine line (Pascal's fragments, Lovelace's Notes of 1843 with Menabrea's
       Sketch, Jevons's memoir of 1870, Peirce's “Logical Machines” of 1887), the counter-voices
-      (Descartes's Discours Part V, La Mettrie's L'Homme Machine and Kapp's Grundlinien of 1877),
+      (Descartes's Discours Part V, La Mettrie's L'Homme Machine, Poe's “Maelzel's Chess-Player” of
+      1836 and Kapp's Grundlinien of 1877),
       and the animated word — the narrative line: Homer and Aristotle on the self-working tool,
       the Liezi automaton, the golem anthology, Goethe's Zauberlehrling, and Čapek's R.U.R. as its
-      threshold text — twenty modules shipped. A Tractatus module, once under consideration, has
+      threshold text — twenty-one modules shipped. A Tractatus module, once under consideration, has
       been dropped: the corpus ends where the formal-system line hands over to the twentieth
       century. What the corpus cannot contain, and why, is the subject of the
       <a href="#/coda">coda</a>.</p>
@@ -619,7 +639,8 @@ async function viewAtlas() {
       occur in the same paragraph. Colour is the line whose texts use the term most
       (<span style="color:var(--logic)">logic</span> ·
       <span style="color:var(--maschine)">machine</span> ·
-      <span style="color:var(--gegen)">counter-voices</span>); size is frequency.
+      <span style="color:var(--gegen)">counter-voices</span> ·
+      <span style="color:var(--wort)">the animated word</span>); size is frequency.
       Click a term for its neighbours and citations.</p></div>
     <div class="toolbar">
       <label class="fine" for="dens">Density</label>
@@ -689,7 +710,7 @@ async function viewAtlas() {
     }
   }
 
-  const COLOR = { logic: "#6fa8dc", maschine: "#d9a441", gegen: "#c47a6d" };
+  const COLOR = { logic: "#6fa8dc", maschine: "#d9a441", gegen: "#c47a6d", wort: "#a48fc9" };
   function draw() {
     cx.clearRect(0, 0, W, H);
     const neigh = new Set();
@@ -886,7 +907,7 @@ function viewDialogue() {
     <div class="viewhead"><span class="tag" style="color:var(--wort)">Citation-bound dialogue</span>
       <h1>Put a question to the corpus</h1>
       <p class="lede">Your question is first answered locally: a retrieval running entirely in your browser
-      searches the sixteen shipped editions and selects the paragraphs that bear on it. Only those paragraphs
+      searches the ${D.works.filter(w => w.status === "shipped").length} shipped editions and selects the paragraphs that bear on it. Only those paragraphs
       and your question are sent onward — to this site's server function and from there to Anthropic's Claude
       API — and the model is instructed to answer from them alone, with a canonical citation on every claim.
       This is the apparatus's answer to the question its own <a href="#/coda">coda</a> raises: the machine may
@@ -931,7 +952,7 @@ function viewDialogue() {
     `<button class="chip" style="text-align:left;white-space:normal;margin:.15rem" data-s="${esc(s)}">${esc(s)}</button>`).join("");
   view.querySelectorAll("[data-s]").forEach(b => b.onclick = () => { qf.value = b.dataset.s; qf.focus(); });
 
-  const CITE_RX = /\((?:(Lev\.|LoT|Disc\.|HM \[|Mon\. §|Arith\. bin\.|GP VII|De arte comb\.|BS,|GL,|SuB|Pens\.|MPL,|LM \[|AB \[|PhT|San\. \d|SY \d|ZfE|Zauberlehrling|RUR|Il\. X|Pol\. I|Muq\.|Alg\. \[|Xici|Liezi)[^()]{0,44})\)/g;
+  const CITE_RX = /\((?:(Lev\.|LoT|Disc\.|HM \[|Mon\. §|Arith\. bin\.|GP VII|De arte comb\.|BS,|GL,|SuB|Pens\.|MPL,|LM \[|AB \[|PhT|MCP \[|San\. \d|SY \d|ZfE|Zauberlehrling|RUR|Il\. X|Pol\. I|Muq\.|Alg\. \[|Xici|Liezi)[^()]{0,44})\)/g;
   const renderAnswer = md => esc(md)
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
@@ -1000,6 +1021,142 @@ function viewDialogue() {
   view.querySelector("#dclear").onclick = () => { DSESSION.length = 0; draw(); };
 }
 
+/* ================================================================ PATHS */
+/* Curated reading paths: guided routes through the corpus, each with a
+   stated order, a reason per station, and a guiding question. Editorial
+   matter, CC BY 4.0. */
+const PATHS = [
+  {
+    id: "reckoning", level: "Introductory", titel: "Is reasoning reckoning?",
+    frage: "The corpus's spine, read in order: how an aphorism became a programme, the programme an algebra, and the algebra a formal system.",
+    stationen: [
+      { href: "#/works/hobbes/c5", cite: "Lev., ch. V", autor: "Hobbes, 1651",
+        warum: "The founding sentence: reason defined as “nothing but Reckoning”.",
+        leitfrage: "What exactly does Hobbes mean by reckoning — and what does the definition quietly exclude?" },
+      { href: "#/works/leibniz/char", cite: "GP VII", autor: "Leibniz",
+        warum: "The aphorism becomes a research programme: a universal characteristic, and the proposal that disputes end in Calculemus.",
+        leitfrage: "What would a language have to be like for disagreement to end in calculation?" },
+      { href: "#/works/leibniz/bin", cite: "Arith. bin.", autor: "Leibniz, 1703",
+        warum: "The arithmetic of 0 and 1 in which all later computation is conducted.",
+        leitfrage: "Why does it matter that every number can be written with two signs?" },
+      { href: "#/works/boole/c1", cite: "LoT I", autor: "Boole, 1854",
+        warum: "The laws of thought written as equations — logic becomes algebra.",
+        leitfrage: "What changes about the status of logic when it is done by calculation?" },
+      { href: "#/works/frege/bs", cite: "BS, Vorwort", autor: "Frege, 1879",
+        warum: "The formal system itself: inference by explicit syntactic rule.",
+        leitfrage: "What is gained — and what is deliberately given up — when inference is reduced to rule-following?" },
+    ],
+  },
+  {
+    id: "language", level: "Introductory", titel: "The language test",
+    frage: "The oldest criterion for a mind: can the made thing answer? Told first as narrative, then stated as argument.",
+    stationen: [
+      { href: "#/works/golem/san", cite: "San. 65b", autor: "Talmud",
+        warum: "Rava's created man is returned to dust because he cannot answer speech — the test as narrative, a millennium before Descartes.",
+        leitfrage: "Why is silence, of all deficits, the verdict?" },
+      { href: "#/works/liezi/tw", cite: "Liezi V", autor: "Liezi",
+        warum: "Yan Shi's automaton sings and postures — until it is taken apart: leather, wood, glue and paint.",
+        leitfrage: "What does the disassembly scene concede, and what does it refuse to concede?" },
+      { href: "#/works/descartes/p5", cite: "Disc. V", autor: "Descartes, 1637",
+        warum: "The two tests no machine was to pass: appropriate reply to whatever is said, and general reason.",
+        leitfrage: "Is Descartes's criterion behavioural or metaphysical — and which reading survives the present decade?" },
+      { href: "#/works/leibniz/mon", cite: "Mon. §17", autor: "Leibniz, 1714",
+        warum: "The mill argument: walk into the thinking machine and find only pieces working upon one another.",
+        leitfrage: "Does fluent answering settle anything, if the walk through the mill finds no one home?" },
+    ],
+  },
+  {
+    id: "origination", level: "Intermediate", titel: "Origination and its limits",
+    frage: "Nearly every builder in this corpus also stated, with precision, what the built thing could not do. The builders' own objections, in order.",
+    stationen: [
+      { href: "#/works/pascal/frag", cite: "Pens. 340 (Br.)", autor: "Pascal",
+        warum: "The first philosophical reaction to a working computer: nearer to thought than all the actions of animals — but nothing from will.",
+        leitfrage: "What is “will” doing in Pascal's sentence — placeholder, or criterion?" },
+      { href: "#/works/lovelace/noteG", cite: "Note G", autor: "Lovelace, 1843",
+        warum: "The most durable objection: the Engine has no pretensions to originate anything.",
+        leitfrage: "Does “we know how to order it” still describe systems trained rather than programmed?" },
+      { href: "#/works/jevons/mpl", cite: "MPL, art. 55–56", autor: "Jevons, 1870",
+        warum: "The man who built the first inference machine assesses it: importance “of a purely theoretical kind”.",
+        leitfrage: "Why does the builder's sobriety recur in every century of reasoning machines?" },
+      { href: "#/works/peirce/lm", cite: "LM", autor: "Peirce, 1887",
+        warum: "A working logician asks our question exactly: what part of thinking can a machine be made to perform?",
+        leitfrage: "Peirce values the machines for what they reveal about reasoning — what do they reveal?" },
+      { href: "#/works/poe/arg", cite: "MCP [5]", autor: "Poe, 1836",
+        warum: "The boundary argued on a hoax: Babbage's calculation is “fixed and determinate” — chess is not, so what plays chess must judge.",
+        leitfrage: "Poe's premise was refuted by the twentieth century. Which half of his distinction survives the refutation?" },
+    ],
+  },
+  {
+    id: "control", level: "Introductory", titel: "The runaway servant",
+    frage: "The control problem before it had the name: literal executors, doubled countermeasures, and the forgotten stop-word.",
+    stationen: [
+      { href: "#/works/golem/grimm", cite: "ZfE 1808", autor: "Grimm, 1808",
+        warum: "One paragraph holds it all: animation by an inscription, revocation by one effaced letter — and a master crushed under the servant grown past his reach.",
+        leitfrage: "What does the effaced letter say about where the golem's life resides?" },
+      { href: "#/works/zauberlehrling/b", cite: "Zauberlehrling", autor: "Goethe, 1797/98",
+        warum: "The instruction executed literally and tirelessly; the axe that doubles the process it was meant to stop; the forgotten word.",
+        leitfrage: "Why does the countermeasure make things worse — and what, structurally, is the returning master?" },
+      { href: "#/works/capek/pred", cite: "RUR, Pred.", autor: "Čapek, 1920",
+        warum: "Myth hands over to industry: the made servant re-derived from cost, and the word robot enters every language.",
+        leitfrage: "What is lost in translation when the animated servant becomes a manufactured worker?" },
+      { href: "#/coda", cite: "Coda", autor: "Editorial",
+        warum: "Beyond the threshold, Wiener makes the ballad and the golem the emblems of automatic machines whose purpose we can no longer revise — named in the coda, since his books remain in copyright.",
+        leitfrage: "Which of the corpus's three control failures — literalism, doubling, lost stop-word — does the present debate fear most?" },
+    ],
+  },
+  {
+    id: "combinatorics", level: "Intermediate", titel: "The combinatorial imagination, east and west",
+    frage: "Generating the space of assertions before judging any of them: letter-wheels and doubled lines across four traditions, converging on Leibniz.",
+    stationen: [
+      { href: "#/works/yijing/xici", cite: "Xici I.11", autor: "Yijing",
+        warum: "One, two, four, eight: the doubling generation of the figures that Leibniz read as his binary arithmetic anticipated.",
+        leitfrage: "What is the difference between a divinatory and a computational reading of the same figures?" },
+      { href: "#/works/golem/sy", cite: "SY 2:4–5", autor: "Sefer Yetzirah",
+        warum: "Twenty-two letters “fixed in a wheel” of two hundred and thirty-one gates: creation itself imagined as letter-combinatorics.",
+        leitfrage: "What must letters be, for combining them to be a way of making?" },
+      { href: "#/works/llull/ab", cite: "AB", autor: "Llull, 1308",
+        warum: "Three rotating wheels, 252 chambers: the space of candidate propositions generated mechanically.",
+        leitfrage: "Where in Llull's art does judgment re-enter, after generation has been mechanized?" },
+      { href: "#/works/zairja/pref", cite: "Muq. I.6", autor: "Ibn Khaldūn, 1377",
+        warum: "The Arabic letter-machine described, defended against the charge of fraud — and epistemically dismantled: coherence is no proof of truth.",
+        leitfrage: "Ibn Khaldūn's critique of well-formed answers — how directly does it apply to generated text today?" },
+      { href: "#/works/leibniz/comb", cite: "De arte comb.", autor: "Leibniz, 1666",
+        warum: "The traditions converge: Leibniz names Llull's art, cites Hobbes's computation doctrine, and sets the course for the logic line.",
+        leitfrage: "What did Leibniz add to the wheels that turned combination into calculation?" },
+    ],
+  },
+];
+
+function viewPaths() {
+  view.append(el(`<div>
+    <div class="viewhead"><span class="tag">Guided routes</span>
+      <h1>Reading paths</h1>
+      <p class="lede">Five curated ways through the corpus — each with a stated order, a reason for
+      every station, and a guiding question to carry into the text. Paths cross the four lines
+      deliberately: the corpus's recurring discovery is that they are one conversation. Every station
+      opens a reader; the <a href="#/concordance">concordance</a> and the
+      <a href="#/dialogue">Dialogue</a> are the companions to take along.</p></div>
+    <div id="plist"></div>
+  </div>`));
+  const list = view.querySelector("#plist");
+  for (const p of PATHS) {
+    list.append(el(`<div class="panel">
+      <span class="tag">${esc(p.level)} · ${p.stationen.length} stations</span>
+      <h2 style="margin:.3rem 0 .3rem">${esc(p.titel)}</h2>
+      <p class="readable" style="color:var(--fg2)">${esc(p.frage)}</p>
+      <ol style="margin:.8rem 0 0;padding-left:1.2rem">
+        ${p.stationen.map(s => `<li style="margin-bottom:.9rem">
+          <a href="${s.href}" style="font-family:var(--serif);font-size:1.02rem">${esc(s.autor)}</a>
+          <span class="cite" style="margin-left:.5rem">${esc(s.cite)}</span>
+          <div style="color:var(--fg2);font-size:.88rem;margin-top:.15rem">${esc(s.warum)}</div>
+          <div class="fine" style="margin-top:.15rem"><strong style="color:var(--acc)">Guiding question:</strong>
+            ${esc(s.leitfrage)}</div>
+        </li>`).join("")}
+      </ol>
+    </div>`));
+  }
+}
+
 /* =============================================================== CODA */
 /* Editorial closing note: what this anthology cannot contain, and why.
    Editorial matter, CC BY 4.0. */
@@ -1056,6 +1213,21 @@ function viewCoda() {
       are three of them.</p>
     </div>
 
+    <div class="panel"><h2>The making, on record</h2>
+      <p class="readable">One disclosure belongs in this coda rather than on the method page, because
+      it concerns the whole and not a module: this apparatus was itself built in sustained working
+      sessions with a large language model — Anthropic's Claude, the same family of models that
+      answers in the <a href="#/dialogue">Dialogue</a> — under an editor who takes responsibility
+      for every selection, every emendation and every sentence of editorial matter. The working
+      diary of that construction is public: the
+      <a href="https://github.com/pantaleonfassbender-coder/Philosophical-predecessors-of-AI/commits/main">commit
+      history of the repository</a> records, stage by stage and with timestamps, in which order the
+      modules were built, what was corrected, and what was reconsidered — including what was dropped.
+      A corpus about the question whether reasoning can be mechanized, assembled partly by a machine
+      that appears to reason, owes its readers this fact plainly stated; whether the arrangement keeps
+      the pact described below is a question the reader now has the records to judge.</p>
+    </div>
+
     <div class="panel"><h2>The philosophical pact</h2>
       <p class="readable">Reading philosophy is not extraction but a bond. Rainer Otte has called it
       the <em>philosophical pact</em> between author and reader — in analogy to Philippe Lejeune's
@@ -1105,7 +1277,7 @@ function viewImprint() {
 
 Object.assign(ROUTES, {
   overview: viewOverview, introduction: viewIntroduction, works: viewWorks,
-  concordance: viewConcordance, atlas: viewAtlas, method: viewMethod,
+  concordance: viewConcordance, atlas: viewAtlas, paths: viewPaths, method: viewMethod,
   dialogue: viewDialogue, coda: viewCoda, privacy: viewPrivacy, imprint: viewImprint,
 });
 boot();
