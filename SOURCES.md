@@ -38,8 +38,8 @@ cited for the record, not carried as text.
 ### G. W. Leibniz — anthology · `data/leibniz_anthology.json`
 
 - *Monadologie* (1714), French: Project Gutenberg #17641 — <https://www.gutenberg.org/ebooks/17641>
-- *Monadology*, English by Robert Latta (1898, PD): English Wikisource transcription — {{LATTA_WS}}
-- *Explication de l'arithmétique binaire* (1703), French after Gerhardt, *Mathematische Schriften* VII (1863), pp. 223–227: French Wikisource transcription — {{BINAIRE_WS}}; the Gerhardt volume itself: {{GM7_IA}}
+- *Monadology*, English by Robert Latta (1898, PD): English Wikisource transcription — <https://en.wikisource.org/wiki/Monadology_(Leibniz,_tr._Latta)>
+- *Explication de l'arithmétique binaire* (1703), French after Gerhardt, *Mathematische Schriften* VII (1863), pp. 223–227: French Wikisource transcription — <https://fr.wikisource.org/wiki/Leibniz-en.francais-Gerhardt.Math.1a7.djvu/Num%C3%A9ration.binaire>; the Gerhardt volume itself: {{GM7_IA}}
 - Characteristica fragments and *De arte combinatoria* selections, Latin after Gerhardt, *Die philosophischen Schriften*, vol. IV (1880) — {{GP4_IA}} — and vol. VII (1890) — {{GP7_IA}}
 - English of the computational texts: working translations made for this site (CC0).
 
@@ -58,7 +58,7 @@ cited for the record, not carried as text.
 
 ### Blaise Pascal — *Pensées*, five fragments · `data/pascal_pensees.json`
 
-- French text (Brunschvicg edition): French Wikisource transcription — {{PENSEES_WS}}
+- French text (Brunschvicg edition): French Wikisource transcription — <https://fr.wikisource.org/wiki/Pens%C3%A9es_(Pascal)/%C3%89dition_Brunschvicg>
 - English by W. F. Trotter (1904, PD): Project Gutenberg #18269 — <https://www.gutenberg.org/ebooks/18269>
 
 ### Ada Lovelace — *Notes on Menabrea's Sketch of the Analytical Engine* (1843) · `data/lovelace_notes.json`
@@ -86,8 +86,8 @@ cited for the record, not carried as text.
 
 ### Edgar Allan Poe — *Maelzel's Chess-Player* (1836) · `data/poe_maelzel.json`
 
-- *Southern Literary Messenger*, vol. II, no. 5 (April 1836), pp. 318–326: English Wikisource transcription — {{POE_WS}}
-- Collated against the Edgar Allan Poe Society of Baltimore's text of the same issue — {{POE_EAPOE}}
+- *Southern Literary Messenger*, vol. II, no. 5 (April 1836), pp. 318–326: English Wikisource transcription — <https://en.wikisource.org/wiki/Maelzel%27s_Chess-Player>
+- Collated against the Edgar Allan Poe Society of Baltimore's text of the same issue — <https://www.eapoe.org/works/essays/maelzel.htm>
 
 ### Ernst Kapp — *Grundlinien einer Philosophie der Technik* (1877) · `data/kapp_grundlinien.json`
 
@@ -98,9 +98,9 @@ cited for the record, not carried as text.
 
 ### Homer · Aristotle — the self-working tools · `data/automata_antike.json`
 
-- Iliad XVIII, Greek: Greek Wikisource transcription — {{ILIAD_WS}}
+- Iliad XVIII, Greek: Greek Wikisource transcription — <https://el.wikisource.org/wiki/%CE%99%CE%BB%CE%B9%CE%AC%CF%82/%CE%A3>
 - Iliad, English by Samuel Butler (1898, PD): Project Gutenberg #2199 — <https://www.gutenberg.org/ebooks/2199>
-- Politics I 4, Greek (Bekker text): Greek Wikisource transcription — {{POLITICS_WS}}
+- Politics I 4, Greek (Bekker text): Greek Wikisource transcription — <https://el.wikisource.org/wiki/%CE%A0%CE%BF%CE%BB%CE%B9%CF%84%CE%B9%CE%BA%CE%AC/%CE%91>
 - Politics, English by William Ellis (PD): Project Gutenberg #6762 — <https://www.gutenberg.org/ebooks/6762>
 
 ### Liezi — the automaton of Yan Shi (Book V) · `data/liezi_yanshi.json`
@@ -118,12 +118,12 @@ cited for the record, not carried as text.
 
 ### J. W. Goethe — *Der Zauberlehrling* (1797/98) · `data/goethe_zauberlehrling.json`
 
-- German text (first printing, Musen-Almanach für das Jahr 1798): German Wikisource transcription — {{GOETHE_WS}}
+- German text (first printing, Musen-Almanach für das Jahr 1798): German Wikisource transcription — <https://de.wikisource.org/wiki/Der_Zauberlehrling_(1798)>
 - English by Edgar Alfred Bowring (1853, PD): Project Gutenberg #1287 — <https://www.gutenberg.org/ebooks/1287>
 
 ### Karel Čapek — *R.U.R.* (1920) · `data/capek_rur.json`
 
-- Czech text (Aventinum 1920): Czech Wikisource transcription — {{RUR_WS}}
+- Czech text (Aventinum 1920): Czech Wikisource transcription — <https://cs.wikisource.org/wiki/R.U.R.>
 - English: working translations made for this site (CC0).
 
 ---
