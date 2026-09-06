@@ -14,7 +14,7 @@ cited for the record, not carried as text.
 
 ### Ramon Llull — *Ars brevis* (1308) · `data/llull_arsbrevis.json`
 
-- Latin text: *Raymundi Lullii Opera ea quae ad adinventam ab ipso artem universalem pertinent* (Strasbourg: Zetzner, 1617), Internet Archive scan — {{LLULL_IA}}
+- Latin text: *Raymundi Lullii Opera ea quae ad adinventam ab ipso artem universalem pertinent* (Strasbourg: Zetzner, 1617), Internet Archive scan of the Bibliothèque interuniversitaire de Santé copy (the item is not reachable via web search at the time of writing; a digitization of the same 1617 edition: <https://search.library.wisc.edu/digital/ABMN3CKNAR6IOF9C>)
 - English: working translation made for this site (CC0).
 
 ### al-Khwārizmī — *The Algebra* (c. 820) · `data/khwarizmi_algebra.json`
@@ -49,7 +49,7 @@ cited for the record, not carried as text.
 
 ### Gottlob Frege — three texts · `data/frege_texte.json`
 
-- *Begriffsschrift* (Halle 1879), Vorwort: Internet Archive scan — {{BS_IA}}
+- *Begriffsschrift* (Halle 1879), Vorwort: Internet Archive scan — <https://archive.org/details/11388662>
 - *Die Grundlagen der Arithmetik* (Breslau 1884), selections: Project Gutenberg #48312 — <https://www.gutenberg.org/ebooks/48312>
 - *Über Sinn und Bedeutung* (Zeitschrift für Philosophie und philosophische Kritik 100, 1892), complete: Deutsches Textarchiv transcription — <https://www.deutschestextarchiv.de/frege_sinn_1892>
 - English: working translations made for this site (CC0) — no public-domain English exists.
@@ -63,15 +63,15 @@ cited for the record, not carried as text.
 
 ### Ada Lovelace — *Notes on Menabrea's Sketch of the Analytical Engine* (1843) · `data/lovelace_notes.json`
 
-- Taylor's *Scientific Memoirs*, vol. III (London 1843), art. XXIX, pp. 666–731: Internet Archive scan — {{TAYLOR_IA}}
+- Taylor's *Scientific Memoirs*, vol. III (London 1843), art. XXIX, pp. 666–731: Internet Archive scan — <https://archive.org/details/scientificmemoir03memo>
 
 ### W. S. Jevons — *On the Mechanical Performance of Logical Inference* (1870) · `data/jevons_1870.json`
 
-- Text from the reprint in *Pure Logic and Other Minor Works* (Macmillan, 1890): Internet Archive scan — {{JEVONS_IA}}
+- Text from the reprint in *Pure Logic and Other Minor Works* (Macmillan, 1890): Internet Archive scan — <https://archive.org/details/purelogicandothe00jevouoft>
 
 ### C. S. Peirce — *Logical Machines* (1887) · `data/peirce_logical_machines.json`
 
-- *The American Journal of Psychology*, vol. I, no. 1 (November 1887), pp. 165–170, original printing (JSTOR Early Journal Content / Internet Archive) — {{PEIRCE_IA}}
+- *The American Journal of Psychology*, vol. I, no. 1 (November 1887), pp. 165–170, original printing (JSTOR Early Journal Content / Internet Archive) — <https://archive.org/details/americanjournalo01austuoft>
 
 ## The counter-voices
 
@@ -91,7 +91,7 @@ cited for the record, not carried as text.
 
 ### Ernst Kapp — *Grundlinien einer Philosophie der Technik* (1877) · `data/kapp_grundlinien.json`
 
-- German text: Internet Archive/MDZ scan of the first edition (Bayerische Staatsbibliothek) — {{KAPP_IA}}; the MDZ digitization itself: <https://www.digitale-sammlungen.de/view/bsb11379066>
+- German text: Internet Archive/MDZ scan of the first edition (Bayerische Staatsbibliothek) — <https://archive.org/details/11379066bsb>; the MDZ digitization itself: <https://www.digitale-sammlungen.de/view/bsb11379066>
 - English: working translation made for this site (CC0).
 
 ## The animated word

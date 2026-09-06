@@ -28,7 +28,8 @@ question per station. The essay lives in
 ## The programme
 
 The corpus is built in stages along four lines. Status is tracked in `data/works.json` and on
-the site's overview.
+the site's overview. A per-module link list of the digitized sources is in
+[SOURCES.md](SOURCES.md).
 
 **The logic line** (direct ancestry of symbolic AI)
 
