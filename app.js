@@ -42,6 +42,7 @@ const CITE = {
     : ["Pol. I 4, 1253b23–33", "Pol. I 4, 1253b33–1254a1"][u.k - 1],
   capek: (sec, u) => sec.id === "pred" ? `RUR, Pred. [${u.k}]` : `RUR III [${u.k}]`,
   zairja: (sec, u) => sec.id === "pref" ? `Muq. I.6 [${u.k}]` : `Muq. VI [${u.k}]`,
+  avicenna: (sec, u) => `Ish. III [${u.k}]`,
   khwarizmi: (sec, u) => `Alg. [${u.k}]`,
   yijing: (sec, u) => ["Xici I.11", "Xici II.2"][u.k - 1] || `Xici [${u.n}]`,
   liezi: (sec, u) => `Liezi V [${u.k}]`,
@@ -103,7 +104,8 @@ function viewOverview() {
       </div>
       <div class="card linie-gegen">
         <span class="tag" style="color:var(--gegen)">The counter-voices</span>
-        <p style="font-size:.9rem;color:var(--fg2);margin:.3rem 0 0">Descartes's language test, which no
+        <p style="font-size:.9rem;color:var(--fg2);margin:.3rem 0 0">Avicenna's flying man —
+        self-awareness owing nothing to the body; Descartes's language test, which no
         machine was to pass; Leibniz's mill; Lovelace's objection; La Mettrie's radical retort that man
         himself is the machine; Poe on the chess-playing Turk — where calculation ends, judgment begins;
         Butler's Darwinian wager that machine life evolves and consciousness may supervene —
@@ -294,7 +296,8 @@ const INTRO_LINKS = [
   ["R.U.R.", "#/works/capek"],
   ["coda", "#/coda"],
   ["citation-bound dialogue", "#/dialogue"],
-  ["twenty-two shipped modules", "#/works"],
+  ["twenty-three shipped modules", "#/works"],
+  ["flying man", "#/works/avicenna"],
   ["concordance", "#/concordance"],
   ["term atlas", "#/atlas"],
 ];
@@ -427,6 +430,19 @@ function viewMethod() {
       equations are folded into their paragraph; Boole's footnotes are omitted. Readers working on the
       symbolic detail should consult the printed edition — this module serves the argument, not the
       calculus.</p>
+      <p class="readable"><strong>Avicenna.</strong> The flying man: the four opening reminders
+      (tanbīhāt) of the third namaṭ of the al-Ishārāt wa-l-tanbīhāt, complete, bilingual. The
+      Arabic follows Jacques Forget's edition (Leiden: Brill, 1892), pp. 119–120, transcribed by
+      hand from the page images of the Internet Archive scan — the 1892 typesetting is clean;
+      Forget's critical-apparatus letters are omitted and the print's orthography is kept, and
+      the print's genre marker (tanbīh) is carried as a unit label. The English is this site's
+      working translation, made directly from the Arabic; Goichon's French translation (1951)
+      and the modern English translations were not consulted — cite the original. The two
+      parallel versions of the argument in the De anima of the Shifāʾ (I.1 and V.7) are
+      documented here but not carried: their standard edition (Rahman 1959) remains in
+      copyright, and no public-domain printing of that Arabic text was found. Citation form
+      <span class="mono">Ish. III [k]</span> (editorial numbers; the passage is Forget
+      119–120).</p>
       <p class="readable"><strong>Descartes.</strong> Discours de la méthode, Part V, bilingual: the
       French text follows the Cousin edition's orthography (Project Gutenberg #13846), the English is
       John Veitch's public-domain translation (#59). The ten paragraph units follow the French
@@ -612,12 +628,13 @@ function viewMethod() {
       al-Khwārizmī's preface, Ibn Khaldūn's zāʾirja, and the Yijing passages Leibniz himself
       invoked), the machine line (Pascal's fragments, Lovelace's Notes of 1843 with Menabrea's
       Sketch, Jevons's memoir of 1870, Peirce's “Logical Machines” of 1887), the counter-voices
-      (Descartes's Discours Part V, La Mettrie's L'Homme Machine, Poe's “Maelzel's Chess-Player” of
+      (Avicenna's flying man of c. 1030, Descartes's Discours Part V, La Mettrie's L'Homme Machine,
+      Poe's “Maelzel's Chess-Player” of
       1836, Butler's “Darwin among the Machines” of 1863 with Erewhon's Book of the Machines, and
       Kapp's Grundlinien of 1877),
       and the animated word — the narrative line: Homer and Aristotle on the self-working tool,
       the Liezi automaton, the golem anthology, Goethe's Zauberlehrling, and Čapek's R.U.R. as its
-      threshold text — twenty-two modules shipped. A Tractatus module, once under consideration, has
+      threshold text — twenty-three modules shipped. A Tractatus module, once under consideration, has
       been dropped: the corpus ends where the formal-system line hands over to the twentieth
       century. What the corpus cannot contain, and why, is the subject of the
       <a href="#/coda">coda</a>.</p>
@@ -912,6 +929,7 @@ const DSUG = [
   "What exactly is Lovelace's objection, and how does it relate to Pascal's remark on will?",
   "How does the Talmud's test of Rava's created man compare with Descartes's language test?",
   "What did Leibniz mean by Calculemus?",
+  "What does Avicenna's flying man establish, and how does it relate to Leibniz's mill?",
   "Where does the word automaton first appear, and what does Aristotle conclude from it?",
   "How does Kapp's organ projection answer La Mettrie?",
   "What does the golem tradition say about controlling a created servant?",
@@ -967,7 +985,7 @@ function viewDialogue() {
     `<button class="chip" style="text-align:left;white-space:normal;margin:.15rem" data-s="${esc(s)}">${esc(s)}</button>`).join("");
   view.querySelectorAll("[data-s]").forEach(b => b.onclick = () => { qf.value = b.dataset.s; qf.focus(); });
 
-  const CITE_RX = /\((?:(Lev\.|LoT|Disc\.|HM \[|Mon\. §|Arith\. bin\.|GP VII|De arte comb\.|BS,|GL,|SuB|Pens\.|MPL,|LM \[|AB \[|PhT|MCP \[|But \[|San\. \d|SY \d|ZfE|Zauberlehrling|RUR|Il\. X|Pol\. I|Muq\.|Alg\. \[|Xici|Liezi)[^()]{0,44})\)/g;
+  const CITE_RX = /\((?:(Lev\.|LoT|Disc\.|HM \[|Mon\. §|Arith\. bin\.|GP VII|De arte comb\.|BS,|GL,|SuB|Pens\.|MPL,|LM \[|AB \[|PhT|MCP \[|But \[|San\. \d|SY \d|ZfE|Zauberlehrling|RUR|Il\. X|Pol\. I|Muq\.|Alg\. \[|Xici|Liezi|Ish\. III)[^()]{0,44})\)/g;
   const renderAnswer = md => esc(md)
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/\*(.+?)\*/g, "<em>$1</em>")

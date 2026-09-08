@@ -85,6 +85,12 @@ covered by any licence granted here, because they were never this repository's t
   of the scan. Public domain (Kapp †1896). The complete English translation of 2018
   (University of Minnesota Press) remains in copyright and was not consulted; the English
   working translation is made for this site (CC0).
+- **Avicenna**, the flying man — *al-Ishārāt wa-l-tanbīhāt*, opening of the third namaṭ,
+  Arabic after Jacques Forget's edition (Leiden: Brill, 1892), pp. 119–120, hand-transcribed
+  from the page images of the Internet Archive scan. Public domain (composed c. 1030; the
+  edition 1892, Forget †1933). Rahman's edition (1959) and Goichon's French translation
+  (1951) remain in copyright and were not consulted; the English working translation is
+  made for this site (CC0).
 - **Poe**, “Maelzel's Chess-Player” — *Southern Literary Messenger*, vol. II, no. 5
   (April 1836), pp. 318–326, via the English Wikisource transcription of that printing,
   collated against the Edgar Allan Poe Society of Baltimore's text of the same issue.

@@ -50,6 +50,18 @@
   "claim": "The formal system itself: quantified logic (1879), and the sense/reference distinction (1892) on which knowledge representation and formal semantics still stand."
  },
  {
+  "id": "avicenna",
+  "linie": "gegen",
+  "autor": "Avicenna (Ibn Sīnā)",
+  "leben": "980–1037",
+  "kurz": "Avicenna",
+  "titel": "The flying man: al-Ishārāt wa-l-tanbīhāt, Namaṭ III, opening (c. 1030)",
+  "status": "shipped",
+  "datei": "avicenna_isharat",
+  "sprachen": "Arabic · English (working translation)",
+  "claim": "The oldest counter-voice: a man created complete but suspended in open air — sight void, limb not touching limb — would still affirm his own existence. Self-awareness owes nothing to organ, intermediary, or act: the consciousness objection, six centuries before Descartes and Leibniz's mill."
+ },
+ {
   "id": "descartes",
   "linie": "gegen",
   "autor": "René Descartes",

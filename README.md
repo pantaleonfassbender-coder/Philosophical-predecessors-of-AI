@@ -57,6 +57,7 @@ the site's overview. A per-module link list of the digitized sources is in
 
 | Author | Text | Source | Status |
 |---|---|---|---|
+| Avicenna (Ibn Sīnā) | The flying man — *al-Ishārāt wa-l-tanbīhāt*, Namaṭ III opening (c. 1030): self-awareness without body, organ, or act | Forget's Leiden edition 1892, pp. 119–120, hand-transcribed from the IA page images; working translation | **shipped** |
 | René Descartes | *Discours de la méthode* (1637), Part V — the language test | PG #13846 (FR) + Veitch, PG #59 (EN), bilingual | **shipped** |
 | J. O. de La Mettrie | *L'Homme Machine* (1747) | PG #52090: FR + Bussey 1912 EN, bilingual; 7 silently omitted paragraphs restored | **shipped** |
 | Edgar Allan Poe | *Maelzel's Chess-Player* (1836), complete — the chess-Turk hoax as the boundary between calculation and judgment | Southern Literary Messenger II/5 via Wikisource, collated against the Poe Society of Baltimore's text | **shipped** |

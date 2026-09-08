@@ -75,6 +75,11 @@ cited for the record, not carried as text.
 
 ## The counter-voices
 
+### Avicenna (Ibn Sīnā) — the flying man, *al-Ishārāt wa-l-tanbīhāt* Namaṭ III (c. 1030) · `data/avicenna_isharat.json`
+
+- Arabic text: Jacques Forget (ed.), *Kitāb al-ishārāt wa-l-tanbīhāt / Le livre des théorèmes et des avertissements* (Leiden: Brill, 1892), pp. 119–120, transcribed from the page images of the Internet Archive scan — <https://archive.org/details/kitbalishrtwaalt00avic>
+- English: working translation made for this site (CC0). *Documentation:* the parallel versions in the *De anima* of the *Shifāʾ* (I.1 and V.7) are named on the method page; their standard edition (Rahman 1959) remains in copyright and is not used.
+
 ### René Descartes — *Discours de la méthode* (1637), Part V · `data/descartes_discours5.json`
 
 - French text: Project Gutenberg #13846 — <https://www.gutenberg.org/ebooks/13846>
