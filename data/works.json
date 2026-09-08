@@ -134,6 +134,19 @@
   "datei": "pascal_pensees"
  },
  {
+  "id": "butler",
+  "linie": "gegen",
+  "autor": "Samuel Butler",
+  "leben": "1835–1902",
+  "kurz": "Butler",
+  "titel": "Darwin among the Machines (1863) · The Book of the Machines (Erewhon, ch. XXIII–XXV)",
+  "status": "planned",
+  "datei": "butler_machines",
+  "sprachen": "English",
+  "claim": "Evolution applied to the machines, four years after the Origin of Species: machines as a nascent 'mechanical life' whose consciousness may yet supervene, man as their reproductive organ — and, in Erewhon, a civilization that abolishes its machines in self-defence. The root of every later machine-evolution argument.",
+  "geplant": "The Press letter of 13 June 1863, complete, and Erewhon's three 'Book of the Machines' chapters (revised text of 1901); sources: PG #3279 (Canterbury Pieces) and PG #1906. Build: tools/build-butler.py."
+ },
+ {
   "id": "kapp",
   "linie": "gegen",
   "autor": "Ernst Kapp",
@@ -240,19 +253,6 @@
   "datei": "goethe_zauberlehrling",
   "sprachen": "German · English (Bowring 1853, PD)",
   "claim": "The runaway command: an animated servant that executes literally, a countermeasure that doubles it, and the forgotten stop-word — «Die ich rief die Geister / Werd ich nun nicht los». Wiener made it the emblem of the control problem."
- },
- {
-  "id": "butler",
-  "linie": "gegen",
-  "autor": "Samuel Butler",
-  "leben": "1835–1902",
-  "kurz": "Butler",
-  "titel": "Darwin among the Machines (1863) · The Book of the Machines (Erewhon, ch. XXIII–XXV)",
-  "status": "planned",
-  "datei": "butler_machines",
-  "sprachen": "English",
-  "claim": "Evolution applied to the machines, four years after the Origin of Species: machines as a nascent 'mechanical life' whose consciousness may yet supervene, man as their reproductive organ — and, in Erewhon, a civilization that abolishes its machines in self-defence. The root of every later machine-evolution argument.",
-  "geplant": "The Press letter of 13 June 1863, complete, and Erewhon's three 'Book of the Machines' chapters (revised text of 1901); sources: PG #3279 (Canterbury Pieces) and PG #1906. Build: tools/build-butler.py."
  },
  {
   "id": "capek",
