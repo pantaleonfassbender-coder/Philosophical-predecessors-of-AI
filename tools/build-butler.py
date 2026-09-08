@@ -50,22 +50,35 @@ def strip_boilerplate(raw, name):
 def paragraphs(block):
     out = []
     for p in re.split(r'\n\s*\n', block):
-        p = re.sub(r'\s+', ' ', p).strip()
+        p = re.sub(r'\s+', ' ', p).replace('_', '').strip()  # PG italics markers dropped
         if p:
             out.append(p)
     return out
 
 # ------------------------------------------------- Darwin among the Machines
+# In PG #3279 the essay headings are mixed-case lines ("Darwin Among the
+# Machines"); the contents row carries a page number, so an exact line match
+# finds the heading proper. The heading is followed by the 1914 editor's
+# prefatory note (italic) and a bracketed dateline — editorial matter of the
+# Fifield reprint, not Butler's text — so the letter is taken from the
+# salutation ("SIR—…") to the Cellarius subscription.
 cp = strip_boilerplate(load('canterbury', 1), 'pg3279')
 lines = cp.splitlines()
-heads = [i for i, ln in enumerate(lines)
-         if re.fullmatch(r'[A-Z][A-Z0-9 .,;:\'"()——-]{5,}', ln.strip())]
-start = next(i for i in heads if 'DARWIN AMONG THE MACHINES' in lines[i])
-after = [i for i in heads if i > start and 'MACHINES' not in lines[i]]
-end = after[0] if after else len(lines)
-damm = paragraphs('\n'.join(lines[start + 1:end]))
+start = next(i for i, ln in enumerate(lines)
+             if ln.strip() == 'Darwin Among the Machines')
+end = next(i for i in range(start + 1, len(lines))
+           if lines[i].strip() == 'Lucubratio Ebria')
+block = paragraphs('\n'.join(lines[start + 1:end]))
+first = next(i for i, p in enumerate(block) if p.startswith('SIR'))
+damm = block[first:]
+sub = []
+while damm and len(damm[-1]) < 40:      # fold "I am, Sir, etc.," + "CELLARIUS"
+    sub.insert(0, damm.pop())
+if sub:
+    damm.append(' '.join(sub))
 assert 5 <= len(damm) <= 25, f'letter looks wrong: {len(damm)} paragraphs'
 assert any('mechanical life' in p for p in damm), 'expected phrase missing'
+assert damm[-1].endswith('CELLARIUS'), 'subscription not where expected'
 print(f'letter: {len(damm)} paragraphs')
 
 # ------------------------------------------------- Erewhon XXIII-XXV
@@ -93,7 +106,7 @@ out = {
     'zitierweise': 'But [n]',
     'quelle': ("Darwin among the Machines: The Press (Christchurch), 13 June 1863, signed "
                "'Cellarius'; text via the Project Gutenberg transcription #3279 (Canterbury "
-               "Pieces). The Book of the Machines: Erewhon, or Over the Range (London: "
+               "Pieces, the 1914 Fifield reprint). The Book of the Machines: Erewhon, or Over the Range (London: "
                "Trübner, 1872), chapters XXIII–XXV in Butler's revised text of 1901, via the "
                "Project Gutenberg transcription #1906 (the 1910 Fifield printing). Both "
                "public domain (Butler †1902)."),
@@ -101,8 +114,10 @@ out = {
                 "editorial and continuous. The Erewhon text is Butler's revision of 1901; "
                 "the first edition of 1872 numbers and words the machine chapters "
                 "differently — when citing, name the edition. The letter is carried after "
-                "the book reprint transcribed by Project Gutenberg; the original newspaper "
-                "printing was not consulted."),
+                "the 1914 Fifield reprint transcribed by Project Gutenberg — its editor's "
+                "prefatory note and bracketed dateline are omitted as editorial matter — "
+                "and the original newspaper printing was not consulted. Butler's italics "
+                "are not carried."),
     'sections': [],
 }
 

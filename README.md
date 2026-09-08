@@ -61,7 +61,7 @@ the site's overview. A per-module link list of the digitized sources is in
 | J. O. de La Mettrie | *L'Homme Machine* (1747) | PG #52090: FR + Bussey 1912 EN, bilingual; 7 silently omitted paragraphs restored | **shipped** |
 | Edgar Allan Poe | *Maelzel's Chess-Player* (1836), complete — the chess-Turk hoax as the boundary between calculation and judgment | Southern Literary Messenger II/5 via Wikisource, collated against the Poe Society of Baltimore's text | **shipped** |
 | Ernst Kapp | *Grundlinien einer Philosophie der Technik* (1877), selections — organ projection, the telegraph/nervous-system chapter | IA/MDZ scan of the 1877 first edition, OCR emended, verified against page images; working translation | **shipped** |
-| Samuel Butler | *Darwin among the Machines* (1863), complete · *Erewhon*, "The Book of the Machines" (ch. XXIII–XXV, revised text of 1901) — machine evolution, and the abolition of the machines | PG #3279 (Canterbury Pieces); PG #1906 (Erewhon, 1910 Fifield printing); build: `tools/build-butler.py` | planned |
+| Samuel Butler | *Darwin among the Machines* (1863), complete · *Erewhon*, "The Book of the Machines" (ch. XXIII–XXV, revised text of 1901) — machine evolution, and the abolition of the machines | PG #3279 (Canterbury Pieces, 1914 Fifield reprint); PG #1906 (Erewhon, 1910 Fifield printing) | **shipped** |
 
 **The animated word** (the narrative line: the tales that tell what the other lines argue)
 

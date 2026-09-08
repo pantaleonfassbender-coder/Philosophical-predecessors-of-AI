@@ -29,6 +29,7 @@ const CITE = {
   llull: (sec, u) => `AB [${u.n}]`,
   lamettrie: (sec, u) => `HM [${u.n}]`,
   poe: (sec, u) => `MCP [${u.n}]`,
+  butler: (sec, u) => `But [${u.n}]`,
   kapp: (sec, u) => ({ vorwort: `PhT, Vorwort [${u.k}]`, c1: `PhT I [${u.k}]`, c2: `PhT II [${u.k}]`,
     c7: `PhT VII [${u.k}]`, c8: `PhT VIII [${u.k}]` }[sec.id] || `PhT [${u.n}]`),
   golem: (sec, u) => ({ ps: "Ps 139:16",
@@ -104,7 +105,8 @@ function viewOverview() {
         <span class="tag" style="color:var(--gegen)">The counter-voices</span>
         <p style="font-size:.9rem;color:var(--fg2);margin:.3rem 0 0">Descartes's language test, which no
         machine was to pass; Leibniz's mill; Lovelace's objection; La Mettrie's radical retort that man
-        himself is the machine; Poe on the chess-playing Turk — where calculation ends, judgment begins —
+        himself is the machine; Poe on the chess-playing Turk — where calculation ends, judgment begins;
+        Butler's Darwinian wager that machine life evolves and consciousness may supervene —
         and Kapp's reversal: the machine is a projection of man. The arguments today's debate keeps
         rediscovering.</p>
       </div>
@@ -280,6 +282,8 @@ const INTRO_LINKS = [
   ["Discours de la méthode", "#/works/descartes"],
   ["L’Homme Machine", "#/works/lamettrie"],
   ["Maelzel’s Chess-Player", "#/works/poe"],
+  ["Darwin among the Machines", "#/works/butler/damm"],
+  ["Book of the Machines", "#/works/butler"],
   ["Grundlinien einer Philosophie der Technik", "#/works/kapp"],
   ["golden handmaids", "#/works/automata/il"],
   ["Politics", "#/works/automata/pol"],
@@ -290,7 +294,7 @@ const INTRO_LINKS = [
   ["R.U.R.", "#/works/capek"],
   ["coda", "#/coda"],
   ["citation-bound dialogue", "#/dialogue"],
-  ["twenty-one shipped modules", "#/works"],
+  ["twenty-two shipped modules", "#/works"],
   ["concordance", "#/concordance"],
   ["term atlas", "#/atlas"],
 ];
@@ -539,6 +543,16 @@ function viewMethod() {
       Kempelen</em> (Pressburg 1783), is documented in the digitized copies of the MDZ
       (bsb10081244) and the GDZ Göttingen and may follow as a bilingual module; it is not yet
       carried. Citation form <span class="mono">MCP [n]</span> (editorial paragraph numbers).</p>
+      <p class="readable"><strong>Butler.</strong> The machine-evolution argument, twice told, complete.
+      “Darwin among the Machines”: the letter to the Press (Christchurch) of 13 June 1863, signed
+      “Cellarius”, after the 1914 Fifield reprint in Canterbury Pieces (Project Gutenberg #3279) —
+      the reprint editor's prefatory note and bracketed dateline are omitted as editorial matter,
+      and the original newspaper printing was not consulted. “The Book of the Machines”: Erewhon
+      chapters XXIII–XXV in Butler's revised text of 1901, from the Project Gutenberg transcription
+      #1906 of the 1910 Fifield printing; the first edition of 1872 numbers and words the machine
+      chapters differently, so citations should name the edition. Butler's italics are not carried.
+      Citation form <span class="mono">But [n]</span> (editorial paragraph numbers, continuous
+      across letter and chapters).</p>
       <p class="readable"><strong>The animated word (the fourth line).</strong> Four modules, added
       September 2026. <em>Homer/Aristotle:</em> Iliad XVIII 369–379 and 410–421 (Greek after the Greek
       Wikisource transcription; English: Butler 1898, PD) and Politics I, 1253b23–1254a1 (Bekker text;
@@ -599,10 +613,11 @@ function viewMethod() {
       invoked), the machine line (Pascal's fragments, Lovelace's Notes of 1843 with Menabrea's
       Sketch, Jevons's memoir of 1870, Peirce's “Logical Machines” of 1887), the counter-voices
       (Descartes's Discours Part V, La Mettrie's L'Homme Machine, Poe's “Maelzel's Chess-Player” of
-      1836 and Kapp's Grundlinien of 1877),
+      1836, Butler's “Darwin among the Machines” of 1863 with Erewhon's Book of the Machines, and
+      Kapp's Grundlinien of 1877),
       and the animated word — the narrative line: Homer and Aristotle on the self-working tool,
       the Liezi automaton, the golem anthology, Goethe's Zauberlehrling, and Čapek's R.U.R. as its
-      threshold text — twenty-one modules shipped. A Tractatus module, once under consideration, has
+      threshold text — twenty-two modules shipped. A Tractatus module, once under consideration, has
       been dropped: the corpus ends where the formal-system line hands over to the twentieth
       century. What the corpus cannot contain, and why, is the subject of the
       <a href="#/coda">coda</a>.</p>
@@ -952,7 +967,7 @@ function viewDialogue() {
     `<button class="chip" style="text-align:left;white-space:normal;margin:.15rem" data-s="${esc(s)}">${esc(s)}</button>`).join("");
   view.querySelectorAll("[data-s]").forEach(b => b.onclick = () => { qf.value = b.dataset.s; qf.focus(); });
 
-  const CITE_RX = /\((?:(Lev\.|LoT|Disc\.|HM \[|Mon\. §|Arith\. bin\.|GP VII|De arte comb\.|BS,|GL,|SuB|Pens\.|MPL,|LM \[|AB \[|PhT|MCP \[|San\. \d|SY \d|ZfE|Zauberlehrling|RUR|Il\. X|Pol\. I|Muq\.|Alg\. \[|Xici|Liezi)[^()]{0,44})\)/g;
+  const CITE_RX = /\((?:(Lev\.|LoT|Disc\.|HM \[|Mon\. §|Arith\. bin\.|GP VII|De arte comb\.|BS,|GL,|SuB|Pens\.|MPL,|LM \[|AB \[|PhT|MCP \[|But \[|San\. \d|SY \d|ZfE|Zauberlehrling|RUR|Il\. X|Pol\. I|Muq\.|Alg\. \[|Xici|Liezi)[^()]{0,44})\)/g;
   const renderAnswer = md => esc(md)
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
@@ -1096,6 +1111,9 @@ const PATHS = [
       { href: "#/works/zauberlehrling/b", cite: "Zauberlehrling", autor: "Goethe, 1797/98",
         warum: "The instruction executed literally and tirelessly; the axe that doubles the process it was meant to stop; the forgotten word.",
         leitfrage: "Why does the countermeasure make things worse — and what, structurally, is the returning master?" },
+      { href: "#/works/butler/damm", cite: "But [7–8]", autor: "Butler, 1863/1872",
+        warum: "The countermeasure radicalized: persuaded that machine life evolves and its consciousness may supervene, Butler's Erewhonians proclaim “war to the death” and abolish their machines.",
+        leitfrage: "Is pre-emptive abolition a solution to the control problem — or its most desperate symptom?" },
       { href: "#/works/capek/pred", cite: "RUR, Pred.", autor: "Čapek, 1920",
         warum: "Myth hands over to industry: the made servant re-derived from cost, and the word robot enters every language.",
         leitfrage: "What is lost in translation when the animated servant becomes a manufactured worker?" },

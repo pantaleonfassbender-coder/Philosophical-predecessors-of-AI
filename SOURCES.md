@@ -89,6 +89,11 @@ cited for the record, not carried as text.
 - *Southern Literary Messenger*, vol. II, no. 5 (April 1836), pp. 318–326: English Wikisource transcription — <https://en.wikisource.org/wiki/Maelzel%27s_Chess-Player>
 - Collated against the Edgar Allan Poe Society of Baltimore's text of the same issue — <https://www.eapoe.org/works/essays/maelzel.htm>
 
+### Samuel Butler — machine evolution, twice told · `data/butler_machines.json`
+
+- “Darwin among the Machines” (1863): Project Gutenberg #3279 (*Canterbury Pieces*, the 1914 Fifield reprint) — <https://www.gutenberg.org/ebooks/3279>
+- *Erewhon*, “The Book of the Machines” (ch. XXIII–XXV, revised text of 1901): Project Gutenberg #1906 (the 1910 Fifield printing) — <https://www.gutenberg.org/ebooks/1906>
+
 ### Ernst Kapp — *Grundlinien einer Philosophie der Technik* (1877) · `data/kapp_grundlinien.json`
 
 - German text: Internet Archive/MDZ scan of the first edition (Bayerische Staatsbibliothek) — <https://archive.org/details/11379066bsb>; the MDZ digitization itself: <https://www.digitale-sammlungen.de/view/bsb11379066>

@@ -89,6 +89,11 @@ covered by any licence granted here, because they were never this repository's t
   (April 1836), pp. 318–326, via the English Wikisource transcription of that printing,
   collated against the Edgar Allan Poe Society of Baltimore's text of the same issue.
   Public domain (published 1836; Poe †1849).
+- **Butler**, “Darwin among the Machines” (The Press, Christchurch, 13 June 1863, signed
+  “Cellarius”) — text via the Project Gutenberg transcription #3279 (Canterbury Pieces,
+  the 1914 Fifield reprint); *Erewhon* (London: Trübner, 1872), “The Book of the
+  Machines”, ch. XXIII–XXV of the revised text of 1901 — via the Project Gutenberg
+  transcription #1906 (the 1910 Fifield printing). Both public domain (Butler †1902).
 
 Future modules will name their editions here as they ship. Where a module carries a working
 translation made for this site, that translation is machine-generated, has no scholarly

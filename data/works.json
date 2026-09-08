@@ -140,11 +140,10 @@
   "leben": "1835–1902",
   "kurz": "Butler",
   "titel": "Darwin among the Machines (1863) · The Book of the Machines (Erewhon, ch. XXIII–XXV)",
-  "status": "planned",
+  "status": "shipped",
   "datei": "butler_machines",
   "sprachen": "English",
-  "claim": "Evolution applied to the machines, four years after the Origin of Species: machines as a nascent 'mechanical life' whose consciousness may yet supervene, man as their reproductive organ — and, in Erewhon, a civilization that abolishes its machines in self-defence. The root of every later machine-evolution argument.",
-  "geplant": "The Press letter of 13 June 1863, complete, and Erewhon's three 'Book of the Machines' chapters (revised text of 1901); sources: PG #3279 (Canterbury Pieces) and PG #1906. Build: tools/build-butler.py."
+  "claim": "Evolution applied to the machines, four years after the Origin of Species: machines as a nascent 'mechanical life' whose consciousness may yet supervene, man as their reproductive organ — and, in Erewhon, a civilization that abolishes its machines in self-defence. The root of every later machine-evolution argument."
  },
  {
   "id": "kapp",
