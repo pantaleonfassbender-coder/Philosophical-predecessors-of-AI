@@ -1217,13 +1217,20 @@ function viewCoda() {
       cannot be manufactured: the first pair, “who have invented love”. Beyond the threshold lies
       Norbert Wiener's <em>God and Golem, Inc.</em> (1964), where cybernetics itself takes up the
       golem — in copyright, and therefore named here instead of carried.</p>
-      <p class="readable">Two further absences run along other boundaries. The great mechanical
+      <p class="readable">Three further absences run along other boundaries. The great mechanical
       books of the Arabic engineers — the Banū Mūsā's <em>Book of Ingenious Devices</em> (9th c.)
       and al-Jazarī's <em>Book of Knowledge of Ingenious Mechanical Devices</em> (1206), with its
       programmable automata — are ancient enough, but their standard translations (Donald Hill,
       1974/79) are not: excluded by translation rights, they are named here as the machine line's
       missing eastern wing (Ibn Khaldūn's <a href="#/works/zairja">zāʾirja</a> carries the Arabic
-      world's letter-machine in their stead). And the corpus's Latin American voice lies wholly
+      world's letter-machine in their stead). The same boundary that keeps Vaucanson's duck
+      outside — machines argued about, not arguments — holds for Japan: the karakuri tradition
+      of the Edo period, codified in Hosokawa Yorinao's <em>Karakuri zui</em> (1796), the
+      illustrated compendium of the tea-serving automata, is a machine book, not a debate about
+      mechanized thought; and the modern reading of Japanese robot-acceptance through Shinto
+      animism is a twentieth-century voice — Masahiro Mori's <em>The Buddha in the Robot</em>
+      (1974) stands in copyright, and the thesis itself is a contested construction, not a
+      classical source. And the corpus's Latin American voice lies wholly
       beyond the threshold: Jorge Luis Borges — who in 1937 wrote an essay squarely on “Ramon
       Llull's thinking machine”, whose <em>Library of Babel</em> (1941) is exhaustive combinatorics
       made into fiction, and whose poem <em>El Golem</em> (1958) retells this corpus's fourth line —
