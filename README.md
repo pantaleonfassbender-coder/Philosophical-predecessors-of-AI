@@ -1,5 +1,7 @@
 # Calculemus — philosophical predecessors of AI
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22677079.svg)](https://doi.org/10.5281/zenodo.22677079)
+
 A research apparatus for the prehistory of the AI debate: the public-domain texts in which
 reasoning first became reckoning, reckoning became algebra, algebra became a formal system —
 together with the machines that made the idea tangible, and the philosophers who said it could
@@ -110,7 +112,10 @@ marginal note where the printing carries one (Hobbes 1651).
 ## Citing
 
 > Pantaleon Fassbender, *Calculemus: Philosophical Predecessors of AI*,
-> https://github.com/pantaleonfassbender-coder/Philosophical-predecessors-of-AI (accessed …).
+> https://doi.org/10.5281/zenodo.22677079 (accessed …).
+
+The DOI above is the concept DOI and always resolves to the latest archived
+version; each release also carries its own version DOI on Zenodo.
 
 When citing a passage, cite the printed original — the paragraph grids exist so that you can;
 where a grid is this site's own (stated per module), name the site as the source of the
