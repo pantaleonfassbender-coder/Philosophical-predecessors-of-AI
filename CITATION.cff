@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: >-
+  If you use this apparatus, please cite it as below. When citing a passage,
+  cite the printed original — the paragraph grids exist so that you can;
+  where a numbering is this site's own (stated per module), name the site
+  as the source of the numbering.
+title: "Calculemus: Philosophical Predecessors of AI"
+type: dataset
+authors:
+  - family-names: Fassbender
+    given-names: Pantaleon
+abstract: >-
+  A digital research apparatus for the philosophical prehistory of the AI
+  debate: twenty-five public-domain editions in four lines — the logic line
+  (Llull, Kircher, Hobbes, Leibniz, Boole, Frege, with its world roots in
+  al-Khwārizmī, Ibn Khaldūn's zāʾirja and the Yijing), the machine line
+  (Pascal, Lovelace, Jevons, Peirce), the counter-voices (Avicenna,
+  Descartes, La Mettrie, Poe, Butler, Kapp) and the narrative line of the
+  animated word (Homer/Aristotle, Liezi, the golem, the brazen head, Goethe,
+  Čapek) — with paragraph-exact citation, a cross-corpus concordance, a term
+  atlas, curated reading paths and a citation-bound dialogue. The corpus
+  ends, deliberately, at the threshold of Turing.
+keywords:
+  - history of artificial intelligence
+  - digital humanities
+  - philosophy of mind
+  - combinatorics
+  - public domain editions
+  - Leibniz
+  - computational theory of mind
+license:
+  - MIT
+  - CC-BY-4.0
+  - CC0-1.0
+repository-code: "https://github.com/pantaleonfassbender-coder/Philosophical-predecessors-of-AI"
+url: "https://philosophical-predecessors-of-ai.netlify.app"
+version: 1.0.0
+date-released: 2026-09-09
