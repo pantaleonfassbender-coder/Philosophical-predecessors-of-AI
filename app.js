@@ -710,7 +710,8 @@ async function viewAtlas() {
       <span style="color:var(--maschine)">machine</span> ·
       <span style="color:var(--gegen)">counter-voices</span> ·
       <span style="color:var(--wort)">the animated word</span>); size is frequency.
-      Click a term for its neighbours and citations.</p></div>
+      Click a term for its neighbours and citations; scroll or double-click to zoom into the
+      dense centre — more labels appear as you go — and drag to pan.</p></div>
     <div class="toolbar">
       <label class="fine" for="dens">Density</label>
       <select id="dens">
@@ -718,9 +719,12 @@ async function viewAtlas() {
         <option value="260" selected>medium</option>
         <option value="420">dense</option>
       </select>
+      <button class="chip" id="zin" title="Zoom in">+</button>
+      <button class="chip" id="zout" title="Zoom out">−</button>
+      <button class="chip" id="zreset" title="Reset view">Reset</button>
       <span class="fine" id="atlasinfo"></span>
     </div>
-    <div class="card" style="padding:0;overflow:hidden"><canvas id="cv" style="width:100%;display:block;cursor:pointer"></canvas></div>
+    <div class="card" style="padding:0;overflow:hidden"><canvas id="cv" style="width:100%;display:block;cursor:grab"></canvas></div>
     <div id="sel"></div>
     <div class="card" style="margin-top:1.2rem"><span class="tag">Bridge terms</span>
       <p style="margin:.5rem 0 0" class="readable" style="font-size:.9rem">Terms carried by four or
@@ -730,7 +734,9 @@ async function viewAtlas() {
   const cv = view.querySelector("#cv");
   const selBox = view.querySelector("#sel");
   const densSel = view.querySelector("#dens");
-  const W = Math.min(view.clientWidth || 900, 980), H = Math.max(460, Math.round(W * 0.62));
+  /* floor the width: a collapsed or not-yet-laid-out pane must not produce a
+     degenerate simulation box that CSS then stretches to full width */
+  const W = Math.min(Math.max(view.clientWidth || 900, 480), 980), H = Math.max(460, Math.round(W * 0.62));
   const dpr = window.devicePixelRatio || 1;
   cv.width = W * dpr; cv.height = H * dpr; cv.style.height = H + "px";
   const cx = cv.getContext("2d"); cx.scale(dpr, dpr);
@@ -780,6 +786,19 @@ async function viewAtlas() {
   }
 
   const COLOR = { logic: "#6fa8dc", maschine: "#d9a441", gegen: "#c47a6d", wort: "#a48fc9" };
+
+  /* view transform: screen = world * Z + (OX, OY). Zooming reveals labels of
+     ever smaller terms (threshold scales with Z); labels are drawn in screen
+     space so they stay crisp and constant-size at every magnification. */
+  let Z = 1, OX = 0, OY = 0;
+  const clampZ = z => Math.max(0.6, Math.min(8, z));
+  function zoomAt(sx, sy, factor) {
+    const nz = clampZ(Z * factor);
+    OX = sx - (sx - OX) * (nz / Z);
+    OY = sy - (sy - OY) * (nz / Z);
+    Z = nz;
+  }
+
   function draw() {
     cx.clearRect(0, 0, W, H);
     const neigh = new Set();
@@ -787,10 +806,12 @@ async function viewAtlas() {
       if (e.a === selected) neigh.add(e.b);
       if (e.b === selected) neigh.add(e.a);
     }
+    cx.save();
+    cx.translate(OX, OY); cx.scale(Z, Z);
     for (const e of edges) {
       const on = selected && (e.a === selected || e.b === selected);
       cx.strokeStyle = on ? "rgba(217,164,65,.55)" : "rgba(160,160,180,.13)";
-      cx.lineWidth = on ? 1.4 : Math.min(1, 0.3 + e.w * 0.05);
+      cx.lineWidth = (on ? 1.4 : Math.min(1, 0.3 + e.w * 0.05)) / Z;
       cx.beginPath(); cx.moveTo(e.a.x, e.a.y); cx.lineTo(e.b.x, e.b.y); cx.stroke();
     }
     for (const n of nodes) {
@@ -798,14 +819,20 @@ async function viewAtlas() {
       cx.globalAlpha = dimmed ? 0.25 : 1;
       cx.fillStyle = COLOR[n.linie];
       cx.beginPath(); cx.arc(n.x, n.y, n.r, 0, 7); cx.fill();
-      if (n === selected) { cx.strokeStyle = "#fff"; cx.lineWidth = 1.5; cx.stroke(); }
-      if (!dimmed && (n.f > 25 || n === selected || neigh.has(n))) {
-        cx.fillStyle = "rgba(233,230,224,.92)";
-        cx.font = (n === selected ? "600 " : "") + "11px system-ui, sans-serif";
-        cx.textAlign = "center";
-        cx.fillText(n.id, n.x, n.y - n.r - 4);
-      }
+      if (n === selected) { cx.strokeStyle = "#fff"; cx.lineWidth = 1.5 / Z; cx.stroke(); }
       cx.globalAlpha = 1;
+    }
+    cx.restore();
+    for (const n of nodes) {
+      const dimmed = selected && n !== selected && !neigh.has(n);
+      if (dimmed) continue;
+      if (!(n.f * Z > 25 || n === selected || neigh.has(n))) continue;
+      const sx = n.x * Z + OX, sy = n.y * Z + OY - n.r * Z - 4;
+      if (sx < -40 || sx > W + 40 || sy < -20 || sy > H + 14) continue;
+      cx.fillStyle = "rgba(233,230,224,.92)";
+      cx.font = (n === selected ? "600 " : "") + "11px system-ui, sans-serif";
+      cx.textAlign = "center";
+      cx.fillText(n.id, sx, sy);
     }
   }
 
@@ -816,7 +843,61 @@ async function viewAtlas() {
     raf = requestAnimationFrame(loop);
   }
   loop();
-  atlasStop = () => cancelAnimationFrame(raf);
+
+  const toScreen = ev => {
+    const r = cv.getBoundingClientRect();
+    return [(ev.clientX - r.left) * (W / r.width), (ev.clientY - r.top) * (H / r.height)];
+  };
+  function pick(sx, sy) {
+    const x = (sx - OX) / Z, y = (sy - OY) / Z;
+    let best = null, bd = Infinity;
+    for (const n of nodes) {
+      const d = (n.x - x) ** 2 + (n.y - y) ** 2;
+      if (d < (n.r + 10 / Z) ** 2 && d < bd) { best = n; bd = d; }
+    }
+    return best;
+  }
+  let drag = null;
+  cv.onmousedown = ev => {
+    const [sx, sy] = toScreen(ev);
+    drag = { sx, sy, ox: OX, oy: OY, moved: false };
+    cv.style.cursor = "grabbing";
+    ev.preventDefault();
+  };
+  const onMove = ev => {
+    if (!drag) return;
+    const [sx, sy] = toScreen(ev);
+    if (Math.abs(sx - drag.sx) + Math.abs(sy - drag.sy) > 4) drag.moved = true;
+    if (drag.moved) { OX = drag.ox + (sx - drag.sx); OY = drag.oy + (sy - drag.sy); }
+  };
+  const onUp = ev => {
+    if (!drag) return;
+    cv.style.cursor = "grab";
+    const wasClick = !drag.moved;
+    drag = null;
+    if (wasClick) { const [sx, sy] = toScreen(ev); select(pick(sx, sy)); }
+  };
+  window.addEventListener("mousemove", onMove);
+  window.addEventListener("mouseup", onUp);
+  cv.addEventListener("wheel", ev => {
+    ev.preventDefault();
+    const [sx, sy] = toScreen(ev);
+    zoomAt(sx, sy, Math.exp(-ev.deltaY * 0.0015));
+  }, { passive: false });
+  cv.ondblclick = ev => {
+    ev.preventDefault();
+    const [sx, sy] = toScreen(ev);
+    zoomAt(sx, sy, 1.7);
+  };
+  view.querySelector("#zin").onclick = () => zoomAt(W / 2, H / 2, 1.4);
+  view.querySelector("#zout").onclick = () => zoomAt(W / 2, H / 2, 1 / 1.4);
+  view.querySelector("#zreset").onclick = () => { Z = 1; OX = 0; OY = 0; };
+
+  atlasStop = () => {
+    cancelAnimationFrame(raf);
+    window.removeEventListener("mousemove", onMove);
+    window.removeEventListener("mouseup", onUp);
+  };
 
   function select(n) {
     selected = n;
@@ -845,16 +926,6 @@ async function viewAtlas() {
     selBox.querySelectorAll("[data-b]").forEach(b => b.onclick = () => select(byId[b.dataset.b]));
   }
 
-  cv.onclick = ev => {
-    const r = cv.getBoundingClientRect();
-    const x = (ev.clientX - r.left) * (W / r.width), y = (ev.clientY - r.top) * (H / r.height);
-    let best = null, bd = 400;
-    for (const n of nodes) {
-      const d = (n.x - x) ** 2 + (n.y - y) ** 2;
-      if (d < bd && d < (n.r + 10) ** 2) { best = n; bd = d; }
-    }
-    select(best);
-  };
   view.querySelectorAll("[data-b]").forEach(b => b.onclick = () => select(byId[b.dataset.b]));
 }
 
