@@ -1,0 +1,18 @@
+{
+  "upload_type": "dataset",
+  "title": "Calculemus: Philosophical Predecessors of AI",
+  "creators": [
+    {"name": "Fassbender, Pantaleon"}
+  ],
+  "description": "<p>A digital research apparatus for the philosophical prehistory of the AI debate: twenty-five public-domain editions in four lines &mdash; the logic line (Llull, Kircher, Hobbes, Leibniz, Boole, Frege, with its world roots in al-Khw&#257;rizm&#299;, Ibn Khald&#363;n's z&#257;&#702;irja and the Yijing), the machine line (Pascal, Lovelace, Jevons, Peirce), the counter-voices (Avicenna, Descartes, La Mettrie, Poe, Butler, Kapp) and the narrative line of the animated word (Homer/Aristotle, Liezi, the golem, the brazen head, Goethe, &#268;apek) &mdash; with paragraph-exact citation, a cross-corpus concordance, a term atlas, curated reading paths and a citation-bound dialogue. The corpus ends, deliberately, at the threshold of Turing.</p><p>Licensing: source code MIT; editorial matter CC BY 4.0; editions, working translations and derived data CC0 1.0 &mdash; see LICENSES.md. Live site: https://philosophical-predecessors-of-ai.netlify.app</p>",
+  "license": "MIT",
+  "keywords": [
+    "history of artificial intelligence",
+    "digital humanities",
+    "philosophy of mind",
+    "combinatorics",
+    "public domain editions",
+    "Leibniz",
+    "computational theory of mind"
+  ]
+}
