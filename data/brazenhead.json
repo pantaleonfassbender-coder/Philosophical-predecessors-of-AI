@@ -1,0 +1,89 @@
+{
+ "id": "brazenhead",
+ "autor": "The brazen head — legend and critic",
+ "titel": "The brazen head: The Famous Historie of Fryer Bacon (1627) · Naudé, Apologie (1625)",
+ "jahr": 1627,
+ "lang": "en",
+ "zitierweise": "FB [k] · Apol. [k]",
+ "quelle": "The Famous Historie of Fryer Bacon (London: G. Purslowe for F. Grove, [1627]), the brazen-head chapter complete, in the original spelling, from the EEBO-TCP transcription A01692 (dedicated to the public domain by the Text Creation Partnership). Gabriel Naudé, Apologie pour tous les grands personnages qui ont esté faussement soupçonnez de magie (Paris: François Targa, 1625), chap. XVIII, pp. 528–530 and 537, transcribed by hand from the page images of the Internet Archive scan; long s normalized, the 1625 orthography kept. Both public domain.",
+ "hinweis": "The legend and its critic, side by side — the corpus's pattern for automata tales since the Turk: carried is the debate, not a machine, for the head of the story never existed. The chapbook chapter is complete; Miles's mocking songs are kept as verse. Of Naudé's chapter, the report of the legend and the verdict are carried, his teraphim digression omitted as marked; his marginal source citations are omitted except as noted. Paragraph numbers are editorial and continuous across both sections. The English of the Naudé section is this site's unofficial working translation — cite the original.",
+ "sections": [
+  {
+   "id": "fb",
+   "titel": "How Fryer Bacon made a Brasen head to speake (The Famous Historie, 1627)",
+   "units": [
+    {
+     "n": 1,
+     "k": 1,
+     "txt": "FRyer Bacon reading one day of the many conquests of England, bethought himselfe how hée might kéepe it hereafter from the like conquests, and so make himselfe famous hereafter to all posterities: This (after great study) hée found could be no way so well done as one; which was to make a head of Brasse, and if he could make this head to speake (and heare it when it speakes) then might hée be able to wall all England about with Brasse. To this purpose hée got one Fryer Bungey to assist him, who was a great Scholler and a Magician, (but not to bée compared to Fryer Bacon) these two with great study and paines so framed a head of Brasse, that in the inward parts thereof there was all things (like as is in a naturall mans head: this being done, they were as farre from perfection of the worke as they were before, for they knew not how to giue those parts that they had made motion, without which it was impossible that it should speake: many bookes they read, but yet could not finde out any hope of what they sought, so that at the last they concluded to raise a spirit, and to know of him that which they could not attaine to by their owne studies. To do this they prepared all things ready and went one Euening to a Wood thereby, and after many ceremonies vsed, they spake the words of coniuration, which the Deuill straight obeyed and appeared vnto them, asking what they would? know, said Fryer Bacon, that wée haue made an artificiall head of Brasse, which wée would haue to speake, to the furtherance of which wée haue raised thée, and being raised, wée will here kéepe thée, vnlesse thou tell to vs the way and manner how to make this Head to speake. The Deuill told him that he had not that power of himselfe: beginner of lyes (said Fryer Bacon) I know that thou dost dissemble, and therefore tell it vs quickly, or else wée will here bind thée to remaine during our pleasures. At these threatnings the Deuill consented to doe it, and told them, that with a continuall sume of the sir hotest Simples it should haue motion, and in one month space speake, the Time of the moneth or day hée knew not: also hée told them, that if they heard it not before it had done speaking, all their labour should be lost: they being satisfied, licensed the Spirit for to depart. Then went these two learned Fryers home againe, and prepared the Simples ready, and made the fume, and with continuall watching attended when this Brasen head would speake: thus watched they for thrée wéekes without any rest, so that they were so weary and sléepy, that they could not any longer retaine from rest: then called Fryer Bacon his man Miles, and told him, that it was not vnknowne to him what paines Fryer Bungy and himselfe had taken for thrée wéekes space, onely to make, and to heare the Brasen-head speake, which if they did not, then had they lost all their labour, and all England had a great losse thereby: therefore hée intreated Miles that he would watch whilest that they sléep, and call them if the Head speake. Feare not, good Master (said Mailes) I will not sléepe, but harken and attend vpon the head, and if it doe chance to speake, I will call you: therefore I pray take you both your rests and let mée alone for watching this head. After Fyer Bacon had giuen him a great charge: The second time, Fryer Bungy and he went to sléepe, and left Miles alone to watch the Brasen head: Miles, to kéepe him from sleeping, got a Tabor and Pipe, and being mercy disposed, sung this Song to a Northren tune,"
+    },
+    {
+     "n": 2,
+     "k": 2,
+     "txt": "To couple is a custome,\nall things thereto agree:\nWhy should not I then loue?\nsince loue to all is free.\n\nBut Ile haue one that's pretty,\nher cheekes of scarlet die?\nFor to breed my delight,\nwhen that I ligge her by.\n\nThough vertue be a Dowry,\nyet Ile chuse money store:\nIf my Loue proue vntrue,\nwith that I can get more.\n\nThe faire is oft vnconstant,\nthe blacke is often proud.\nIle chuse a louely browne,\ncome fidler scrape thy crowd.\n\nCome fidler scrape thy crowd,\nfor Peggie the browne is she,\nMust be my Bride, God guide\nthat Peggie and I agree.",
+     "verse": true,
+     "label": "Of cam'st thou not from New-Castle."
+    },
+    {
+     "n": 3,
+     "k": 3,
+     "txt": "With his owne Musicke, and such Songs as these spent he his time, and kept from sleeping, at last, after some noyse the Head spake these two words, Time is. Miles hearing it to speake no more: thought his Master would be angry if hee waked him for that, and there • ore hee let them both sleepe, and began to mocke the Head in this manner: Thou Brazen-faced Head, hath my Master tooke all this paines about thee, and now dost thou requi • e him with two words, Time is: had hée watched with a Lawyer so long as he hath watched with thee, he would haue giuen him more, and better words then thou hast yet, if thou can speake no wiser, they shall sléepe till doomes day for me: Time is: I know Time is, and that you shall heare good-man Brazen-face. To the tune of Daintie come thou to me."
+    },
+    {
+     "n": 4,
+     "k": 4,
+     "txt": "Time is for some to plant,\nTime is for some to sowe;\nTime is for some to graft\nThe horne as some doe know.\n\nTime is for some to eate,\nTime is for some to sleepe,\nTime is for some to laugh,\nTime is for some to weepe.\n\nTime is for some to sing,\nTime is for some to pray,\nTime is for some to creepe,\nThat haue drunke all the day.\n\nTime is to cart a Bawd,\nTime is to whip a Whore,\nTime is to hang a Theefe,\nAnd time is for much more.",
+     "verse": true
+    },
+    {
+     "n": 5,
+     "k": 5,
+     "txt": "Doe you tell vs Copper-nose, when Time is, I hope we Schollers know our Times, when to drinke drunke, when to kisse our Hostis, when to goe on her score, and when to pay it, that time comes seldome. After halfe an houre had passed, the Head did speake againe, two words, which were these: Time was. Miles respected these words as little as he did the former, and would not wake them, but still scoffed at the Brasen head, that it had learne no better words, and had such a Tutor as his Master: and in scorne of it sung this Song. To the tune of a rich Merchant man."
+    },
+    {
+     "n": 6,
+     "k": 6,
+     "txt": "Time was when thou a Kettle\nwert fill'd with better matter:\nBut Fryer Bacon did thee spoyle,\nwhen he thy sides did batter.\n\nTime was when conscience dwelled\nwith men of occupation:\nTime was when Lawyers did not thriue,\nso well by mens vexation.\n\nTime was when Kings and Beggars\nof one poore stuffe had being:\nTime was when office kept no Knaues:\nthat time it was worth seeing.\n\nTime was a bowle of water,\ndid giue the face reflection,\nTime was when women knew no paint:\nwhich now they call Complexion.",
+     "verse": true
+    },
+    {
+     "n": 7,
+     "k": 7,
+     "txt": "Time was: I know that Brazen-face, without your telling. I know Time was, and I know what things there was when Time was, and if you speake no wiser, no Master shall be waked for mée. Thus Miles talked and sung till another halfe houre was gone, then the Brazen-head spake againe these words; Time is past: and therewith fell downe, and presently followed a terrible noyse, with strange flashes of fire, so that Miles was halfe dead with feare: At this noyse the two Fryers awaked, and wondred to sée the whole roome so full of smoake, but that béeing vanished they might perceiue the Brazen-head broken and lying on the ground: at this sight they grieued, and called Miles to know how this came. Miles halfe dead with feare, said that it fell downe of it selfe, and that with the noyse and fire that followed hée was almost frighted out of his wits: Fryer Bacon asked him if hée did not speake? yes (quoth Miles) it spake, but to no purpose. Ile haue a Parret speake better in that time that you haue béene teaching this Brazen head. Out on thée villaine (said Fryer Bacon) thou hast vndone vs both, hadst thou but called vs when it did speake, all England had bin walled round about with Brasse, to its glory and our eternall fames: what were the words it spake? very few (said Miles) and those were none of the wisest that I haue heard neither: first he said Time is. Hadst thou call'd vs then (said Fryer Bacon) wée had béene made for euer: then (said Miles) halfe an houre after it spake againe and said, Time was. And woulst thou not call vs then (said Bungry?) Alas (said Miles) I thought he would haue told me some long Tale, and then I purposed to haue called you: then halfe an houre after he cried Time is past and made such a noyse, that hée hath waked you himselfe mée thinkes. At this Fryer Bacon was in such a rage, that hée would haue beaten his man, but he was restrained by Bungey: but neuertheles for his punishment he with his Art struck him dumbe for one whole months space. Thus that great worke of these learned Fryers was ouerthrown (to their great griefes) by this simple fellow."
+    }
+   ]
+  },
+  {
+   "id": "naude",
+   "titel": "Naudé: the Androide of Albert, reported and dismantled (Apologie, 1625)",
+   "units": [
+    {
+     "n": 8,
+     "k": 1,
+     "orig": "Il ne reste donc maintenant qu'à refuter l'erreur de ceux qui se sont persuadez que l'on pouuoit forger des testes d'airain sous certaines constellations, lesquelles rendoient par apres des responses, & seruoient à ceux qui les possedoient de guide & de conduitte en toutes leurs affaires, comme vn certain Yepes dit que Henry de Villeine en auoit faict vne à Madrith qui fut brisée par le commandement de Iean 2. Roy de Castille: ce que Barthelemy Sibille & l'autheur de l'Image du monde asseurent pareillement de Virgile, Guillaume de Malmesbery de Syluestre, Iean Gouuerus de Robert de Lincolne, la populace d'Angleterre de Roger Baccon, & Tostat Euesque d'Auila, George Venitien, Delrio, Sibille, Raguseus, Delancre, & plusieurs autres qu'il seroit ennuyeux de specifier, d'Albert le Grand, lequel comme le plus expert auoit composé vn homme entier de cette sorte, ayant trauaillé trente ans sans discontinuation à le forger sous diuers aspects & constellations, les yeux par exemple, au recit du susdit Tostat en ses Commentaires sur l'Exode, lors que le Soleil estoit au signe du Zodiaque correspondant à vne telle partie, lesquels il fondoit de metaux meslangez ensemble & marquez des caracteres des mesmes signes & planetes & de leurs aspects diuers & necessaires; & ainsi la teste, le col, les espaules, les cuisses & les iambes façonnez en diuers temps & montez & reliez ensemble en forme d'homme, auoient cette industrie de reueler audit Albert la solution de toutes ses principales difficultez.",
+     "txt": "It remains now only to refute the error of those who have persuaded themselves that heads of brass could be forged under certain constellations, which afterwards gave answers, and served those who possessed them as guide and direction in all their affairs: as a certain Yepes says that Enrique de Villena made one at Madrid, which was broken by command of John II, King of Castile; which Bartolomeo Sibylla and the author of the Image of the World affirm likewise of Virgil, William of Malmesbury of Sylvester, John Gower of Robert of Lincoln, the common people of England of Roger Bacon, and Tostado, Bishop of Ávila, Giorgio Veneto, Delrio, Sibylla, Raguseus, Delancre, and several others whom it would be tedious to specify, of Albert the Great — who, as the most expert, had composed an entire man of this sort, having laboured thirty years without interruption to forge him under divers aspects and constellations: the eyes, for example, by the account of the said Tostado in his commentaries on Exodus, when the Sun stood in the sign of the Zodiac corresponding to such a part; casting them of metals mingled together and marked with the characters of the same signs and planets and of their divers and necessary aspects; and thus the head, the neck, the shoulders, the thighs and the legs, fashioned at divers times and mounted and joined together in the form of a man, had this power: to reveal to the said Albert the solution of all his principal difficulties."
+    },
+    {
+     "n": 9,
+     "k": 2,
+     "orig": "A quoy, pour ne rien oublier de ce qui appartient à l'histoire de cette statuë, l'on adiouste qu'elle fut brisée & mise en pieces par S. Thomas, qui ne put supporter auec patience son trop grand babil & caquet.",
+     "txt": "Whereto — that nothing be omitted of what belongs to the history of this statue — it is added that it was broken and dashed to pieces by St. Thomas, who could not bear with patience its excessive babble and prattle."
+    },
+    {
+     "n": 10,
+     "k": 3,
+     "orig": "Or pour iuger plus sainement ce que l'on doit croire de cette Androide d'Albert & de toutes ces testes merueilleuses, i'estime que l'on ne peut manquer de deduire l'origine de cette fable du Teraph des Hebrieux.",
+     "txt": "Now, to judge more soundly what one ought to believe of this Android of Albert and of all these marvellous heads, I hold that one cannot fail to derive the origin of this fable from the teraph of the Hebrews.",
+     "note": "The sentence continues; Naudé's derivation of the fable from the teraphim, and his refutation of the astrological mechanism, pp. 530–537, are omitted here. His 'Androide' is among the earliest occurrences of the word later adopted for artificial humans."
+    },
+    {
+     "n": 11,
+     "k": 4,
+     "orig": "De sorte que nous pouuons iuger asseurément qu'il est vray ce que le Prophete Royal a dit en ses Pseaumes, Simulachra gentium argentum & aurum, os habent & non loquentur, neque enim est spiritus in ore ipsorum.",
+     "txt": "So that we may judge with assurance that what the Royal Prophet said in his Psalms is true: The idols of the nations are silver and gold; they have mouths, and shall not speak; neither is there any breath in their mouths.",
+     "note": "Marginal reference of the print: Psal. 134. vers. 15 & 17 (Vulgate numbering)."
+    }
+   ]
+  }
+ ]
+}

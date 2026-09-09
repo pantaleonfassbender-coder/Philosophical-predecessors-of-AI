@@ -51,6 +51,10 @@ covered by any licence granted here, because they were never this repository's t
   of 1617, Internet Archive scan, OCR emended by hand against the standard textual
   tradition. The modern critical edition (ROL) remains in copyright and is not used.
   The English working translation is made for this site (CC0).
+- **Kircher**, *Ars magna sciendi, sive combinatoria* (Amsterdam: Janssonius van Waesberge,
+  1669), selections — Latin transcribed by hand from the page images of the Internet Archive
+  scan of the Getty Research Institute copy. Public domain (Kircher †1680). The English
+  working translation is made for this site (CC0).
 - **Homer**, Iliad XVIII, selections — Greek via the Greek Wikisource transcription; English
   by Samuel Butler (1898), Project Gutenberg #2199. Both public domain.
 - **Aristotle**, Politics I 4 (1253b–1254a) — Greek (Bekker text) via the Greek Wikisource
@@ -68,6 +72,13 @@ covered by any licence granted here, because they were never this repository's t
   transcription; public domain (Čapek †1938). The English working translations are made for
   this site (CC0); Paul Selver's 1923 translation remains in copyright in the EU/UK and was
   not consulted.
+- **The brazen head** — *The Famous Historie of Fryer Bacon* (London: G. Purslowe for F. Grove,
+  1627), the brazen-head chapter, from the EEBO-TCP transcription A01692, dedicated to the public
+  domain by the Text Creation Partnership. Gabriel Naudé, *Apologie pour tous les grands
+  personnages qui ont esté faussement soupçonnez de magie* (Paris: François Targa, 1625),
+  ch. XVIII — French transcribed by hand from the page images of the Internet Archive scan.
+  Both public domain (published 1627/1625; Naudé †1653). The English working translation of the
+  Naudé section is made for this site (CC0).
 - **Ibn Khaldūn**, *Muqaddima* (1377), the zāʾirja passages — Arabic via the Arabic Wikisource
   transcription of the public-domain text; English working translation made for this site (CC0),
   directly from the Arabic (Rosenthal 1958 not consulted; de Slane's PD Prolégomènes, 1862–68,

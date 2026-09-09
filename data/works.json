@@ -182,6 +182,18 @@
   "datei": "llull_arsbrevis"
  },
  {
+  "id": "kircher",
+  "linie": "logic",
+  "autor": "Athanasius Kircher",
+  "leben": "1602–1680",
+  "kurz": "Kircher",
+  "titel": "Ars magna sciendi, sive combinatoria (1669), selections",
+  "status": "shipped",
+  "datei": "kircher_arsmagna",
+  "sprachen": "Latin · English (working translation)",
+  "claim": "The Baroque revival of Llull's art, midway to Leibniz: a universal combinatorial method built on nine principles, tested against Lull as against a touchstone — and pushed to its own limit, where 36 terms yield propositions no ocean of ink could write down. The generative explosion, stated and feared, a generation before the ars combinatoria."
+ },
+ {
   "id": "khwarizmi",
   "linie": "logic",
   "autor": "al-Khwārizmī",
@@ -276,5 +288,17 @@
   "datei": "capek_rur",
   "sprachen": "Czech · English (working translation)",
   "claim": "The threshold: in Prague, where the golem legend had settled, the made servant of myth becomes the manufactured worker — «he threw out the man and made the Robot» — and the word robot enters every language."
+ },
+ {
+  "id": "brazenhead",
+  "linie": "wort",
+  "autor": "The brazen head — legend and critic",
+  "leben": "1627 · 1625",
+  "kurz": "Brazen head",
+  "titel": "The brazen head: The Famous Historie of Fryer Bacon (1627) · Naudé, Apologie (1625)",
+  "status": "shipped",
+  "datei": "brazenhead",
+  "sprachen": "English · French (working translation)",
+  "claim": "«Time is. Time was. Time is past.» — the speaking brass head that Bacon and Bungay make, and lose to a servant's inattention; set beside Gabriel Naudé's cool dismantling of the same legend told of Albert the Great, the «Androide» broken by Aquinas. The tale and its debunker together — for the head never was."
  }
 ]

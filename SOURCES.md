@@ -17,6 +17,11 @@ cited for the record, not carried as text.
 - Latin text: *Raymundi Lullii Opera ea quae ad adinventam ab ipso artem universalem pertinent* (Strasbourg: Zetzner, 1617), Internet Archive scan of the Bibliothèque interuniversitaire de Santé copy (the item is not reachable via web search at the time of writing; a digitization of the same 1617 edition: <https://search.library.wisc.edu/digital/ABMN3CKNAR6IOF9C>)
 - English: working translation made for this site (CC0).
 
+### Athanasius Kircher — *Ars magna sciendi, sive combinatoria* (1669) · `data/kircher_arsmagna.json`
+
+- Latin text: *Ars magna sciendi, in XII libros digesta* (Amsterdam: Janssonius van Waesberge, 1669), Internet Archive scan of the Getty Research Institute copy — <https://archive.org/details/gri_33125008657112>
+- English: working translation made for this site (CC0).
+
 ### al-Khwārizmī — *The Algebra* (c. 820) · `data/khwarizmi_algebra.json`
 
 - English: Frederic Rosen, *The Algebra of Mohammed ben Musa* (London: Oriental Translation Fund, 1831), Internet Archive scan — <https://archive.org/details/algebraofmohamme00khuwuoft>
@@ -135,6 +140,11 @@ cited for the record, not carried as text.
 
 - Czech text (Aventinum 1920): Czech Wikisource transcription — <https://cs.wikisource.org/wiki/R.U.R.>
 - English: working translations made for this site (CC0).
+
+### The brazen head — legend and critic · `data/brazenhead.json`
+
+- *The Famous Historie of Fryer Bacon* (London: G. Purslowe for F. Grove, 1627), the brazen-head chapter: EEBO-TCP transcription A01692 (dedicated to the public domain) — <https://github.com/textcreationpartnership/A01692>
+- Gabriel Naudé, *Apologie pour tous les grands personnages qui ont esté faussement soupçonnez de magie* (Paris: Targa, 1625), ch. XVIII: Internet Archive scan, hand-transcribed from the page images — <https://archive.org/details/apologiepourtouslesgrandsperson>. English: working translation made for this site (CC0).
 
 ---
 

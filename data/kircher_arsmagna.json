@@ -1,0 +1,87 @@
+{
+ "id": "kircher",
+ "autor": "Athanasius Kircher",
+ "titel": "Ars magna sciendi, sive combinatoria (1669), selections",
+ "jahr": 1669,
+ "lang": "la",
+ "zitierweise": "AMS I [k] · AMS IV [k]",
+ "quelle": "Ars magna sciendi, in XII libros digesta (Amsterdam: Janssonius van Waesberge, 1669) — Liber I, cap. I (Fol. 1–2) and cap. IV (Fol. 5), and Liber IV (p. 165), transcribed by hand from the page images of the Internet Archive scan of the Getty Research Institute copy. Public domain (Kircher †1680).",
+ "hinweis": "Selections chosen for the argument: the definition of the art and its two hinges, Kircher's examination of Lull's art and its defects (abridged as marked), and the combinatorial computations with the ocean-of-ink passage. Long s is normalized; the print's accents, ligatures and orthography are kept; the tables themselves are not reproduced. Kircher's arithmetic stands as printed (his square of 362880 included); the two giant numbers were verified digit by digit against a high-resolution rendering of the page. The English is this site's unofficial working translation — cite the original.",
+ "sections": [
+  {
+   "id": "c1",
+   "titel": "What the Great Art is (Lib. I, cap. I — Fol. 1–2)",
+   "units": [
+    {
+     "n": 1,
+     "k": 1,
+     "orig": "Artem Magnam, sive Combinatoriam, felici Numinis ductu, auspicamur; Artem, inquam, artium, Scientiarum officinam, fœcundum mentium seminarium, totius humanæ cognitionis clavem, quâ ad rerum omnium, quæ sub intellectûs notitiam, cognitionemque, quovis modo pertinent, aditus patet amplissimus; unde eam non meliori, quàm Artis Magnæ nomine, indigitandam duximus. Artem inscribimus Combinatoriam, quia sagaci mentis scrutinio, omnia singulis, & singulis singula, aptè comparat, pulchrè componit, & exactè distribuit, in absolutissimum humanæ mentis ædificium.",
+     "txt": "The Great Art, or Combinatoria, we inaugurate under the happy guidance of the Deity: an Art, I say, of arts, the workshop of the Sciences, the fertile seed-bed of minds, the key of the whole of human cognition, by which the amplest access lies open to all things that in any way fall under the intellect's notice and cognition; wherefore we have judged that it should be called by no better name than that of the Great Art. We entitle the Art Combinatoria because, by the mind's sagacious scrutiny, it aptly compares all things with each and each with all, beautifully composes them, and exactly distributes them into the most complete edifice of the human mind."
+    },
+    {
+     "n": 2,
+     "k": 2,
+     "orig": "Scire te velim, Lector, totius hujus inventionis rationem, velut duobus Cardinibus versari, quorum primus est ipsa Combinatio principiorum inter se, quod fit per Synthesim, quam compositionem vocant, nihilque aliud est, quàm complurium principiorum prædicatorumque ad unitatem reductio, vel ex unitate in multitudinem rerum, haud secus ac fontis in innumeros rivos deducti diffusio, quam analysin sive resolutionem dicimus. Alter Cardo est, Ars Analogica, quâ per diversas similitudinum umbras minima in maximis, media in infimis, supremisque, suprema in mediis, infimisque; verbo: omnia in omnibus suo modo esse deprehendimus, adeòque nihil in universa natura rerum esse, quod non omnibus, & singulis, sub certa proportione, & analogia respondeat.",
+     "txt": "I would have you know, Reader, that the rationale of this whole invention turns as upon two hinges. The first is the Combination of the principles among themselves, which is done by Synthesis — what they call composition — and is nothing else than the reduction of many principles and predicates to unity; or else the diffusion from unity into the multitude of things, just as a spring is led out into innumerable streams, which we call analysis or resolution. The other hinge is the Analogical Art, by which, through the various shadows of similitudes, we discover the least things in the greatest, the middle in the lowest and the highest, the highest in the middle and the lowest — in a word: that all things are, each in its own way, in all things; so that there is nothing in the whole nature of things which does not answer to all and to each under a fixed proportion and analogy."
+    },
+    {
+     "n": 3,
+     "k": 3,
+     "orig": "Atque hæc est Ars nostra Combinatoria, quam in hoc opere Mundo pollicemur; quæ per novem Erotematicas propositiones, octodecim principia, tum absoluta, tum respectiva, cum novem subjectis totius naturæ ambitum includentibus, eâ methodo componimus, disponimusque, ut inde innumerabilium totius Encyclopædiæ longè latèque exporrectis terminis, veritatum irrefragabilium notitia obtineatur. Quæ omnia in sequentibus fusiùs patebunt.",
+     "txt": "And this is our Combinatorial Art, which in this work we promise to the world: which, with its nine erotematic propositions and eighteen principles, both absolute and respective, together with nine subjects embracing the compass of the whole of nature, we so compose and dispose by this method that from it, along the far and wide extended terms of the whole Encyclopaedia, a knowledge of irrefragable truths may be obtained. All of which will appear more fully in what follows."
+    }
+   ]
+  },
+  {
+   "id": "lull",
+   "titel": "Lull's art examined: the touchstone and the defects (Lib. I, cap. IV — Fol. 5)",
+   "units": [
+    {
+     "n": 4,
+     "k": 1,
+     "orig": "Scopus Artis Lullianæ est, methodum docere, per quam magna attributorum, propositionum, quæstionum, & argumentationum Copia, eâ utentibus subministretur.",
+     "txt": "The scope of the Lullian Art is to teach a method by which a great abundance of attributes, propositions, questions, and argumentations is supplied to those who use it."
+    },
+    {
+     "n": 5,
+     "k": 2,
+     "orig": "Cùm itaque jam dudum diversi non Philosophiæ tantùm periti, sed & Principes Viri, curiositate quadam perculsi, de Lulliana arte meum judicium exquisiverint, ut tam laudabili eorum curiositati quovis modo satisfieret, Lulli de Arte Magna librum aggressus, omnia Artis principia ad incudem revocata, singulari studio, & summa mentis indagine discutere, nec non mea jam dudum concepta artis principia ad ea, veluti ad Lydium lapidem examinare conatus sum; Inveni tandem vera esse, quæ de ea fama sparserat, ejusque assumpta principia per Combinatoriæ Artis amussim, omnibus artibus, & scientiis applicari posse, ut inde illud, quod tantopere ab omnibus quæsitum fuit, tandem cum insigni literatorum emolumento emergat.",
+     "txt": "Since, then, for a long time now, not only men skilled in philosophy but princely persons too, struck with a certain curiosity, have sought my judgment of the Lullian art: that so laudable a curiosity might in some manner be satisfied, I took up Lull's book On the Great Art and endeavoured, recalling all the principles of the Art to the anvil, to examine them with singular study and the utmost searching of mind — and to test against them, as against a Lydian touchstone, the principles of the art I had myself long since conceived. I found at last that what fame had spread abroad of it is true, and that its assumed principles can, by the rule of the Combinatorial Art, be applied to all arts and sciences, so that that which has been so greatly sought by all may at last emerge, to the signal profit of the learned."
+    },
+    {
+     "n": 6,
+     "k": 3,
+     "orig": "Multa tamen in ea detecta sunt, quæ, nisi emendata, exactiori methodo tradantur, vix ulli usui esse possint. Quorum primum est, stylus barbarie plenus, & vix ullius latinitatis vestigia obtinens, unà summæ obscuritati junctus, quæ vel prima fronte obvium ab ejus lectione Artistam deterrere posset. Alterum est, quòd omnia, ad novem primos Alphabeti characteres, veluti ad rerum assumptarum signa quædam revocat, excepta prima litera A, quæ nota est Dei Opt. Max. reliquæ ordine literæ, primò singulis novem attributis absolutis, deinde totidem respectivis applicentur. His iisdem, deinde novem quæstionum faciendarum circumstantias, atque rursus iisdem prima novem Naturæ totius subjecta attribuit. […] quæ quidem ratio tot difficultatibus implexa, tot tricis involuta est, ut divinam memoriam, imaginationemque, ad singula eorum, quæ ad unamquampiam literam pertinent, probè memoranda, habere necesse sit.",
+     "txt": "Many things, however, have been detected in it which, unless they be emended and delivered in a more exact method, can scarcely be of use to anyone. The first of these is a style full of barbarism, retaining scarcely a trace of any Latinity, joined moreover with the utmost obscurity, which could deter the Artist who meets it at first glance from reading it at all. The second is that it recalls everything to the first nine characters of the Alphabet, as to certain signs of the things assumed — excepting the first letter A, which is the mark of God, best and greatest; the remaining letters in order are applied first to the nine absolute attributes singly, then to as many respective ones. To these same letters it then assigns the circumstances of the nine questions to be asked, and again to the same the first nine subjects of the whole of Nature. […] Which scheme is entangled in so many difficulties, involved in so many intricacies, that one must have a divine memory and imagination to remember properly the several things that pertain to every single letter.",
+     "note": "Abridged as marked: between the assignment of the letters and its conclusion, Kircher's detailed walk through the letter B (question, principle, subject, virtue, vice) is omitted."
+    }
+   ]
+  },
+  {
+   "id": "comb",
+   "titel": "The combinatorial explosion (Lib. IV — p. 165)",
+   "units": [
+    {
+     "n": 7,
+     "k": 1,
+     "orig": "Verb. Gr. Si nosse cupias, quotnam modis simplices termini novem principiorum absolutorum ita permutari possint, ut nunquam in idem recidant; tunc quæres in Tabula Combinatoria generali, in prima Columna 9. & correspondens numerus, videlicet, 362880, dabit numerum rerum permutandarum quæsitam combinationem. Si verò hosce simplices in propositiones cogere velis; pone è regione eandem terminorum seriem; & si scire velis, quot ex permutationum compositione propositiones inde emanent, duc 362880. in seipsum, & provenient 131664294400. numerus permutationum quæsitus.",
+     "txt": "For example: if you desire to know in how many ways the simple terms of the nine absolute principles can be permuted so that they never fall back into the same order, then seek in the general Combinatorial Table, in the first column, the number 9; and the corresponding number, namely 362880, will give the sought combination of the things to be permuted. But if you wish to gather these simple terms into propositions, set the same series of terms over against it; and if you wish to know how many propositions issue from the composition of the permutations, multiply 362880 into itself, and there will come forth 131664294400, the number of permutations sought.",
+     "note": "Kircher's arithmetic as printed: 362880 × 362880 is in fact 131,681,894,400."
+    },
+    {
+     "n": 8,
+     "k": 2,
+     "orig": "Numerus propositionum, quæ ex quatuor Enneadum Artis Nostræ, id est, 36. terminis cum totidem attributis reducibilibus, combinatione fieri possunt. 371993326789901217467999448150835200000000. Si denique 50 termini cum totidem aliis, Verb. Gr. Quinque Enneadum termini cum 50 attributis divinis componantur combinatione permutativa, nascetur sequens numerorum congeries. 12737268388154203998513430837670055152937494547954734080000000000000.",
+     "txt": "The number of propositions which can be made by combination out of the four Enneads of our Art, that is, out of 36 terms with as many reducible attributes: 371993326789901217467999448150835200000000. If finally 50 terms be compounded with as many others — for example, the terms of five Enneads with 50 divine attributes — in permutative combination, there will be born the following heap of numbers: 12737268388154203998513430837670055152937494547954734080000000000000.",
+     "note": "The first number is 36! exactly; both numbers stand as printed, verified digit by digit against the page image."
+    },
+    {
+     "n": 9,
+     "k": 3,
+     "orig": "Qui numerus tam immensus est, ut totus Mundus libris de iis conscribendis impleri possit; & si totus Oceanus, imò totius Universi humidum in atramentum converteretur, prius id deficeret, quàm librorum de iis conscribendorum finis attingeretur, etiamsi millena millia annorum in iis scribendis omnes homines ab origine Mundi usque ad finem ejus impenderent; quorum demonstratio ex supra dictis clarè patet. Atque hæc tunc maximè patent, quanta principiorum Artis nostræ cum attributis divinis fit combinatio; ut vel ex hoc elucescat, combinationem hujusmodi cum divinis perfectionibus infinitudinem quandam induere, nullo numero, pondere, aut mensura determinabilem. Quare relicta prima hac combinationis specie, quæ in permutatione rerum consistit, utpote parùm utili, & semper identica; ad ea transeamus, quæ instituto nostro magis propria, & proportionata sunt.",
+     "txt": "Which number is so immense that the whole World could be filled with the books to be written about them; and if the whole Ocean — nay, all the moisture of the whole Universe — were turned into ink, it would run dry sooner than an end could be reached of the books to be written about them, even though all men from the origin of the World to its end should spend thousands of thousands of years in writing them; the demonstration of which is plain from what has been said above. And then most of all it appears how great the combination of the principles of our Art with the divine attributes becomes; so that from this very thing it shines forth that a combination of this kind with the divine perfections puts on a certain infinitude, determinable by no number, weight, or measure. Wherefore, leaving aside this first species of combination, which consists in the permutation of things — as being of little use, and always the same — let us pass on to those things which are more proper and proportioned to our undertaking."
+    }
+   ]
+  }
+ ]
+}

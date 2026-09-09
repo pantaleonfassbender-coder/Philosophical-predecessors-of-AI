@@ -43,6 +43,8 @@ const CITE = {
   capek: (sec, u) => sec.id === "pred" ? `RUR, Pred. [${u.k}]` : `RUR III [${u.k}]`,
   zairja: (sec, u) => sec.id === "pref" ? `Muq. I.6 [${u.k}]` : `Muq. VI [${u.k}]`,
   avicenna: (sec, u) => `Ish. III [${u.k}]`,
+  kircher: (sec, u) => ({ c1: `AMS I`, lull: `AMS I`, comb: `AMS IV` }[sec.id] || "AMS") + ` [${u.n}]`,
+  brazenhead: (sec, u) => sec.id === "fb" ? `FB [${u.k}]` : `Apol. XVIII [${u.k}]`,
   khwarizmi: (sec, u) => `Alg. [${u.k}]`,
   yijing: (sec, u) => ["Xici I.11", "Xici II.2"][u.k - 1] || `Xici [${u.n}]`,
   liezi: (sec, u) => `Liezi V [${u.k}]`,
@@ -91,8 +93,9 @@ function viewOverview() {
     <div class="grid g3" style="margin-bottom:1.6rem">
       <div class="card linie-logic">
         <span class="tag" style="color:var(--logic)">The logic line</span>
-        <p style="font-size:.9rem;color:var(--fg2);margin:.3rem 0 0">Llull's combinatorial wheels —
-        beside the Arabic letter-machine Ibn Khaldūn described and dismantled, al-Khwārizmī's name
+        <p style="font-size:.9rem;color:var(--fg2);margin:.3rem 0 0">Llull's combinatorial wheels
+        and Kircher's Baroque revival of them — beside the Arabic letter-machine Ibn Khaldūn described
+        and dismantled, al-Khwārizmī's name
         become a word, and the Yijing's binary figures. Hobbes: reason is reckoning. Leibniz: a
         calculus of thought. Boole: its algebra. Frege: the formal system itself.</p>
       </div>
@@ -117,7 +120,8 @@ function viewOverview() {
         <p style="font-size:.9rem;color:var(--fg2);margin:.3rem 0 0">The line that narrates what the
         others argue: Hephaestus' golden handmaids and Aristotle's dream of the self-working tool;
         Yan Shi's automaton, taken apart before the king; the golem, awakened by letters and unmasked
-        by silence; Goethe's apprentice with the forgotten stop-word — and Čapek's Robots, where the
+        by silence; Goethe's apprentice with the forgotten stop-word; the brazen head of the Bacon
+        legend, and Naudé's cool dismantling of it — and Čapek's Robots, where the
         myth becomes industry.</p>
       </div>
     </div>
@@ -269,6 +273,7 @@ function unitHtml(w, s, u, hl) {
 let INTRO = null;
 const INTRO_LINKS = [
   ["Ars brevis", "#/works/llull"],
+  ["Ars magna sciendi", "#/works/kircher"],
   ["Leviathan", "#/works/hobbes"],
   ["De arte combinatoria", "#/works/leibniz/comb"],
   ["arithmétique binaire", "#/works/leibniz/bin"],
@@ -293,10 +298,11 @@ const INTRO_LINKS = [
   ["Sefer Yetzirah", "#/works/golem/sy"],
   ["Zeitung für Einsiedler", "#/works/golem/grimm"],
   ["Der Zauberlehrling", "#/works/zauberlehrling"],
+  ["brazen head", "#/works/brazenhead"],
   ["R.U.R.", "#/works/capek"],
   ["coda", "#/coda"],
   ["citation-bound dialogue", "#/dialogue"],
-  ["twenty-three shipped modules", "#/works"],
+  ["twenty-five shipped modules", "#/works"],
   ["flying man", "#/works/avicenna"],
   ["concordance", "#/concordance"],
   ["term atlas", "#/atlas"],
@@ -530,6 +536,20 @@ function viewMethod() {
       the text has therefore been emended by hand against the standard textual tradition, and the
       modern critical edition (ROL), which remains in copyright, was not used. The English is a
       working translation made for this site. Citation form <span class="mono">AB [n]</span>.</p>
+      <p class="readable"><strong>Kircher.</strong> Ars magna sciendi, sive combinatoria (Amsterdam:
+      Janssonius van Waesberge, 1669), selections chosen for the argument: from Liber I, the opening
+      of chapter I (Fol. 1–2) — the definition of the art and its two “hinges”, combination by
+      synthesis and the analogical art — and the core of chapter IV (Fol. 5), Kircher's examination
+      of Lull's art on the “Lydian touchstone” and his catalogue of its defects (the walk through the
+      letter B abridged as marked); and from Liber IV (p. 165), the combinatorial computations and the
+      famous passage in which no ocean turned to ink could write out the propositions of thirty-six
+      terms. Latin after the Internet Archive scan of the Getty Research Institute copy, transcribed by
+      hand from the page images; long s is normalized, the print's accents and ligatures kept, and the
+      tables not reproduced. Kircher's arithmetic stands as printed — including his square of 362880
+      (in fact 131,681,894,400) and the two giant numbers, which were verified digit by digit against a
+      high-resolution rendering of the page; the first, 371993326789901217467999448150835200000000, is
+      36! exactly. The English is this site's working translation. Citation forms
+      <span class="mono">AMS I [n]</span>, <span class="mono">AMS IV [n]</span>.</p>
       <p class="readable"><strong>Kapp.</strong> Grundlinien einer Philosophie der Technik (Braunschweig
       1877), in selections chosen for the argument: excerpts of the Vorwort (including the declaration
       that man “will never confuse himself with a technical contrivance”), the close of chapter I, the
@@ -587,6 +607,21 @@ function viewMethod() {
       <span class="mono">Il. XVIII 369–379</span>, <span class="mono">San. 65b</span>,
       <span class="mono">SY 2:5</span>, <span class="mono">ZfE 1808 [k]</span>,
       <span class="mono">Zauberlehrling, st. k</span>, <span class="mono">RUR, Pred. [k]</span>.</p>
+      <p class="readable"><strong>The brazen head.</strong> A legend and its critic, side by side —
+      the narrative line's pattern since the Turk: what is carried is the debate, not a machine, for
+      the head of the story never existed. <em>The Famous Historie of Fryer Bacon</em> (London: G.
+      Purslowe for F. Grove, 1627), the brazen-head chapter complete in the original spelling —
+      Friar Bacon and Friar Bungay make a speaking head of brass, and lose it to the servant Miles's
+      inattention («Time is. Time was. Time is past.») — from the EEBO-TCP transcription A01692,
+      dedicated to the public domain; Miles's mocking songs are kept as verse. Beside it, Gabriel
+      Naudé's <em>Apologie pour tous les grands personnages qui ont esté faussement soupçonnez de
+      magie</em> (Paris: Targa, 1625), chapter XVIII, in which the same legend told of Albert the
+      Great — the «Androide» broken by Aquinas «who could not bear its babble» — is reported and
+      coolly dismantled: an idol of the nations that has a mouth and speaks not. French transcribed
+      by hand from the page images of the Internet Archive scan (pp. 528–530, 537), long s
+      normalized, the 1625 orthography kept; Naudé's teraphim digression abridged as marked; English
+      a working translation for this site. Citation forms <span class="mono">FB [k]</span>,
+      <span class="mono">Apol. XVIII [k]</span>.</p>
       <p class="readable"><strong>The world roots (September 2026).</strong> Four modules widen the
       corpus beyond its European axis, each placed in the systematic line where it belongs.
       <em>Ibn Khaldūn:</em> the zāʾirja passages of the Muqaddima (1377) — the sixth prefatory
@@ -624,7 +659,8 @@ function viewMethod() {
 
     <div class="panel"><h2>The programme</h2>
       <p class="readable">The corpus was built in stages along four lines: the logic line (the
-      Llull prologue, Hobbes, the Leibniz anthology, Boole, Frege — joined by its world roots:
+      Llull prologue, Kircher's Ars magna sciendi of 1669, Hobbes, the Leibniz anthology, Boole,
+      Frege — joined by its world roots:
       al-Khwārizmī's preface, Ibn Khaldūn's zāʾirja, and the Yijing passages Leibniz himself
       invoked), the machine line (Pascal's fragments, Lovelace's Notes of 1843 with Menabrea's
       Sketch, Jevons's memoir of 1870, Peirce's “Logical Machines” of 1887), the counter-voices
@@ -633,8 +669,9 @@ function viewMethod() {
       1836, Butler's “Darwin among the Machines” of 1863 with Erewhon's Book of the Machines, and
       Kapp's Grundlinien of 1877),
       and the animated word — the narrative line: Homer and Aristotle on the self-working tool,
-      the Liezi automaton, the golem anthology, Goethe's Zauberlehrling, and Čapek's R.U.R. as its
-      threshold text — twenty-three modules shipped. A Tractatus module, once under consideration, has
+      the Liezi automaton, the golem anthology, Goethe's Zauberlehrling, the brazen head of the
+      Bacon legend with Naudé's dismantling of it, and Čapek's R.U.R. as its
+      threshold text — twenty-five modules shipped. A Tractatus module, once under consideration, has
       been dropped: the corpus ends where the formal-system line hands over to the twentieth
       century. What the corpus cannot contain, and why, is the subject of the
       <a href="#/coda">coda</a>.</p>
@@ -985,7 +1022,7 @@ function viewDialogue() {
     `<button class="chip" style="text-align:left;white-space:normal;margin:.15rem" data-s="${esc(s)}">${esc(s)}</button>`).join("");
   view.querySelectorAll("[data-s]").forEach(b => b.onclick = () => { qf.value = b.dataset.s; qf.focus(); });
 
-  const CITE_RX = /\((?:(Lev\.|LoT|Disc\.|HM \[|Mon\. §|Arith\. bin\.|GP VII|De arte comb\.|BS,|GL,|SuB|Pens\.|MPL,|LM \[|AB \[|PhT|MCP \[|But \[|San\. \d|SY \d|ZfE|Zauberlehrling|RUR|Il\. X|Pol\. I|Muq\.|Alg\. \[|Xici|Liezi|Ish\. III)[^()]{0,44})\)/g;
+  const CITE_RX = /\((?:(Lev\.|LoT|Disc\.|HM \[|Mon\. §|Arith\. bin\.|GP VII|De arte comb\.|BS,|GL,|SuB|Pens\.|MPL,|LM \[|AB \[|PhT|MCP \[|But \[|San\. \d|SY \d|ZfE|Zauberlehrling|RUR|Il\. X|Pol\. I|Muq\.|Alg\. \[|Xici|Liezi|Ish\. III|AMS I|FB \[|Apol\. XVIII)[^()]{0,44})\)/g;
   const renderAnswer = md => esc(md)
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
@@ -1205,7 +1242,7 @@ function viewCoda() {
 
     <div class="panel"><h2>An anthology, not a quarry</h2>
       <p class="readable">This apparatus carries extraction tools: a concordance that cuts across
-      twenty works, an atlas that dissolves them into term co-occurrences. Used alone, such tools
+      the whole corpus, an atlas that dissolves it into term co-occurrences. Used alone, such tools
       treat philosophy as a quarry — material to be broken out of context and carried off. But the
       direction of this site runs the other way. Every concordance hit and every atlas node resolves
       into a full paragraph, inside a whole section, inside a work that was chosen and ordered for a
@@ -1235,7 +1272,7 @@ function viewCoda() {
       cannot be manufactured: the first pair, “who have invented love”. Beyond the threshold lies
       Norbert Wiener's <em>God and Golem, Inc.</em> (1964), where cybernetics itself takes up the
       golem — in copyright, and therefore named here instead of carried.</p>
-      <p class="readable">Three further absences run along other boundaries. The great mechanical
+      <p class="readable">Four further absences run along other boundaries. The great mechanical
       books of the Arabic engineers — the Banū Mūsā's <em>Book of Ingenious Devices</em> (9th c.)
       and al-Jazarī's <em>Book of Knowledge of Ingenious Mechanical Devices</em> (1206), with its
       programmable automata — are ancient enough, but their standard translations (Donald Hill,
@@ -1252,8 +1289,14 @@ function viewCoda() {
       beyond the threshold: Jorge Luis Borges — who in 1937 wrote an essay squarely on “Ramon
       Llull's thinking machine”, whose <em>Library of Babel</em> (1941) is exhaustive combinatorics
       made into fiction, and whose poem <em>El Golem</em> (1958) retells this corpus's fourth line —
-      remains in copyright until the middle of this century. An anthology owns its absences; these
-      are three of them.</p>
+      remains in copyright until the middle of this century. And the narrative line's oldest
+      eastern absence is older still: the <em>Lokapaññatti</em>, the Pali cosmological compendium,
+      tells of the <em>bhūta-vāhana-yanta</em> — the spirit-bearing engines, mechanical warriors
+      built to guard the relics of the Buddha, their secret smuggled out of the land of the
+      Yavanas — an automaton-guardian narrative that would stand beside Yan Shi and the golem; but
+      its critical edition and translation (Eugène Denis, 1977) remain in copyright, and no
+      public-domain rendering of the text was found. An anthology owns its absences; these
+      are four of them.</p>
     </div>
 
     <div class="panel"><h2>The making, on record</h2>

@@ -36,6 +36,7 @@ the site's overview. A per-module link list of the digitized sources is in
 | Author | Text | Source | Status |
 |---|---|---|---|
 | Ramon Llull | *Ars brevis* (1308) — prologue, alphabet, first and fourth figure (the rotating wheels) | Strasbourg 1617 (Zetzner), IA scan, OCR emended; working translation | **shipped** |
+| Athanasius Kircher | *Ars magna sciendi, sive combinatoria* (1669), selections — the art defined, Lull examined on the touchstone, the combinatorial explosion | IA scan (Getty copy), hand-transcribed from the page images; working translation | **shipped** |
 | al-Khwārizmī | *The Algebra* (c. 820), author's preface and opening — the name behind *algorithm* | Rosen 1831 (PD English); Arabic printed in Rosen's edition, not yet carried | **shipped** |
 | Ibn Khaldūn | The zāʾirja passages of the *Muqaddima* (1377) — the Arabic letter-machine, described and epistemically dismantled | Arabic via Arabic Wikisource; working translation (Rosenthal not consulted; de Slane PD as documentation) | **shipped** |
 | Yijing (Xici zhuan) | Xici I.11 and II.2 — the binary generation of the trigrams that Leibniz read as his arithmetic anticipated | Chinese via Chinese Wikisource; Legge 1882 (PD) | **shipped** |
@@ -73,6 +74,7 @@ the site's overview. A per-module link list of the digitized sources is in
 | Golem — an anthology | Ps 139:16 · Sanhedrin 38b, 65b · Sefer Yetzirah 1–2 (selections) · Jacob Grimm, Zeitung für Einsiedler (1808) | Hebrew/Aramaic via Sefaria exports of the PD texts, working translations; Grimm transcribed from the MDZ page image of the 1808 printing | **shipped** |
 | J. W. Goethe | Der Zauberlehrling (1797/98), complete | First printing (Musen-Almanach 1798) via Wikisource; Bowring 1853 (PD) | **shipped** |
 | Karel Čapek | R.U.R. (1920), selections — the word "robot", the ending | Czech via Czech Wikisource (Aventinum 1920, PD); working translations | **shipped** |
+| The brazen head — legend & critic | *The Famous Historie of Fryer Bacon* (1627), the brazen-head chapter · Naudé, *Apologie* (1625), ch. XVIII on Albert's «Androide» | EEBO-TCP A01692 (PD); Naudé IA scan, hand-transcribed; working translation | **shipped** |
 
 A Tractatus module was considered and dropped: the corpus ends at the threshold of Turing.
 An editorial **coda** (*After the threshold*) states what the corpus cannot contain — the
