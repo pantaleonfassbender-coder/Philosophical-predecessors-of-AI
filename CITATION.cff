@@ -28,10 +28,7 @@ keywords:
   - public domain editions
   - Leibniz
   - computational theory of mind
-license:
-  - MIT
-  - CC-BY-4.0
-  - CC0-1.0
+license: MIT
 repository-code: "https://github.com/pantaleonfassbender-coder/Philosophical-predecessors-of-AI"
 url: "https://philosophical-predecessors-of-ai.netlify.app"
 version: 1.0.2
