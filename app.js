@@ -88,7 +88,6 @@ function route() {
 
 /* ============================================================ OVERVIEW */
 function viewOverview() {
-  const shipped = D.works.filter(w => w.status === "shipped").length;
   view.append(el(`<div>
     <div class="viewhead">
       <span class="tag">Research apparatus</span>
@@ -141,11 +140,11 @@ function viewOverview() {
       </div>
     </div>
 
-    <h2>The corpus — ${shipped} of ${D.works.length} modules shipped, built in stages</h2>
+    <h2>The corpus — ${D.works.length} modules, complete; the collection is closed</h2>
     <div class="grid g2" id="worklist"></div>
 
     <p class="fine" style="margin-top:1.6rem">Every text is public domain in the United States; every
-    paragraph carries a stable citation; the concordance searches all shipped texts at once. Where no
+    paragraph carries a stable citation; the concordance searches all texts at once. Where no
     public-domain English translation exists, this site supplies its own working translation, marked as
     such. The full account is on the <a href="#/method">method page</a>.</p>
   </div>`));
@@ -158,7 +157,7 @@ function workCard(w) {
   const card = el(`<div class="workcard card linie-${w.linie} ${open ? "" : "dim"}">
     <div style="display:flex;gap:.6rem;align-items:baseline;justify-content:space-between;flex-wrap:wrap">
       <strong style="font-family:var(--serif)">${esc(w.autor)}</strong>
-      <span class="status ${w.status}">${w.status}</span>
+      ${w.status === "shipped" ? "" : `<span class="status ${w.status}">${w.status}</span>`}
     </div>
     <p class="fine" style="margin:.1rem 0 .3rem">${esc(w.leben)} · ${esc(w.sprachen)}</p>
     <h3 style="margin:.1rem 0 .3rem;font-size:1rem">${esc(w.titel)}</h3>
@@ -317,7 +316,7 @@ const INTRO_LINKS = [
   ["R.U.R.", "#/works/capek"],
   ["coda", "#/coda"],
   ["citation-bound dialogue", "#/dialogue"],
-  ["twenty-five shipped modules", "#/works"],
+  ["twenty-five modules", "#/works"],
   ["flying man", "#/works/avicenna"],
   ["concordance", "#/concordance"],
   ["term atlas", "#/atlas"],
@@ -366,7 +365,7 @@ function viewConcordance() {
     <div class="viewhead">
       <span class="tag">Cross-corpus search</span>
       <h1>Concordance</h1>
-      <p class="lede">Keyword in context across every shipped text, each hit resolved to its citation.
+      <p class="lede">Keyword in context across every text, each hit resolved to its citation.
       New modules join the search as they ship.</p>
     </div>
     <div class="toolbar">
