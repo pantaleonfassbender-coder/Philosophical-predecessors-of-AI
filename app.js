@@ -59,6 +59,21 @@ async function boot() {
   const res = await Promise.all(shipped.map(w => fetch(`data/${w.datei}.json`).then(r => r.json())));
   shipped.forEach((w, i) => D.texts[w.id] = res[i]);
   window.addEventListener("hashchange", route);
+  /* theme toggle: index.html decides the initial theme before first paint;
+     this flips it, stores the choice, and re-renders so the atlas redraws */
+  const syncTheme = () => {
+    document.getElementById("themeLabel").textContent =
+      document.documentElement.getAttribute("data-theme") === "light" ? "Dark room" : "Daylight";
+  };
+  document.getElementById("themeBtn").onclick = () => {
+    const light = document.documentElement.getAttribute("data-theme") === "light";
+    if (light) document.documentElement.removeAttribute("data-theme");
+    else document.documentElement.setAttribute("data-theme", "light");
+    try { localStorage.setItem("theme", light ? "dark" : "light"); } catch (e) {}
+    syncTheme();
+    route();
+  };
+  syncTheme();
   route();
 }
 const ROUTES = {};
@@ -785,7 +800,16 @@ async function viewAtlas() {
     }
   }
 
-  const COLOR = { logic: "#6fa8dc", maschine: "#d9a441", gegen: "#c47a6d", wort: "#a48fc9" };
+  /* colours read from the CSS variables, so the atlas follows the theme;
+     the view is rebuilt on a theme switch */
+  const _csv = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const COLOR = { logic: _csv("--logic"), maschine: _csv("--maschine"),
+                  gegen: _csv("--gegen"), wort: _csv("--wort") };
+  const LIGHT = document.documentElement.getAttribute("data-theme") === "light";
+  const EDGE_ON = LIGHT ? "rgba(143,100,20,.55)" : "rgba(217,164,65,.55)";
+  const EDGE = LIGHT ? "rgba(90,100,115,.16)" : "rgba(160,160,180,.13)";
+  const RING = LIGHT ? "#16212c" : "#fff";
+  const LABEL = LIGHT ? "rgba(28,38,48,.92)" : "rgba(233,230,224,.92)";
 
   /* view transform: screen = world * Z + (OX, OY). Zooming reveals labels of
      ever smaller terms (threshold scales with Z); labels are drawn in screen
@@ -810,7 +834,7 @@ async function viewAtlas() {
     cx.translate(OX, OY); cx.scale(Z, Z);
     for (const e of edges) {
       const on = selected && (e.a === selected || e.b === selected);
-      cx.strokeStyle = on ? "rgba(217,164,65,.55)" : "rgba(160,160,180,.13)";
+      cx.strokeStyle = on ? EDGE_ON : EDGE;
       cx.lineWidth = (on ? 1.4 : Math.min(1, 0.3 + e.w * 0.05)) / Z;
       cx.beginPath(); cx.moveTo(e.a.x, e.a.y); cx.lineTo(e.b.x, e.b.y); cx.stroke();
     }
@@ -819,7 +843,7 @@ async function viewAtlas() {
       cx.globalAlpha = dimmed ? 0.25 : 1;
       cx.fillStyle = COLOR[n.linie];
       cx.beginPath(); cx.arc(n.x, n.y, n.r, 0, 7); cx.fill();
-      if (n === selected) { cx.strokeStyle = "#fff"; cx.lineWidth = 1.5 / Z; cx.stroke(); }
+      if (n === selected) { cx.strokeStyle = RING; cx.lineWidth = 1.5 / Z; cx.stroke(); }
       cx.globalAlpha = 1;
     }
     cx.restore();
@@ -829,7 +853,7 @@ async function viewAtlas() {
       if (!(n.f * Z > 25 || n === selected || neigh.has(n))) continue;
       const sx = n.x * Z + OX, sy = n.y * Z + OY - n.r * Z - 4;
       if (sx < -40 || sx > W + 40 || sy < -20 || sy > H + 14) continue;
-      cx.fillStyle = "rgba(233,230,224,.92)";
+      cx.fillStyle = LABEL;
       cx.font = (n === selected ? "600 " : "") + "11px system-ui, sans-serif";
       cx.textAlign = "center";
       cx.fillText(n.id, sx, sy);

@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Calculemus · Philosophical Predecessors of AI</title>
 <meta name="description" content="A research apparatus for the philosophical predecessors of the AI debate: Hobbes, Leibniz, Boole, Frege — with the machine line (Lovelace, Jevons, Peirce, Pascal), the counter-voices (Avicenna, Descartes, La Mettrie, Poe, Butler, Kapp), and the narrative line of the animated word (Homer, the golem, Goethe's Zauberlehrling, Čapek's R.U.R.). Public-domain texts, paragraph-exact citation, cross-corpus concordance.">
+<script>
+/* Theme, decided before first paint: a stored choice wins; otherwise the
+   system preference; otherwise the site's native dark. */
+try{
+  var t=localStorage.getItem("theme");
+  if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches)t="light";
+  if(t==="light")document.documentElement.setAttribute("data-theme","light");
+}catch(e){}
+</script>
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='25' font-size='24'>∑</text></svg>">
 </head>
@@ -29,6 +38,8 @@
     <a href="#/coda" data-v="coda">Coda</a>
     <a href="#/method" data-v="method">Method &amp; rights</a>
   </nav>
+  <button id="themeBtn" class="chip" style="margin-left:auto"
+    title="Switch between the dark room and daylight"><span id="themeLabel">Daylight</span></button>
 </header>
 
 <main id="view"></main>
