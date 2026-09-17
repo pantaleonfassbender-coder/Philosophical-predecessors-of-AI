@@ -156,3 +156,10 @@ select {
   border: 1px solid var(--line, #33333d); border-radius: 6px;
   padding: .35rem .6rem; font: inherit; font-size: .85rem;
 }
+
+/* ------------------------------------------------------------ timeline */
+.tlwrap { overflow-x: auto; }
+.tl { width: 100%; min-width: 740px; display: block; }
+.tl a { cursor: pointer; }
+.tl a circle { transition: r .12s; }
+.tl a:hover circle { r: 8px; }

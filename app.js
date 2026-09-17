@@ -101,7 +101,8 @@ function viewOverview() {
       already alive. It ends, deliberately, at the threshold of Turing.</p>
       <p class="fine">New here? The <a href="#/introduction">introductory essay</a> walks through the
       four lines, the argument that runs through them, and the way the apparatus is meant to be used —
-      or take one of the <a href="#/paths">reading paths</a>, five guided routes through the corpus.</p>
+      or take one of the <a href="#/paths">reading paths</a>, five guided routes through the corpus,
+      or see the whole of it at a glance on the <a href="#/timeline">timeline</a>.</p>
     </div>
 
     <div class="grid g3" style="margin-bottom:1.6rem">
@@ -1324,6 +1325,153 @@ function viewPaths() {
   }
 }
 
+/* ============================================================ TIMELINE */
+/* Chronological view of the four lines. The dates are editorial anchors —
+   the year of the carried text, not of the author; anthology modules span
+   years and say so in their label. Editorial matter, CC BY 4.0. */
+const TIMELINE = [
+  { id: "automata", y: -750, jahr: "8th / 4th c. BC" },
+  { id: "yijing", y: -300, jahr: "c. 3rd c. BC" },
+  { id: "liezi", y: 350, jahr: "c. 4th c. AD" },
+  { id: "golem", y: 500, jahr: "Tanach – 1808" },
+  { id: "khwarizmi", y: 820, jahr: "c. 820" },
+  { id: "avicenna", y: 1030, jahr: "c. 1030" },
+  { id: "llull", y: 1308, jahr: "1308" },
+  { id: "zairja", y: 1377, jahr: "1377" },
+  { id: "brazenhead", y: 1626, jahr: "1625/27" },
+  { id: "descartes", y: 1637, jahr: "1637" },
+  { id: "hobbes", y: 1651, jahr: "1651" },
+  { id: "pascal", y: 1660, jahr: "c. 1660" },
+  { id: "kircher", y: 1669, jahr: "1669" },
+  { id: "leibniz", y: 1686, jahr: "1666–1714" },
+  { id: "lamettrie", y: 1747, jahr: "1747" },
+  { id: "zauberlehrling", y: 1797, jahr: "1797/98" },
+  { id: "poe", y: 1836, jahr: "1836" },
+  { id: "lovelace", y: 1843, jahr: "1843" },
+  { id: "boole", y: 1854, jahr: "1854" },
+  { id: "butler", y: 1863, jahr: "1863/72" },
+  { id: "jevons", y: 1870, jahr: "1870" },
+  { id: "kapp", y: 1877, jahr: "1877" },
+  { id: "frege", y: 1884, jahr: "1879–92" },
+  { id: "peirce", y: 1887, jahr: "1887" },
+  { id: "capek", y: 1920, jahr: "1920" },
+];
+const TL_ERAS = [
+  { until: 600, titel: "Antiquity" },
+  { until: 1600, titel: "The middle ages" },
+  { until: 1700, titel: "The seventeenth century" },
+  { until: 1800, titel: "The eighteenth century" },
+  { until: 1900, titel: "The nineteenth century" },
+  { until: 9999, titel: "Into the twentieth" },
+];
+/* Crossings the corpus itself documents — each named passage is carried. */
+const TL_CROSS = [
+  { from: "hobbes", to: "leibniz",
+    titel: "Leibniz's acknowledged debt to Hobbes: “every work of our mind is computation” (GP IV 64)" },
+  { from: "llull", to: "kircher",
+    titel: "Kircher takes up Llull's art and puts it to the test — the “Lydian stone” examination" },
+  { from: "yijing", to: "leibniz",
+    titel: "Leibniz reads “Fohy's” hexagram figures as his own binary arithmetic" },
+  { from: "golem", to: "descartes",
+    titel: "The silence test: the golem unmasked by speechlessness — Descartes's language test, told as a story" },
+];
+
+function viewTimeline() {
+  const CX = { logic: 165, maschine: 380, gegen: 595, wort: 810 };
+  const W = 960, ROW = 44, ERAROW = 42, TOP = 46;
+  const byId = Object.fromEntries(D.works.map(w => [w.id, w]));
+  const rows = [...TIMELINE].sort((a, b) => a.y - b.y);
+
+  /* lay out rows, inserting an era band whenever the era changes */
+  let yy = TOP, eraIdx = -1;
+  const bands = [], pos = {};
+  for (const r of rows) {
+    const e = TL_ERAS.findIndex(x => r.y < x.until);
+    if (e !== eraIdx) { eraIdx = e; bands.push({ y: yy, titel: TL_ERAS[e].titel }); yy += ERAROW; }
+    pos[r.id] = { x: CX[byId[r.id].linie], y: yy + ROW / 2, jahr: r.jahr };
+    yy += ROW;
+  }
+  const H = yy + 16;
+
+  /* per-line spines from first to last station */
+  const spines = Object.keys(CX).map(l => {
+    const ys = rows.filter(r => byId[r.id].linie === l).map(r => pos[r.id].y);
+    return { l, y1: Math.min(...ys), y2: Math.max(...ys) };
+  });
+
+  const bandSvg = bands.map(b => `
+    <text x="20" y="${b.y + 28}" font-family="var(--serif)" font-size="14" font-style="italic"
+      fill="var(--fg3)">${esc(b.titel)}</text>
+    <line x1="20" x2="${W - 20}" y1="${b.y + 36}" y2="${b.y + 36}" stroke="var(--line)"/>`).join("");
+
+  const spineSvg = spines.map(s => `
+    <line x1="${CX[s.l]}" x2="${CX[s.l]}" y1="${s.y1}" y2="${s.y2}"
+      stroke="${LCOLOR[s.l]}" stroke-width="2" stroke-opacity=".35"/>`).join("");
+
+  const crossSvg = TL_CROSS.map(c => {
+    const a = pos[c.from], b = pos[c.to];
+    const same = a.x === b.x, bow = same ? a.x - 78 : (a.x + b.x) / 2;
+    const d = `M ${a.x} ${a.y} C ${bow} ${a.y + (b.y - a.y) * .25}, ${bow} ${a.y + (b.y - a.y) * .75}, ${b.x} ${b.y}`;
+    return `<path d="${d}" fill="none" stroke="var(--fg3)" stroke-width="1.4"
+      stroke-dasharray="4 4" stroke-opacity=".75"><title>${esc(c.titel)}</title></path>`;
+  }).join("");
+
+  const dotSvg = rows.map(r => {
+    const w = byId[r.id], p = pos[r.id];
+    const right = w.linie !== "wort";
+    return `<a href="#/works/${w.id}">
+      <title>${esc(w.autor)} — ${esc(w.titel)}</title>
+      <text x="96" y="${p.y + 4}" text-anchor="end" font-family="var(--mono)" font-size="11"
+        fill="var(--fg3)">${esc(p.jahr)}</text>
+      <circle cx="${p.x}" cy="${p.y}" r="5.5" fill="${LCOLOR[w.linie]}"
+        stroke="var(--bg)" stroke-width="1.5"/>
+      <text x="${p.x + (right ? 15 : -15)}" y="${p.y + 4.5}" text-anchor="${right ? "start" : "end"}"
+        font-family="var(--serif)" font-size="13.5" fill="var(--fg)"
+        paint-order="stroke" stroke="var(--bg)" stroke-width="4" stroke-linejoin="round">
+        ${esc(w.kurz)}</text>
+    </a>`;
+  }).join("");
+
+  const headSvg = Object.entries(LINIE).map(([l, t]) => `
+    <text x="${CX[l]}" y="24" text-anchor="middle" font-size="13" font-weight="600"
+      fill="${LCOLOR[l]}">${esc(t)}</text>`).join("");
+
+  view.append(el(`<div>
+    <div class="viewhead"><span class="tag">Chronology</span>
+      <h1>Timeline — four lines, one conversation</h1>
+      <p class="lede">The corpus in time: from Hephaestus' golden handmaids to Čapek's Robots,
+      twenty-five stations across some 2,700 years. The long middle is not empty — it is the bridge:
+      al-Khwārizmī, Avicenna, Llull and the zāʾirja carry the questions from antiquity to the
+      seventeenth century, where the four lines begin to answer one another. Dashed arcs mark the
+      crossings the texts themselves document; every station opens its reader.</p></div>
+    <div class="tlwrap panel" style="padding:1rem .4rem">
+      <svg class="tl" viewBox="0 0 ${W} ${H}" role="img"
+        aria-label="Chronological chart of the corpus's twenty-five modules in four lines">
+        ${headSvg}${bandSvg}${spineSvg}${crossSvg}${dotSvg}
+      </svg>
+    </div>
+    <div class="panel">
+      <h2 style="margin-top:0">The documented crossings</h2>
+      <ul style="margin:.4rem 0 0;padding-left:1.2rem">
+        <li style="margin-bottom:.5rem"><a href="#/works/leibniz">Hobbes → Leibniz</a> — the acknowledged debt:
+          “omne opus mentis nostrae esse computationem” (GP IV 64).</li>
+        <li style="margin-bottom:.5rem"><a href="#/works/kircher">Llull → Kircher</a> — the Baroque revival puts
+          the Art to the “Lydian stone” and finds it wanting.</li>
+        <li style="margin-bottom:.5rem"><a href="#/works/leibniz">Yijing → Leibniz</a> — the hexagram figures of
+          “Fohy” read as binary arithmetic, closing a 2,000-year loop.</li>
+        <li><a href="#/works/golem">Golem → Descartes</a> — the creature unmasked by its silence: the
+          language test as narrative before it became an argument.</li>
+      </ul>
+      <p class="fine" style="margin:.8rem 0 0">Dates are editorial anchors — the year of the carried
+      text, not of the author. Anthology modules span years and are so labelled (Leibniz 1666–1714,
+      Frege 1879–92, the golem from the Tanach to Grimm's 1808 notice); Pascal's Pensées are placed
+      at their composition, a decade before the posthumous printing of 1670. The chart spaces stations
+      by order, not by elapsed time — a linear scale would spend half the page on the six quiet
+      centuries before Llull.</p>
+    </div>
+  </div>`));
+}
+
 /* =============================================================== CODA */
 /* Editorial closing note: what this anthology cannot contain, and why.
    Editorial matter, CC BY 4.0. */
@@ -1457,7 +1605,8 @@ function viewImprint() {
 
 Object.assign(ROUTES, {
   overview: viewOverview, introduction: viewIntroduction, works: viewWorks,
-  concordance: viewConcordance, atlas: viewAtlas, paths: viewPaths, method: viewMethod,
+  concordance: viewConcordance, atlas: viewAtlas, timeline: viewTimeline,
+  paths: viewPaths, method: viewMethod,
   dialogue: viewDialogue, coda: viewCoda, privacy: viewPrivacy, imprint: viewImprint,
 });
 boot();

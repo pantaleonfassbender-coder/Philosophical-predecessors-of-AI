@@ -23,7 +23,10 @@ Philosophical Predecessors of Artificial Intelligence*, September 2026), reachab
 the corpus ends at the threshold of Turing, and the way the apparatus is meant to be used;
 the first mention of each work links into its reader. Five curated **reading paths**
 (*Paths*) offer guided routes through the corpus, each with a stated order and a guiding
-question per station. The essay lives in
+question per station; a chronological **timeline** (*Timeline*) shows all twenty-five
+stations across the four lines at a glance — with the crossings the texts themselves
+document (Hobbes→Leibniz, Llull→Kircher, Yijing→Leibniz, golem→Descartes) drawn in, and
+every station opening its reader. The essay lives in
 `data/introduction.json`, built by `tools/build-introduction.py` from the author's manuscript
 (kept beside the repository, not in it), and is editorial matter under CC BY 4.0.
 
