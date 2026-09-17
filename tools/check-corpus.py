@@ -42,7 +42,7 @@ for w in shipped:
 registered = {w['datei'] for w in works}
 for p in glob.glob('data/*.json'):
     b = os.path.basename(p)[:-5]
-    if b not in registered and b not in ('works', 'network', 'introduction'):
+    if b not in registered and b not in ('works', 'network', 'introduction', 'plates'):
         warns.append(f'unregistered data file: {b}')
 
 # 2. unit integrity

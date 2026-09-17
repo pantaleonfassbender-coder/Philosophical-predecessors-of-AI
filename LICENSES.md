@@ -5,6 +5,8 @@
 | **Source code** | `index.html`, `app.js`, `style.css`, `robots.txt`, `tools/*.py` | [MIT](LICENSE) |
 | **Editorial matter** | the work descriptions and claims in `data/works.json`, the method and overview texts in `app.js`, `README.md` | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 | **Editions and derived data** | `data/hobbes_leviathan.json`, `data/boole_lot.json`, `data/descartes_discours5.json`, `data/lamettrie_hommemachine.json`, `data/lovelace_notes.json`, `data/network.json`, and every future `data/<work>.json`: the segmentation, alignment, editorial paragraph numbering, labels, OCR emendations, and any working translations | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) — public-domain dedication |
+| **Plates** | `assets/plates/*.jpg`, `data/plates.json` | images: public domain (faithful reproductions of public-domain 2-D works, sources in [SOURCES.md](SOURCES.md)); captions and credits: [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) |
+
 
 ## The texts themselves
 

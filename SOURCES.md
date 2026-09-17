@@ -146,6 +146,23 @@ cited for the record, not carried as text.
 - *The Famous Historie of Fryer Bacon* (London: G. Purslowe for F. Grove, 1627), the brazen-head chapter: EEBO-TCP transcription A01692 (dedicated to the public domain) — <https://github.com/textcreationpartnership/A01692>
 - Gabriel Naudé, *Apologie pour tous les grands personnages qui ont esté faussement soupçonnez de magie* (Paris: Targa, 1625), ch. XVIII: Internet Archive scan, hand-transcribed from the page images — <https://archive.org/details/apologiepourtouslesgrandsperson>. English: working translation made for this site (CC0).
 
+## The plates
+
+`assets/plates/` carries one public-domain image per module (first tranche: ten), fetched
+page by page over IIIF from the same digitisations the editions cite — no full scans are
+downloaded or redistributed — plus two Wikimedia Commons files where the pinned scan
+carries no usable image. Each plate's caption and credit line (source, digitisation,
+leaf) live in `data/plates.json`, built by `tools/build-plates.py`, which documents every
+choice. Faithful reproduction of a public-domain two-dimensional work adds nothing
+licensable. Current plates: the Leviathan engraved title (1651), the Discours title page
+(1637), the Laws of Thought title page (1854), the Ars brevis prima figura (Zetzner
+1617), the Ars magna sciendi frontispiece (1669), a Begriffsschrift notation page (1879),
+the Note G Bernoulli fold-out (Taylor III, 1843 — carried with its damage), Racknitz's
+Turk engraving (1789, Smithsonian copy via Commons), Kapp's femur-lattice figure (1877,
+MDZ), and the R.U.R. first-edition cover (1920, via Commons). Photographs of
+three-dimensional objects are deliberately not used, and the EEBO page images of the
+Fryer Bacon chapbook are not open and are not carried.
+
 ---
 
 Project Gutenberg links go to the eBook landing pages; the texts are public domain, and

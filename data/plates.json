@@ -1,0 +1,43 @@
+{
+ "hobbes": {
+  "caption": "The engraved title of the 1651 London printing: the commonwealth as an artificial man, composed of its citizens.",
+  "credit": "Leviathan (London: Andrew Crooke, 1651). Internet Archive leviathan00hobba, leaf 5. Public domain."
+ },
+ "descartes": {
+  "caption": "Title page of the anonymous first printing, Leiden 1637 — the Discours as preface to three essays of the method.",
+  "credit": "Discours de la methode (Leyde: Ian Maire, 1637). Internet Archive discoursdelamet00desca, leaf 5. Public domain."
+ },
+ "boole": {
+  "caption": "Title page of the first edition, London 1854.",
+  "credit": "An Investigation of the Laws of Thought (London: Walton and Maberly, 1854). Internet Archive aninvestigation01boolgoog, leaf 8. Public domain."
+ },
+ "llull": {
+  "caption": "The opening of the Ars brevis with the prima figura: the nine principles B–K on the wheel, every pair joined by a line — the combinatorial art as a diagram.",
+  "credit": "Ars brevis, in the Strasbourg edition of 1617 (Zetzner). Internet Archive BIUSante_pharma_res011289, leaf 26. Public domain."
+ },
+ "kircher": {
+  "caption": "The engraved frontispiece of 1669: divine Wisdom holds the tablet of the art's alphabet, light descending on the sciences below.",
+  "credit": "Ars magna sciendi (Amsterdam: Jansson & Weyerstraet, 1669). Internet Archive gri_33125008657112 (Getty Research Institute), leaf 6. Public domain."
+ },
+ "frege": {
+  "caption": "A page of the Begriffsschrift's two-dimensional notation — judgment stroke, conditional and negation drawn rather than written in line.",
+  "credit": "Begriffsschrift (Halle: Nebert, 1879). Internet Archive 11388662, leaf 22. Public domain."
+ },
+ "lovelace": {
+  "caption": "The fold-out of Note G: “Diagram for the computation by the Engine of the Numbers of Bernoulli” — the table read today as the first published program. The Calcutta copy's sheet is stained and torn; it is carried as it survives.",
+  "credit": "Taylor, Scientific Memoirs, vol. III (London 1843), fold-out at Note G. Internet Archive india.history.resource.53369, leaf 757. Public domain.",
+  "wide": true
+ },
+ "poe": {
+  "caption": "Racknitz's engraving of the Turk with its cabinet opened — the exhibition Poe's essay reasons from.",
+  "credit": "J. F. zu Racknitz, Ueber den Schachspieler des Herrn von Kempelen (Leipzig/Dresden 1789), plate. Smithsonian Libraries copy, via Wikimedia Commons. No known restrictions."
+ },
+ "kapp": {
+  "caption": "The load-bearing lattice of the human femur, drawn as an engineer's truss — Kapp's key exhibit: the built structure unconsciously repeats the organ.",
+  "credit": "Grundlinien einer Philosophie der Technik (Braunschweig 1877). Bayerische Staatsbibliothek / MDZ bsb11379066, scan 135. Public domain."
+ },
+ "capek": {
+  "caption": "Cover of the first edition, Prague (Aventinum) 1920, designed by Josef Čapek — the word robot enters the world.",
+  "credit": "R.U.R. — Rossum's Universal Robots (Prague 1920). Via Wikimedia Commons. Public domain in the United States (published 1920)."
+ }
+}

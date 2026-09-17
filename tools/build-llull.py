@@ -49,8 +49,9 @@ out = {
              "the alphabet, the first figure, and the fourth figure — the three rotating paper "
              "wheels that generate 252 combinatorial chambers, the device Leibniz named as the "
              "inspiration of his ars combinatoria. The English is an unofficial working "
-             "translation made for this site — cite the Latin. The figures themselves are not "
-             "reproduced; the paragraph numbers are editorial."),
+             "translation made for this site — cite the Latin. The figures are not carried in "
+             "the reader; the prima figura of the 1617 printing is shown as a plate on the "
+             "work page. The paragraph numbers are editorial."),
  'sections': [{'id': 'ab', 'titel': 'Ars brevis — selections',
                'units': [dict(u, n=i+1, k=i+1) for i, u in enumerate(U)]}],
 }

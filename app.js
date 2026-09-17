@@ -55,6 +55,7 @@ const citeOf = (workId, sec, u) => (CITE[workId] || ((s, x) => `[${x.n}]`))(sec,
 /* --------------------------------------------------------------- boot */
 async function boot() {
   D.works = await fetch("data/works.json").then(r => r.json());
+  D.plates = await fetch("data/plates.json").then(r => r.json()).catch(() => ({}));
   const shipped = D.works.filter(w => w.status === "shipped");
   const res = await Promise.all(shipped.map(w => fetch(`data/${w.datei}.json`).then(r => r.json())));
   shipped.forEach((w, i) => D.texts[w.id] = res[i]);
@@ -156,6 +157,8 @@ function viewOverview() {
 function workCard(w) {
   const open = w.status === "shipped";
   const card = el(`<div class="workcard card linie-${w.linie} ${open ? "" : "dim"}">
+    ${(D.plates || {})[w.id] ? `<img class="platethumb" src="assets/plates/${w.id}_t.jpg"
+      alt="" loading="lazy">` : ""}
     <div style="display:flex;gap:.6rem;align-items:baseline;justify-content:space-between;flex-wrap:wrap">
       <strong style="font-family:var(--serif)">${esc(w.autor)}</strong>
       ${w.status === "shipped" ? "" : `<span class="status ${w.status}">${w.status}</span>`}
@@ -199,6 +202,12 @@ function workReader(id, secId) {
       <h1>${esc(t.titel)}</h1>
       <p class="lede">${esc(w.claim)}</p>
     </div>
+    ${(D.plates || {})[id] ? `<figure class="plate">
+      <img src="assets/plates/${id}.jpg" alt="${esc(D.plates[id].caption)}" loading="lazy"
+        ${D.plates[id].wide ? `style="max-width:100%;max-height:none"` : ""}>
+      <figcaption class="fine">${esc(D.plates[id].caption)}
+        <span style="color:var(--fg3)"> — ${esc(D.plates[id].credit)}</span></figcaption>
+    </figure>` : ""}
     <div class="grid g2" id="toc"></div>
     <p class="fine" style="margin-top:1.2rem">${esc(t.quelle)} ${esc(t.hinweis || "")}</p>
   </div>`));
@@ -690,6 +699,21 @@ function viewMethod() {
       been dropped: the corpus ends where the formal-system line hands over to the twentieth
       century. What the corpus cannot contain, and why, is the subject of the
       <a href="#/coda">coda</a>.</p>
+    </div>
+
+    <div class="panel"><h2>The plates</h2>
+      <p class="readable">Since September 2026 each module page carries, where a suitable image
+      exists, one plate from a public-domain digitisation — title pages, frontispieces and
+      diagrams, mostly from the very scans the editions cite (the Leviathan engraved title, the
+      Ars brevis prima figura, the Begriffsschrift notation, the Note G fold-out carried with the
+      Calcutta copy's damage, Kapp's femur lattice, the R.U.R. first-edition cover, and others).
+      They are fetched page by page over IIIF — no full scans are redistributed — and each carries
+      its caption and credit line; sources leaf by leaf in <a
+      href="https://github.com/pantaleonfassbender-coder/Philosophical-predecessors-of-AI/blob/main/SOURCES.md">SOURCES.md</a>
+      and <span class="mono">tools/build-plates.py</span>. Faithful reproduction of a
+      public-domain two-dimensional work adds nothing licensable; photographs of
+      three-dimensional objects are deliberately not used. Modules without a plate await a
+      usable public-domain image, as the build script records.</p>
     </div>
 
     <div class="panel"><h2>Known limits</h2>

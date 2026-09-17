@@ -96,8 +96,9 @@ out = {
              "German. 'Bedeutung' is rendered 'reference', 'Sinn' 'sense'. Frege's own footnotes "
              "are kept and marked in place; his reference apparatus is omitted. The paragraph "
              "numbers are editorial; Grundlagen sections carry Frege's § numbers. The "
-             "two-dimensional Begriffsschrift notation is not reproduced (prose preface only), "
-             "as announced on the method page."),
+             "two-dimensional Begriffsschrift notation is not reproduced in the reader (prose "
+             "preface only), as announced on the method page; a page of it is shown as a "
+             "plate on the work page."),
  'sections': sections,
 }
 json.dump(out, io.open('C:/Users/leofa/OneDrive/Desktop/AI Predecessors/repo/data/frege_texte.json', 'w', encoding='utf-8'), ensure_ascii=False)
