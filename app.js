@@ -103,7 +103,10 @@ function viewOverview() {
       <p class="fine">New here? The <a href="#/introduction">introductory essay</a> walks through the
       four lines, the argument that runs through them, and the way the apparatus is meant to be used —
       or take one of the <a href="#/paths">reading paths</a>, five guided routes through the corpus,
-      or see the whole of it at a glance on the <a href="#/timeline">timeline</a>.</p>
+      or see the whole of it at a glance on the <a href="#/timeline">timeline</a>. To play through it,
+      <a href="https://calculemus-the-game.netlify.app/" target="_blank" rel="noopener">Calculemus — the game</a>
+      turns the twenty-five modules into twenty-five stations of a solitaire game: build the machine on
+      paper, and decide what to do with the questions the counter-voices ask.</p>
     </div>
 
     <div class="grid g3" style="margin-bottom:1.6rem">
